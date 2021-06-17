@@ -1,0 +1,71 @@
+<% layout("layout/boilerplate.ejs") %>
+<%- include("partials/navbar") %>
+
+
+
+
+
+<section class="mb-5">
+    <div class="text-center m-4">
+        <h1>Kavad</h1>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 mx-5 p-3 g-3">
+        <div class="col">
+            <form class="form-control border border-success p-4"action="/kavad" method="POST">
+                <div class="row">
+                    <label class="m-2 fs-3" for="ni">Lisa harjutus</label>
+                    <div class="col-12 col-lg-6">
+                        <input class="form-control my-1 text-dark"type="text" id="ni" name="nimi" placeholder="nimi">
+                    </div>
+    
+                    <div class="col-12 col-lg-6"><input class="form-control my-1"type="number" placeholder="raskustase" name="raskustase" min='1' max="5"></div>
+    
+                    <div class="col-12"><button class="btn btn-success my-1"type="submit">Lisa</button></div>
+                </div>
+            </form>
+        </div>
+    
+        <div class="col border rounded border-warning p-3">
+            <div>
+                <ol>
+                    <li>Loo kava</li>
+                    <li>Lisa harjutusi</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-dark p-5">
+    <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
+        <% for( let kava of kavad) { %>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div id="card">
+                    <div class="cardtop">
+                        <div id="level">
+                            <span id="number"><%= kava.raskustase %> </span>
+                        </div>
+                        <div id="head">
+                            <span id="title"><%= kava.nimi %> </span>
+                        </div>
+                    </div>
+                    <div class="cardbottom">
+                        <div id="nimi"> Harjutused:</div>
+                        <ol class="harjutused">
+                            <% for(harjutus of kava.harjutused) { %>
+                                <li class="custommargin1"><%= harjutus.nimi %> <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> </li>
+                            <% } %>
+                            </ol>
+    
+                    </div>
+                    <div id="cardfoot">
+                        <a id="lisaHar" href="kavad/lisaharjutus/<%=kava._id%> ">Lisa Harjutusi</a>
+                        <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
+                        <a id="kustuta" href="kavad/deleteOne/<%=kava._id%>?pageY=<%=  %> ">Kustuta</a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</section>

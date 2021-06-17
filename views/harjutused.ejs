@@ -1,0 +1,68 @@
+<% layout("layout/boilerplate.ejs") %>
+<%- include("partials/navbar") %>
+
+<div class="row my-5">
+    <div class="text-center">
+        <h1>Harjutused</h1>
+    </div>
+</div>
+<div class="row mx-5 row-cols-2">
+    <div>
+        <p></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 mx-5 p-3">
+        <form class="form-control p-3 bg-dark text-light" action="/harjutused" method="POST">
+            <div class="row row-cols-2">
+                <div class="col-12 col-md-6 my-1 ">
+                    <label for="nim">Harjutuse nimi</label>
+                    <input class="form-control" type="text" id="nim" name="nimi" placeholder="nimi">
+                </div>
+                <div class="col-12 col-md-6 my-1 ">
+                    <label for="lihasgrupp">Vali lihasgrupp</label>
+                    <select class="form-control" name="lihasgrupp" id="lihasgrupp">
+                        <option class="disabled" value="Vali">
+                            Vali
+                        </option>
+                        <% for(lihasgrupp of lihasgruppid) { %>
+                            <option value=<%=lihasgrupp%>>
+                                <%= lihasgrupp %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 my-1 "><label for="raskustase">Vali raskustase</label><input class="form-control" type="number" id="raskustase" name="raskustase" min='1' max="5" value="1"></div>
+                <div class="col-12 col-md-6  my-1 mt-4"><button class="btn btn-success w-100 fs-2 p-0" type="submit">+</button></div>
+            </div>
+        </form>
+        <div>
+            <a href="/harjutused/deleteAll">DELETE ALL (WIP)</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
+        <% for( let harjutus of harjutused) { %>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div id="harjutused" class="card bg-dark shadow-lg h-100 text-white p-5">
+                    <div class="row row-cols-1 lead text-uppercase overflow-hidden"><h2><%= harjutus.nimi%></h2></div>
+                    <div class="row row-cols-1">
+                        <span>Lihasgrupp <small class="text-danger fs-5"><%= harjutus.lihasgrupp %></small></span>
+                        <span>Raskustase <small class="text-success fs-5"><%= harjutus.raskustase %></small></span>
+                    </div>
+    
+                    <div class="row row-cols-2 ">
+                        <div class="col d-flex justify-content-end"><a  class="btn btn-primary btn-sm" href="harjutused/updateH/<%= harjutus._id%> ">Uuenda</a></div>
+                        <div class="col d-flex justify-content-start"><a  class="btn btn-danger btn-sm w-25" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
+                    </div>
+    
+                </div>
+    
+            </div>
+        <% } %>
+    </div>
+</div>

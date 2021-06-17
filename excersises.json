@@ -1,0 +1,50 @@
+{
+  "harjutused":
+  [
+    {
+      "nimi":"kätekõverdus",
+      "raskus":4,
+      "lihasgruppid": ["rinnalihased", "triceps", "kerelihased"],
+      "kirjeldus": "See harjutus on vajalik keha üldisele vormile ja annab esmase vaate sinu füüsilisest tugevusest",
+      "pilt":"placeholderred.png"
+    },
+    {
+      "nimi":"toenglamang",
+      "raskus":3,
+      "lihasgruppid": ["kerelihased"],
+      "kirjeldus":"Staatiline kerelihaste harjutus",
+      "pilt":"placeholdergreen.png"
+    },
+    
+    {
+      "nimi":"käteringid",
+      "raskus":1,
+      "lihasgruppid":["kerelihased", "õlalihased"],
+      "kirjeldus":"Ujujate põhiharjutus õlgade vabastamiseks ja enne treeningut soojendamiseks",
+      "pilt":"placeholderblue.png"
+    },
+    {
+      "nimi":"kolmnurk",
+      "raskus":1,
+      "lihasgruppid":["kerelihased", "õlalihased"],
+      "kirjeldus":"Vabastab puusad ja hea harjutus kerelihaste ja õlgade soojendamiseks",
+      "pilt":"placeholderblue.png"
+    },
+    {
+      "nimi":"jalatõsted",
+      "raskus":4,
+      "lihasgruppid":["kerelihased","nelipealihas"],
+      "kirjeldus":"Kõhulihaste harjutus mis vajab ka jala lihaste tööd",
+      "pilt":"placeholderred.png"
+    },
+    {
+      "nimi":"kroolijalad",
+      "raskus":4,
+      "lihasgruppid":["kerelihased","nelipealihas"],
+      "kirjeldus":"Kõhulihaste harjutus mis vajab ka jala lihaste tööd. Võimalikud asendid on kõhuli ja selili",
+      "pilt":"placeholderred.png"
+    }
+
+  ]
+  
+}

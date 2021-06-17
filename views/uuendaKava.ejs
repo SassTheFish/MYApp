@@ -1,0 +1,9 @@
+<%- include("partials/head.ejs") %> 
+
+<div class="container">
+    <form action="/harjutused/updateK/<%=kava._id%>?_method=PUT" method="POST">
+        <input type="text" id="nimi" placeholder="nimi" name="nimi" value="<%= kava.nimi %> ">
+        <!-- WorkInProgress -->WorkInProgress
+        <button type="submit">Update</button>
+    </form>
+</div>

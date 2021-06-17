@@ -1,0 +1,26 @@
+#section1 
+{
+    min-height: 30vh;
+}
+
+#background {
+    
+    background-image: url("/images/tristan-boucher-kACUYPy91wg-unsplash.jpg");
+    background-position:-400 -400px;
+    background-size: 1600px 1400px;
+    background-repeat: repeat-y;
+}
+
+
+#section3 img 
+{
+    position: relative;
+    width: 300px;
+}
+
+
+#footer1
+{
+    background:#ececec ;
+    height: 300px;
+}

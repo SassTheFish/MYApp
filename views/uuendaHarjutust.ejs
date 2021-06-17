@@ -1,0 +1,16 @@
+<%- include("partials/head.ejs") %> 
+
+<div class="container">
+    <form action="/harjutused/updateH/<%=harjutus._id%>?_method=PUT" method="POST">
+        <input type="text" id="nimi" placeholder="nimi" name="nimi" value="<%= harjutus.nimi %> ">
+        <input type="number" name="raskustase" min='1' max="5" value="1">
+        <select name="lihasgrupp" id="lihasgrupp">
+            <% for(lihasgrupp of lihasgruppid) { %>
+                <option value=<%=lihasgrupp%> <%=harjutus.lihasgrupp === lihasgrupp ? 'selected': ''%>>
+                    <%= lihasgrupp %>
+                </option>
+            <% } %>
+        </select>
+        <button type="submit">Uuenda</button>
+    </form>
+</div>
