@@ -3,12 +3,14 @@ const { url } = require("inspector");
 const { dirname } = require("path");
 const path  = require("path");
 const app = express();
-const data = require("./excersises.json");
+
 const methodOverride = require("method-override")
 const mongoose = require("mongoose");
 const morgan = require("morgan")
 const ejsMate = require("ejs-mate");
 const catchAsync = require("./Utils/CatchAsync");
+
+
 
 
 morgan('tiny');
@@ -26,6 +28,9 @@ mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUn
     })
 
 
+const homeRouter = require('./Routes/homeRouter');
+// const harjutusRouter = require('./Routes/harjutusRouter');
+// const kavaRouter = require('./Routes/kavaRouter');
 
 
 
@@ -38,6 +43,12 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'));
 
+
+app.use('/', homeRouter);
+// app.use('/harjutused', harjutusRouter);
+// app.use('/kavad', kavaRouter);
+
+
 const verify = ((req,res,next)=>{
     const {password} = req.query;
     if(password === "chicken"){next();}
@@ -47,24 +58,12 @@ const verify = ((req,res,next)=>{
 const lihasgruppid = ['jalad', 'kere', 'käed'];
 
 
-
 //---------------GET---------------------
 
-app.get("/", (req, res)=>{
-    
-    const reqbody = req.body;
-    const path = req.path;
-    const object = 
-    {
-        reqbody,
-        path
-    }
-    res.render("home.ejs", {...object, data})
-})
 app.get("/example", (req,res)=>{
     res.render("example.ejs")
 })
-//render harjutused page with all info
+
 app.get("/harjutused", async (req, res)=>{
     
     const reqbody = req.body;
@@ -79,20 +78,21 @@ app.get("/harjutused", async (req, res)=>{
     }
     res.render("harjutused", {...object})
 })
+
 //render harjutused page with all info
-app.get("/kavad", async (req, res)=>{
+// app.get("/kavad", async (req, res)=>{
     
-    const reqbody = req.body;
-    const path = req.path;
-    const kavad = await TreeningKava.find();
-    const object = 
-    {
-        reqbody,
-        path,
-        kavad,
-    }
-    res.render("kavad", {...object})
-})
+//     const reqbody = req.body;
+//     const path = req.path;
+//     const kavad = await TreeningKava.find();
+//     const object = 
+//     {  
+//         reqbody,
+//         path,
+//         kavad,
+//     }
+//     res.render("kavad", {...object})
+// })
 app.get("/kavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
@@ -220,6 +220,7 @@ app.post("/kavad", catchAsync(async (req,res) => {
 
 
 app.use((err,req,res,next)=>{
+    console.log(err);
     res.send('something went wrong')
 })
 
