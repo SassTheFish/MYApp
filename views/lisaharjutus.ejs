@@ -7,10 +7,13 @@
     <form class="row g-3 needs-validation mx-5" novalidate action="/kavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
         <div class="col-md-6">
           <label for="validationCustom01" class="form-label">Harjutuse nimi</label>
-          <input type="text" class="form-control" name="nimi" id="validationCustom01" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
+
+          <select class="form-control" name="nimi" >
+            <option value="none" class="disabled">Vali</option>
+            <% for(harjutus of harjutused) {%>
+              <option value="<%= harjutus.nimi%> "><%= harjutus.nimi %> </option> 
+            <% } %> 
+          </select>
         </div>
         <div class="col-md-2">
           <label for="validationCustom02" class="form-label">Raskustase</label>

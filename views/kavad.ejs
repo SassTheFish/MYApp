@@ -6,12 +6,12 @@
 
 
 <section class="mb-5">
-    <div class="text-center m-4">
+    <div class="text-center m-4" style="color: #0C1618;">
         <h1>Kavad</h1>
     </div>
     <div class="row row-cols-1 row-cols-md-2 mx-5 p-3 g-3">
         <div class="col">
-            <form class="form-control border border-success p-4"action="/kavad" method="POST">
+            <form class="form-control border-add p-4"action="/kavad" method="POST">
                 <div class="row">
                     <label class="m-2 fs-3" for="ni">Lisa kava</label>
                     <div class="col-12 col-lg-6">
@@ -25,7 +25,7 @@
             </form>
         </div>
     
-        <div class="col border rounded border-warning p-3">
+        <div class="border-desc col p-3">
             <div>
                 <ol>
                     <li>Loo kava</li>
@@ -37,7 +37,7 @@
 </section>
 
 
-<section class="bg-dark p-5">
+<section class=" p-5">
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
         <% for( let kava of kavad) { %>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
