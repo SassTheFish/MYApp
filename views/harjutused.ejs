@@ -14,7 +14,7 @@
 
 <div class="container">
     <div class="row row-cols-1 mx-5 p-3">
-        <form class="form-control p-3 bg-dark text-light" action="/harjutused" method="POST">
+        <form class="form-control p-3 navy text-light" action="/harjutused" method="POST">
             <div class="row row-cols-2">
                 <div class="col-12 col-md-6 my-1 ">
                     <label for="nim">Harjutuse nimi</label>
@@ -48,7 +48,7 @@
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
         <% for( let harjutus of harjutused) { %>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                <div id="harjutused" class="card bg-dark shadow-lg h-100 text-white p-5">
+                <div id="harjutused" class="card navy shadow-lg h-100 text-white p-5">
                     <div class="row row-cols-1 lead text-uppercase overflow-hidden"><h2><%= harjutus.nimi%></h2></div>
                     <div class="row row-cols-1">
                         <span>Lihasgrupp <small class="text-danger fs-5"><%= harjutus.lihasgrupp %></small></span>
@@ -56,8 +56,8 @@
                     </div>
     
                     <div class="row row-cols-2 ">
-                        <div class="col d-flex justify-content-end"><a  class="btn btn-primary btn-sm" href="harjutused/updateH/<%= harjutus._id%> ">Uuenda</a></div>
-                        <div class="col d-flex justify-content-start"><a  class="btn btn-danger btn-sm w-25" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
+                        <div class="col d-flex justify-content-start"><a  class="btn btn-primary btn-sm" href="harjutused/updateH/<%= harjutus._id%> ">Uuenda</a></div>
+                        <div class="col d-flex justify-content-end"><a  class="btn btn-danger btn-sm" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
                     </div>
     
                 </div>

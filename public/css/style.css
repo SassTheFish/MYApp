@@ -1,3 +1,23 @@
+/* --dark-sienna: #250902ff;
+--dark-sienna-2: #38040eff;
+--rosewood: #640d14ff;
+--ou-crimson-red: #800e13ff;
+--upsdell-red: #ad2831ff; */
+
+
+
+.navy
+{
+    background-color: #222e50;
+}
+.navy-all
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #222e50;
+}
+
+
 #harjutused 
 {
     height: 300px;
@@ -68,7 +88,8 @@
 
 /*Temporary, will add stuff later*/
 body {
-    margin-bottom: 100px;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -89,7 +110,7 @@ body {
     position: relative;
     left: 0px;
     top: 0px;
-    height: 15%;
+    min-height: 15%;
     width: 100%;
     
 }
@@ -146,7 +167,7 @@ body {
     padding-left: 10px;
     align-items: center;
     background: #293241;
-    
+    word-wrap: break-word;
     border-radius: 0px 5px 0px 0px;
 }
 
@@ -185,10 +206,14 @@ body {
 #card #lisaHar 
 {
     text-decoration: none;
-    color: #80ed99;
+    color: #4af472;
     background:#3d3d3e;
     padding: 5px;
     border-radius: 6px;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #card #lisaHar:hover 
 {
@@ -272,11 +297,11 @@ body {
 
 .border-desc
 {
-    border: 4px #F4E02C solid;
+    border: 4px #63c1d4 solid;
     border-radius: 20px;
 }
 .border-add
 {
-    border: 4px #2e7035 solid;
+    border: 4px #2e4770 solid;
     border-radius: 20px;
 }

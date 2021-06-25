@@ -55,7 +55,7 @@ const verify = ((req,res,next)=>{
     res.send("NOPE")
 })
 
-const lihasgruppid = ['jalad', 'kere', 'käed'];
+const lihasgruppid = ['Deltalihas', 'Rinnalihas','Triitseps','Biitseps','Kõhulihas','Ülaselg','Alaselg','Tuharalihas','Reie eeskülg','Reie tagakülg','Sääremarjalihas'];
 
 
 //---------------GET---------------------

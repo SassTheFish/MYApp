@@ -6,7 +6,7 @@
 
 
 <section class="mb-5">
-    <div class="text-center m-4" style="color: #0C1618;">
+    <div class="text-center m-4">
         <h1>Kavad</h1>
     </div>
     <div class="row row-cols-1 row-cols-md-2 mx-5 p-3 g-3">
@@ -18,7 +18,9 @@
                         <input class="form-control my-1 text-dark"type="text" id="ni" name="nimi" placeholder="nimi">
                     </div>
     
-                    <div class="col-12 col-lg-6"><input class="form-control my-1"type="number" placeholder="raskustase" name="raskustase" min='1' max="5"></div>
+                    <div class="col-12 col-lg-6">
+                        <input class="form-control my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="raskustase" min='10' step="10" max="100">
+                    </div>
     
                     <div class="col-12"><button class="btn btn-success my-1"type="submit">Lisa</button></div>
                 </div>
@@ -28,8 +30,10 @@
         <div class="border-desc col p-3">
             <div>
                 <ol>
-                    <li>Loo kava</li>
-                    <li>Lisa harjutusi</li>
+                    <li>Loo kava oma nimega</li>
+                    <li>Vali harjutusi</li>
+                    <li>Jaga teistega ja vaata ka teiste kavasid</li>
+                    <li>Keskendu rohkem harjutustele</li>
                 </ol>
             </div>
         </div>
@@ -40,11 +44,11 @@
 <section class=" p-5">
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
         <% for( let kava of kavad) { %>
-            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div id="card">
                     <div class="cardtop">
                         <div id="level">
-                            <span id="number"><%= kava.raskustase %> </span>
+                            <span id="number"><%= kava.raskustase %>%</span>
                         </div>
                         <div id="head">
                             <span id="title"><%= kava.nimi %> </span>
@@ -60,7 +64,7 @@
     
                     </div>
                     <div id="cardfoot">
-                        <a id="lisaHar" href="kavad/lisaharjutus/<%=kava._id%> ">Lisa Harjutusi</a>
+                        <a id="lisaHar" href="kavad/lisaharjutus/<%=kava._id%>">+</a>
                         <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
                         <a id="kustuta" href="kavad/deleteOne/<%=kava._id%>?pageY=<%=  %> ">Kustuta</a>
                     </div>

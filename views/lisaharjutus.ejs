@@ -1,69 +1,58 @@
 <%- include("partials/head.ejs") %> 
 
-<div class="container mt-5">
-    <h1 class="text-center">Lisa harjutus</h1>
-</div>
-<div class="container mt-5 bg-light">
-    <form class="row g-3 needs-validation mx-5" novalidate action="/kavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
-        <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">Harjutuse nimi</label>
 
-          <select class="form-control" name="nimi" >
-            <option value="none" class="disabled">Vali</option>
-            <% for(harjutus of harjutused) {%>
-              <option value="<%= harjutus.nimi%> "><%= harjutus.nimi %> </option> 
-            <% } %> 
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="validationCustom02" class="form-label">Raskustase</label>
-          <input type="number" class="form-control" name="raskustase" id="validationCustom02" min=1 max=5 required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        
-        <div class="col-md-2">
-          <label for="validationCustom03" class="form-label">Kordused x</label>
-          <input type="number" class="form-control" name="kordused_x" id="validationCustom03" required>
-          <div class="invalid-feedback">
-            Please provide a valid city.
-          </div>
-        </div>
-        <div class="col-md-2">
-          <label for="validationCustom05" class="form-label">Kordused y</label>
-          <input type="number" class="form-control" name="kordused_y" id="validationCustom05" required>
-          <div class="invalid-feedback">
-            Please provide a valid zip.
-          </div>
-        </div>
-        <div class="col-md-6">
-            <label for="validationTextarea" class="form-label">Harjutuse kirjeldus</label>
-            <textarea class="form-control" name="kirjeldus" id="validationTextarea" placeholder="Kirjeldus" required></textarea>
-            <div class="invalid-feedback">
-              Please enter a message in the textarea.
+
+
+  <div class="navy-all" style="margin: 0;padding: 0;padding-top: 100px;">
+    <div class="container mt-5">
+      <h1 class="text-center text-light">Lisa harjutus</h1>
+    </div>
+    
+    <div class="container mt-5 bg-light rounded">
+        <form class="row g-3 needs-validation mx-5" novalidate action="/kavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label">Harjutuse nimi</label>
+    
+              <select class="form-control" name="nimi" >
+                <option value="none" class="disabled">Vali</option>
+                <% for(harjutus of harjutused) {%>
+                  <option value="<%= harjutus.nimi%> "><%= harjutus.nimi %> </option>
+                <% } %>
+              </select>
             </div>
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-            <label class="form-check-label" for="invalidCheck">
-              Agree before submitting
-            </label>
-            <div class="invalid-feedback">
-              You must agree before submitting.
+            <div class="col-md-2">
+              <label for="validationCustom02" class="form-label">Raskustase</label>
+              <input type="number" class="form-control" name="raskustase" id="validationCustom02" min=1 max=5 required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <div class="col-12 d-flex justify-content-between align-middle py-3">
-          <button class="btn btn-primary" type="submit">Lisa</button>
-          <a class="btn btn-secondary"href="/kavad">Tagasi</a>
-        </div>
-    </form>
-</div>
-        
-</div>
+    
+            <div class="col-md-2">
+              <label for="validationCustom03" class="form-label">Kordused x</label>
+              <input type="number" class="form-control" name="kordused_x" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label for="validationCustom05" class="form-label">Kordused y</label>
+              <input type="number" class="form-control" name="kordused_y" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationTextarea" class="form-label">Harjutuse kirjeldus</label>
+                <textarea class="form-control" name="kirjeldus" id="validationTextarea" placeholder="WIP" required></textarea>
+            </div>
+            <div class="col-12 d-flex justify-content-between align-middle py-3">
+              <button class="btn btn-primary" type="submit">Lisa</button>
+              <a class="btn btn-secondary"href="/kavad">Tagasi</a>
+            </div>
+        </form>
+    </div>
+  </div>
 
 
 

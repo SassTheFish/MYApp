@@ -42,7 +42,7 @@ const treeningkavaSchema = new mongoose.Schema({
     nimi:{type:String, required:false, default:"Treening Kava"},
     kuupäev:{type:Date},
     harjutused:[harjutusSchema],
-    raskustase:{type:Number,default:3,min:1, max:5}
+    raskustase:{type:Number,default:10,min:10, max:100}
 })
 
 
