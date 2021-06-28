@@ -15,7 +15,7 @@ const harjutuseSchema = new mongoose.Schema({
     {
         type:String,
         lowercase:true,
-        enum:['jalad', 'kere', 'käed']
+        enum:['deltalihas', 'rinnalihas','triitseps','biitseps','kõhulihas','ülaselg','alaselg','tuharalihas','reie eeskülg','reie tagakülg','sääremarjalihas']
     }
 })
 

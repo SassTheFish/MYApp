@@ -15,25 +15,25 @@
                 <div class="row">
                     <label class="m-2 fs-3" for="ni">Lisa kava</label>
                     <div class="col-12 col-lg-6">
-                        <input class="form-control my-1 text-dark"type="text" id="ni" name="nimi" placeholder="nimi">
+                        <input class="my-1 text-dark"type="text" id="ni" name="nimi" placeholder="nimi">
                     </div>
     
                     <div class="col-12 col-lg-6">
-                        <input class="form-control my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="raskustase" min='10' step="10" max="100">
+                        <input class="my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="raskustase" min='10' step="10" max="100">
                     </div>
     
-                    <div class="col-12"><button class="btn btn-success my-1"type="submit">Lisa</button></div>
+                    <div class="col-12"><button class="btn btn-success my-2"type="submit">Lisa</button></div>
                 </div>
             </form>
         </div>
-    
+
         <div class="border-desc col p-3">
             <div>
                 <ol>
                     <li>Loo kava oma nimega</li>
                     <li>Vali harjutusi</li>
                     <li>Jaga teistega ja vaata ka teiste kavasid</li>
-                    <li>Keskendu rohkem harjutustele</li>
+                    <li>Keskendu rohkem treeningule</li>
                 </ol>
             </div>
         </div>
@@ -41,11 +41,11 @@
 </section>
 
 
-<section class=" p-5">
+<section class=" p-3">
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
         <% for( let kava of kavad) { %>
             <div class="col-12 col-md-6 col-lg-4">
-                <div id="card">
+                <div id="card"> 
                     <div class="cardtop">
                         <div id="level">
                             <span id="number"><%= kava.raskustase %>%</span>
@@ -54,22 +54,67 @@
                             <span id="title"><%= kava.nimi %> </span>
                         </div>
                     </div>
+                    
                     <div class="cardbottom">
                         <div id="nimi"> Harjutused:</div>
                         <ol class="harjutused">
-                            <% for(harjutus of kava.harjutused) { %>
-                                <li class="custommargin1"><%= harjutus.nimi %> <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> </li>
-                            <% } %>
-                            </ol>
-    
+                            <div class="row row-cols-1">
+                                <% for(harjutus of kava.harjutused) { %>
+                                    <div class="col-8">
+                                        <li class="custommargin1"><%= harjutus.nimi %></li>
+                                    </div>
+                                    <div class="col-4">
+                                        <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> 
+                                    </div>
+                                <% } %>
+                            </div>
+                        </ol>
                     </div>
-                    <div id="cardfoot">
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 ">
+                <div id="card" class="border">
+                    <div class="cardtop">
+                        <div id="level">
+                            <span id="number"><%= kava.raskustase %>%</span>
+                        </div>
+                        <div id="head">
+                            <span id="title"><%= kava.nimi %> </span>
+                        </div>
+                    </div>
+                    
+                    <div class="cardbottom ">
+                    
+                        <div id="nimi"> Harjutused:</div>
+
+
+                        <ol class="harjutused">
+
+                            <div class="row row-cols-1 ">
+                                <% for(harjutus of kava.harjutused) { %>
+                                    <div class="col-8 ">
+                                        <li class="custommargin1"><%= harjutus.nimi %></li>
+                                    </div>
+                                    <div class="col-4 ">
+                                        <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> 
+                                    </div>
+                                <% } %>
+                            </div>
+                        </ol>
+
+                    </div>
+                    <div id="cardbuttons" class="">
                         <a id="lisaHar" href="kavad/lisaharjutus/<%=kava._id%>">+</a>
                         <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
                         <a id="kustuta" href="kavad/deleteOne/<%=kava._id%>?pageY=<%=  %> ">Kustuta</a>
                     </div>
                 </div>
+                
             </div>
+
         <% } %>
     </div>
+
 </section>
+

@@ -4,6 +4,20 @@
 --ou-crimson-red: #800e13ff;
 --upsdell-red: #ad2831ff; */
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+input 
+{
+    width: 100%;
+    padding: 5px;
+    padding-left: 10px;
+    border: 3px solid #222e50;
+    border-radius: 20px;
+}
 
 
 .navy
@@ -86,25 +100,20 @@
 }
 
 
-/*Temporary, will add stuff later*/
-body {
-    margin: 0;
-    padding: 0;
-}
-
-
-
-
-#card 
+#card
 {
     width: 100%;
     min-height: 300px;
     height: 100%;
-
     background: #293241;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
 .cardtop
 {
     position: relative;
@@ -114,29 +123,28 @@ body {
     width: 100%;
     
 }
+
 .cardbottom
 {
     position: relative;
-    float: top;
     height:60%;
     padding: 10px;
     padding-top: 30px;
     padding-bottom: 30px;
-    
+    overflow-y: auto;
+    overflow-x:hidden;
 }
-#cardfoot 
+
+#cardbuttons 
 {
     position: relative;
     bottom: 0px;
-    height: 20%;
+    height: 15%;
     padding: 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
-
-
 
 #level
 {
@@ -151,7 +159,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #98c1d9;
-    border-radius: 5px 0px 5px 0px;
+    border-radius: 5px;
 }
 
 #head
@@ -189,13 +197,16 @@ body {
 }
 .harjutused {
     color: #80ed99;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
     
 }
 .harjutused li::before {
     size: 5px;
     color: #80ed99;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 9px;
     display: inline-block; 
     width: 1rem;
     margin-left: -1em;
@@ -203,7 +214,7 @@ body {
 
 /* 5 */
 
-#card #lisaHar 
+#cardbuttons #lisaHar 
 {
     text-decoration: none;
     color: #4af472;
@@ -215,12 +226,12 @@ body {
     justify-content: center;
     align-items: center;
 }
-#card #lisaHar:hover 
+#cardbuttons #lisaHar:hover 
 {
     color: #47fb3a;
     background:#606064;
 }
-#card #uuenda 
+#cardbuttons #uuenda 
 {
     text-decoration: none;
     color: #FFFFFF;
@@ -228,12 +239,12 @@ body {
     padding: 5px;
     border-radius: 6px;
 }
-#card #uuenda:hover 
+#cardbuttons #uuenda:hover 
 {
     color: #55a630;
     background:#606064;
 }
-#card #kustuta 
+#cardbuttons #kustuta 
 {
     text-decoration: none;
     color: #ee6c4d;
@@ -241,7 +252,7 @@ body {
     padding: 5px;
     border-radius: 6px;
 }
-#card #kustuta:hover 
+#cardbuttons #kustuta:hover 
 {
     color: #e56b6f;
     background:#606064;
@@ -281,8 +292,8 @@ body {
 
 #kordused
 {
-    color: #2869ec;
-    background:white;
+    color: #fffffa;
+    background:#1f7a8c;
     width: 10px;
     border-radius: 3px;
     padding: 3px;
@@ -293,6 +304,8 @@ body {
 {
     margin-top: 4px;
     margin-bottom: 4px;
+    letter-spacing: 1px;
+    word-wrap: break-word;
 }
 
 .border-desc
@@ -305,3 +318,4 @@ body {
     border: 4px #2e4770 solid;
     border-radius: 20px;
 }
+
