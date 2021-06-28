@@ -97,7 +97,7 @@ app.get("/kavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
     const {id} = req.params;
-    const kava = await TreeningKava.find();
+    const kava = await TreeningKava.findById(id);
     const harjutused = await Harjutus.find();
     const object = 
     {
@@ -107,7 +107,6 @@ app.get("/kavad/lisaharjutus/:id", async (req, res)=>{
         id,
         harjutused
     }
-    console.log(kava.harjutused)
     res.render("lisaharjutus", {...object})
 })
 //delete all entries
@@ -144,7 +143,6 @@ app.get("/harjutused/updateK/:id", async(req,res)=>{
 app.get("/harjutused/updateH/:id", async(req,res)=>{
     const {id} = req.params;
     const harjutus = await Harjutus.findById(id);
-    console.log(harjutus)
     const object =
     {
          harjutus,
@@ -194,13 +192,16 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
 app.put("/kavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
-    console.log(harjutus);
+
     const harjutused = await Harjutus.find();
+    await TreeningKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
+    const kava = await TreeningKava.findById(id);
+
     const object = {
         id,
-        harjutused
+        harjutused,
+        kava
     };
-    await TreeningKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
     res.render("lisaharjutus", {...object});
 })
 

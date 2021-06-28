@@ -44,34 +44,7 @@
 <section class=" p-3">
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
         <% for( let kava of kavad) { %>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div id="card"> 
-                    <div class="cardtop">
-                        <div id="level">
-                            <span id="number"><%= kava.raskustase %>%</span>
-                        </div>
-                        <div id="head">
-                            <span id="title"><%= kava.nimi %> </span>
-                        </div>
-                    </div>
-                    
-                    <div class="cardbottom">
-                        <div id="nimi"> Harjutused:</div>
-                        <ol class="harjutused">
-                            <div class="row row-cols-1">
-                                <% for(harjutus of kava.harjutused) { %>
-                                    <div class="col-8">
-                                        <li class="custommargin1"><%= harjutus.nimi %></li>
-                                    </div>
-                                    <div class="col-4">
-                                        <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> 
-                                    </div>
-                                <% } %>
-                            </div>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="col-12 col-md-6 col-lg-4 ">
                 <div id="card" class="border">
@@ -85,10 +58,6 @@
                     </div>
                     
                     <div class="cardbottom ">
-                    
-                        <div id="nimi"> Harjutused:</div>
-
-
                         <ol class="harjutused">
 
                             <div class="row row-cols-1 ">
