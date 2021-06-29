@@ -80,6 +80,19 @@ app.get("/harjutused", async (req, res)=>{
 })
 
 //render harjutused page with all info
+app.get("/ujumisekavad", async (req, res)=>{
+    
+    const reqbody = req.body;
+    const path = req.path;
+    const kavad = await TreeningKava.find();
+    const object = 
+    {  
+        reqbody,
+        path,
+        kavad,
+    }
+    res.render("ujumisekavad", {...object})
+})
 app.get("/kavad", async (req, res)=>{
     
     const reqbody = req.body;
@@ -91,9 +104,25 @@ app.get("/kavad", async (req, res)=>{
         path,
         kavad,
     }
-    res.render("kavad", {...object})
+    res.render("ükekavad", {...object})
 })
-app.get("/kavad/lisaharjutus/:id", async (req, res)=>{
+app.get("/ükekavad/lisaharjutus/:id", async (req, res)=>{
+    const reqbody = req.body;
+    const path = req.path;
+    const {id} = req.params;
+    const kava = await TreeningKava.findById(id);
+    const harjutused = await Harjutus.find();
+    const object = 
+    {
+        reqbody,
+        path,
+        kava,
+        id,
+        harjutused
+    }
+    res.render("lisaharjutus", {...object})
+})
+app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
     const {id} = req.params;

@@ -1,0 +1,95 @@
+<% layout("layout/boilerplate.ejs") %>
+<%- include("partials/navbar") %>
+
+
+
+
+<div class="text-center m-4">
+    <h1>Kavad</h1>
+    <div class="row row-cols-4 justify-contnent-center align-middle my-5">
+        <div class="col-2"></div>
+        <div class="col-4"><button id="üke" >Üke</button></div>
+        <div class="col-4"><button id="ujumine" >Ujumine</button></div>
+        <div class="col-2"></div>
+    </div>
+</div>
+<section class="mb-5">
+    
+    <div class="row row-cols-1 row-cols-md-2 mx-5 p-3 g-3">
+        <div class="col">
+            <form class="form-control border-add p-4"action="/ükekavad" method="POST">
+                <div class="row">
+                    <label class="m-2 fs-3" for="ni">Lisa kava</label>
+                    <div class="col-12 col-lg-6">
+                        <input class="my-1 text-dark"type="text" id="ni" name="nimi" placeholder="nimi">
+                    </div>
+    
+                    <div class="col-12 col-lg-6">
+                        <input class="my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="raskustase" min='10' step="10" max="100">
+                    </div>
+    
+                    <div class="col-12"><button class="btn btn-success my-2"type="submit">Lisa</button></div>
+                </div>
+            </form>
+        </div>
+
+        <div class="border-desc col p-3">
+            <div>
+                <ol>
+                    <li>Loo kava oma nimega</li>
+                    <li>Vali harjutusi</li>
+                    <li>Jaga teistega ja vaata ka teiste kavasid</li>
+                    <li>Keskendu rohkem treeningule</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class=" p-3">
+    <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
+        <% for( let kava of kavad) { %>
+            
+
+            <div class="col-12 col-md-6 col-lg-4 ">
+                <div id="card" class="border">
+                    <div class="cardtop">
+                        <div id="level">
+                            <span id="number"><%= kava.raskustase %>%</span>
+                        </div>
+                        <div id="head">
+                            <span id="title"><%= kava.nimi %> </span>
+                        </div>
+                    </div>
+                    
+                    <div class="cardbottom ">
+                        <ol class="harjutused">
+
+                            <div class="row row-cols-1 ">
+                                <% for(harjutus of kava.harjutused) { %>
+                                    <div class="col-8 ">
+                                        <li class="custommargin1"><%= harjutus.nimi %></li>
+                                    </div>
+                                    <div class="col-4 ">
+                                        <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> 
+                                    </div>
+                                <% } %>
+                            </div>
+                        </ol>
+
+                    </div>
+                    <div id="cardbuttons" class="">
+                        <a id="lisaHar" href="ükekavad/lisaharjutus/<%=kava._id%>">+</a>
+                        <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
+                        <a id="kustuta" href="ükekavad/deleteOne/<%=kava._id%>?pageY=<%=  %> ">Kustuta</a>
+                    </div>
+                </div>
+                
+            </div>
+
+        <% } %>
+    </div>
+
+</section>
+
