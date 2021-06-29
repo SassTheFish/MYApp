@@ -1,0 +1,105 @@
+<%- include("partials/head.ejs") %> 
+
+
+
+
+  <div class="navy-all" style="margin: 0;padding: 0;padding-top: 100px;">
+    <div class="container mt-5">
+      <h1 class="text-center text-light">Lisa harjutus</h1>
+    </div>
+    
+    <div class="container mt-5 bg-light rounded">
+        <form class="row g-3 needs-validation mx-5" novalidate action="/ükekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label">Harjutuse nimi</label>
+    
+              <select class="form-control" name="nimi" >
+                <option value="none" class="disabled">Vali</option>
+                <% for(harjutus of harjutused) {%>
+                  <option value="<%= harjutus.nimi%> "><%= harjutus.nimi %> </option>
+                <% } %>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="validationCustom03" class="form-label">Kordused x</label>
+              <input type="number" class="form-control" name="kordused_x" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+            <div class="col-md-2">
+              <label for="validationCustom05" class="form-label">Kordused y</label>
+              <input type="number" class="form-control" name="kordused_y" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+            <!-- <div class="col-md-6">
+                <label for="validationTextarea" class="form-label">Harjutuse kirjeldus</label>
+                <textarea class="form-control" name="kirjeldus" id="validationTextarea" placeholder="WIP" required></textarea>
+            </div> -->
+            <div class="col-12 d-flex justify-content-between align-middle py-3">
+              <button class="btn btn-primary" type="submit">Lisa</button>
+              <a class="btn btn-secondary"href="/kavad">Tagasi</a>
+            </div>
+        </form>
+    </div>
+
+
+    <section>
+      <div class="row row-cols-1 justify-content-center m-5">  
+        <div class="col-auto col-md-6">
+          <div id="card" class="border">
+            <div class="cardtop">
+                <div id="level">
+                    <span id="number"><%= kava.raskustase %>%</span>
+                </div>
+                <div id="head">
+                    <span id="title"><%= kava.nimi %> </span>
+                </div>
+            </div>
+            <div class="cardbottom ">
+                <ol class="harjutused">
+                    <div class="row row-cols-1 ">
+                        <% for(harjutus of kava.harjutused) { %>
+                            <div class="col-8 ">
+                                <li class="custommargin1"><%= harjutus.nimi %></li>
+                            </div>
+                            <div class="col-4 ">
+                                <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span>
+                            </div>
+                        <% } %>
+                    </div>
+                </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>

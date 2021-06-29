@@ -5,11 +5,11 @@
 
 
 <div class="text-center m-4">
-    <h1>Kavad</h1>
+    <h1>Ujumise Kavad</h1>
     <div class="row row-cols-4 justify-contnent-center align-middle my-5">
         <div class="col-2"></div>
-        <div class="col-4"><button id="üke" >Üke</button></div>
-        <div class="col-4"><button id="ujumine" >Ujumine</button></div>
+        <div class="col-4"><div id="üke" ><a href="/ukekavad"  >Üke</a></div></div>
+        <div class="col-4"><div id="ujumine" ><a href="/ujumisekavad" >Ujumine</a></div></div>
         <div class="col-2"></div>
     </div>
 </div>
@@ -17,7 +17,7 @@
     
     <div class="row row-cols-1 row-cols-md-2 mx-5 p-3 g-3">
         <div class="col">
-            <form class="form-control border-add p-4"action="/kavad" method="POST">
+            <form class="form-control border-add p-4"action="/ujumisekavad" method="POST">
                 <div class="row">
                     <label class="m-2 fs-3" for="ni">Lisa kava</label>
                     <div class="col-12 col-lg-6">
@@ -80,9 +80,9 @@
 
                     </div>
                     <div id="cardbuttons" class="">
-                        <a id="lisaHar" href="kavad/lisaharjutus/<%=kava._id%>">+</a>
+                        <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
                         <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
-                        <a id="kustuta" href="kavad/deleteOne/<%=kava._id%>?pageY=<%=  %> ">Kustuta</a>
+                        <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>?pageY=<%=  %> ">Kustuta</a>
                     </div>
                 </div>
                 

@@ -93,7 +93,7 @@ app.get("/ujumisekavad", async (req, res)=>{
     }
     res.render("ujumisekavad", {...object})
 })
-app.get("/kavad", async (req, res)=>{
+app.get("/ukekavad", async (req, res)=>{
     
     const reqbody = req.body;
     const path = req.path;
@@ -104,9 +104,9 @@ app.get("/kavad", async (req, res)=>{
         path,
         kavad,
     }
-    res.render("ükekavad", {...object})
+    res.render("ukekavad", {...object})
 })
-app.get("/ükekavad/lisaharjutus/:id", async (req, res)=>{
+app.get("/ukekavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
     const {id} = req.params;
@@ -120,7 +120,7 @@ app.get("/ükekavad/lisaharjutus/:id", async (req, res)=>{
         id,
         harjutused
     }
-    res.render("lisaharjutus", {...object})
+    res.render("lisaharjutusukele", {...object})
 })
 app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
@@ -136,7 +136,7 @@ app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
         id,
         harjutused
     }
-    res.render("lisaharjutus", {...object})
+    res.render("lisaharjutusujumisele", {...object})
 })
 //delete all entries
 app.get("/harjutused/deleteAll", async(req,res)=>{
@@ -152,12 +152,19 @@ app.get("/harjutused/deleteOne/:id", async (req,res)=>{
     await Harjutus.findByIdAndDelete(id);
     res.redirect("/harjutused")
 })
-app.get("/kavad/deleteOne/:id", async (req,res)=>{
+app.get("/ukekavad/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
     console.log(id);
     const kava = req.query;
     await TreeningKava.findByIdAndDelete(id);
     res.redirect("/kavad")
+})
+app.get("/ujumisekavad/deleteOne/:id", async (req,res)=>{
+    const {id} = req.params;
+    console.log(id);
+    const kava = req.query;
+    await TreeningKava.findByIdAndDelete(id);
+    res.redirect("/ujumisekavad")
 })
 //Choose one to update
 app.get("/harjutused/updateK/:id", async(req,res)=>{
@@ -246,12 +253,19 @@ app.post("/harjutused", async (req,res) => {
     harjutus1.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
     res.redirect("harjutused");
 })
-app.post("/kavad", catchAsync(async (req,res) => {
+app.post("/ukekavad", catchAsync(async (req,res) => {
     const sisse = req.body;
     console.log(sisse);
     const kavad = await new TreeningKava(sisse);
     kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
     res.redirect("kavad");
+}))
+app.post("/ujumisekavad", catchAsync(async (req,res) => {
+    const sisse = req.body;
+    console.log(sisse);
+    const kavad = await new TreeningKava(sisse);
+    kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
+    res.redirect("ujumisekavad");
 }))
 
 
