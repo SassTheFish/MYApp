@@ -17,6 +17,7 @@ morgan('tiny');
 
 const {Harjutus} = require('./models/harjutus');
 const {TreeningKava} = require('./models/harjutus');
+// const {UjumisTreening} = require('./models/ujumistreening');
 
 mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUnifiedTopology:true})
     .then(()=>{
