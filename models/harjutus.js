@@ -21,8 +21,9 @@ const harjutuseSchema = new mongoose.Schema({
 
 
 const harjutusSchema = {
-    nimi: {
-        type:String,
+    harj: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Harjutus',
         required:true
     },
     kordused_x: {

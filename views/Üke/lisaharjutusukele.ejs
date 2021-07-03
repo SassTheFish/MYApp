@@ -13,10 +13,10 @@
             <div class="col-md-6">
               <label for="validationCustom01" class="form-label">Harjutuse nimi</label>
     
-              <select class="form-control" name="nimi" >
-                <option value="none" class="disabled">Vali</option>
+              <select class="form-control" name="harj" >
+                <option value='none' class="disabled" >Vali</option>
                 <% for(harjutus of harjutused) {%>
-                  <option value="<%= harjutus.nimi%> "><%= harjutus.nimi %> </option>
+                  <option value="<%=harjutus._id%>"><%= harjutus.nimi %> </option>
                 <% } %>
               </select>
             </div>
@@ -24,14 +24,14 @@
               <label for="validationCustom03" class="form-label">Kordused x</label>
               <input type="number" class="form-control" name="kordused_x" id="validationCustom03" required>
               <div class="invalid-feedback">
-                Please provide a valid city.
+                Viga kordustes
               </div>
             </div>
             <div class="col-md-2">
               <label for="validationCustom05" class="form-label">Kordused y</label>
               <input type="number" class="form-control" name="kordused_y" id="validationCustom05" required>
               <div class="invalid-feedback">
-                Please provide a valid zip.
+                Viga kordustes
               </div>
             </div>
             <!-- <div class="col-md-6">
@@ -40,7 +40,7 @@
             </div> -->
             <div class="col-12 d-flex justify-content-between align-middle py-3">
               <button class="btn btn-primary" type="submit">Lisa</button>
-              <a class="btn btn-secondary"href="/ukekavad">Tagasi</a>
+              <a class="btn btn-secondary" href="/ukekavad">Tagasi</a>
             </div>
         </form>
     </div>
@@ -63,7 +63,7 @@
                     <div class="row row-cols-1">
                         <% for(harjutus of kava.harjutused) { %>
                             <div class="col-8 ">
-                                <li class="custommargin1"><%= harjutus.nimi %></li>
+                                <li class="custommargin1"><%= harjutus.harj.nimi%></li>
                             </div>
                             <div class="col-4 ">
                               <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div> 

@@ -70,7 +70,7 @@ app.get("/harjutused", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
     const harjutused = await Harjutus.find();
-    const object = 
+    const object =
     {
         reqbody,
         path,
@@ -86,8 +86,8 @@ app.get("/ujumisekavad", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
     const kavad = await TreeningKava.find();
-    const object = 
-    {  
+    const object =
+    {
         reqbody,
         path,
         kavad,
@@ -98,7 +98,7 @@ app.get("/ukekavad", async (req, res)=>{
     
     const reqbody = req.body;
     const path = req.path;
-    const kavad = await TreeningKava.find();
+    const kavad = await TreeningKava.find().populate('harjutused.harj');
     const object = 
     {  
         reqbody,
@@ -111,7 +111,7 @@ app.get("/ukekavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
     const {id} = req.params;
-    const kava = await TreeningKava.findById(id);
+    const kava = await TreeningKava.findById(id).populate('harjutused.harj');
     const harjutused = await Harjutus.find();
     const object = 
     {
@@ -232,12 +232,11 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
 app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
-
+    console.log(harjutus);
     const harjutused = await Harjutus.find();
 
     await TreeningKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
-    const kava = await TreeningKava.findById(id);
-
+    const kava = await TreeningKava.findById(id).populate('harjutused.harj');
     const object = {
         id,
         harjutused,
@@ -245,6 +244,8 @@ app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
     };
     res.render("Üke/lisaharjutusukele", {...object});
 })
+
+
 app.put("/ujumisekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
