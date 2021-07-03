@@ -114,6 +114,21 @@ input
     flex-direction: column;
     justify-content: space-between;
 }
+#cardlisamine
+{
+    width: 100%;
+    min-height: 300px;
+    max-height: 600px;
+    height: 100%;
+    background: #293241;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
 
 .cardtop
 {
@@ -134,6 +149,7 @@ input
     padding-bottom: 30px;
     overflow-y: auto;
     overflow-x:hidden;
+
 }
 
 #cardbuttons 
@@ -292,21 +308,19 @@ input
     margin-bottom: 10px;
 }
 
-.kordusedc
-{
-    background:#1f7a8c;
-    
-    
-}
+
 #kordused
 {
     color: #fffffa;
     background:#1f7a8c;
     border-bottom:solid 2px yellowgreen;
-    width: 10px;
     border-radius: 3px;
+    min-width: 50px;
+    max-width: 100px;
     padding: 3px;
     margin-left: 8px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .custommargin1 
@@ -375,3 +389,107 @@ input
     border: solid 3px white;
 }
 
+
+
+.cardtop2
+{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    min-height: 15%;
+    width: 100%;
+    
+}
+
+.cardbottom2
+{
+    position: relative;
+    height:60%;
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+
+#cardbuttons2
+{
+    position: relative;
+    bottom: 0px;
+    height: 15%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#level2
+{
+    
+    float: left;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #98c1d9;
+    border-radius: 5px;
+}
+
+#head2
+{
+    float: right;
+    position:relative;
+    right: 0px;
+    top: 0px;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    padding-left: 10px;
+    align-items: center;
+    background: #293241;
+    word-wrap: break-word;
+    border-radius: 0px 5px 0px 0px;
+}
+
+/* Title */
+
+#title2
+{
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #e0fbfc;
+    
+}
+.harjutused2 {
+    color: #80ed99;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    
+}
+#number2
+{
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    
+    text-align: center;
+
+    color: #000000;
+}

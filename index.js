@@ -92,7 +92,7 @@ app.get("/ujumisekavad", async (req, res)=>{
         path,
         kavad,
     }
-    res.render("ujumisekavad", {...object})
+    res.render("Ujumine/ujumisekavad", {...object})
 })
 app.get("/ukekavad", async (req, res)=>{
     
@@ -105,7 +105,7 @@ app.get("/ukekavad", async (req, res)=>{
         path,
         kavad,
     }
-    res.render("ukekavad", {...object})
+    res.render("Üke/ukekavad", {...object})
 })
 app.get("/ukekavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
@@ -121,7 +121,7 @@ app.get("/ukekavad/lisaharjutus/:id", async (req, res)=>{
         id,
         harjutused
     }
-    res.render("lisaharjutusukele", {...object})
+    res.render("Üke/lisaharjutusukele", {...object})
 })
 app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
@@ -137,7 +137,7 @@ app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
         id,
         harjutused
     }
-    res.render("lisaharjutusujumisele", {...object})
+    res.render("Ujumine/lisaharjutusujumisele", {...object})
 })
 //delete all entries
 app.get("/harjutused/deleteAll", async(req,res)=>{
@@ -215,7 +215,8 @@ app.get("/swimming-plans", verify, (req, res)=>{
 //------------PUT------------------
 
 
-//Update that one and return to harjutused
+
+//Update that one and return
 app.put("/harjutused/updateH/:id", async (req,res)=>{
     const {id} = req.params;
     const updated = await Harjutus.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
@@ -226,11 +227,14 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
     const updated = await TreeningKava.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
     res.redirect("/ukekavad")
 })
+
+
 app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
 
     const harjutused = await Harjutus.find();
+
     await TreeningKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
     const kava = await TreeningKava.findById(id);
 
@@ -239,7 +243,7 @@ app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
         harjutused,
         kava
     };
-    res.render("lisaharjutusukele", {...object});
+    res.render("Üke/lisaharjutusukele", {...object});
 })
 app.put("/ujumisekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;
@@ -254,9 +258,8 @@ app.put("/ujumisekavad/lisaharjutus/:id", async (req,res) => {
         harjutused,
         kava
     };
-    res.render("lisaharjutusujumisele", {...object});
+    res.render("Ujumine/lisaharjutusujumisele", {...object});
 })
-
 
 
 //---------------POST-------------------

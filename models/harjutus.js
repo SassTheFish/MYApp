@@ -46,6 +46,14 @@ const treeningkavaSchema = new mongoose.Schema({
 })
 
 
+// const treeningkavaSchema = new mongoose.Schema({
+//     nimi:{type:String, required:false, default:"Treening Kava"},
+//     kuupäev:{type:Date},
+//     harjutused:[{type: mongoose.Schema.Types.ObjectId, ref:'Harjutus'}],
+//     raskustase:{type:Number,default:10,min:10, max:100}
+// })
+
+
 const Harjutus = mongoose.model("Harjutus", harjutuseSchema);
 const TreeningKava = mongoose.model("Treeningkava", treeningkavaSchema);
 

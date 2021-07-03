@@ -1,5 +1,5 @@
 <% layout("layout/boilerplate.ejs") %>
-<%- include("partials/navbar") %>
+<%- include("../partials/navbar") %>
 
 
 
@@ -54,6 +54,7 @@
 
             <div class="col-12 col-md-6 col-lg-4 ">
                 <div id="card" class="border">
+                    
                     <div class="cardtop">
                         <div id="level">
                             <span id="number"><%= kava.raskustase %>%</span>
@@ -65,20 +66,19 @@
                     
                     <div class="cardbottom ">
                         <ol class="harjutused">
-
                             <div class="row row-cols-1 ">
                                 <% for(harjutus of kava.harjutused) { %>
-                                    <div class="col-8 ">
+                                    <div class="col-8">
                                         <li class="custommargin1"><%= harjutus.nimi %></li>
                                     </div>
-                                    <div class="col-4 ">
-                                        <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> 
+                                    <div class="col-4">
+                                        <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div>
                                     </div>
                                 <% } %>
                             </div>
                         </ol>
-
                     </div>
+                    
                     <div id="cardbuttons" class="">
                         <a id="lisaHar" href="ukekavad/lisaharjutus/<%=kava._id%>">+</a>
                         <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>

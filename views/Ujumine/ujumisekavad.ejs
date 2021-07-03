@@ -1,5 +1,5 @@
 <% layout("layout/boilerplate.ejs") %>
-<%- include("partials/navbar") %>
+<%- include("../partials/navbar") %>
 
 
 
@@ -49,46 +49,29 @@
 
 <section class=" p-3">
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
-        <% for( let kava of kavad) { %>
-            
-
-            <div class="col-12 col-md-6 col-lg-4 ">
-                <div id="card" class="border">
-                    <div class="cardtop">
-                        <div id="level">
-                            <span id="number"><%= kava.raskustase %>%</span>
-                        </div>
-                        <div id="head">
-                            <span id="title"><%= kava.nimi %> </span>
-                        </div>
+        <div class="col-12 col-md-6 col-lg-4 ">
+            <div id="card" class="border">
+                <div class="cardtop2">
+                    <div id="level2">
+                        <span id="number2">100%</span>
                     </div>
-                    
-                    <div class="cardbottom ">
-                        <ol class="harjutused">
-
-                            <div class="row row-cols-1 ">
-                                <% for(harjutus of kava.harjutused) { %>
-                                    <div class="col-8 ">
-                                        <li class="custommargin1"><%= harjutus.nimi %></li>
-                                    </div>
-                                    <div class="col-4 ">
-                                        <span id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></span> 
-                                    </div>
-                                <% } %>
-                            </div>
-                        </ol>
-
-                    </div>
-                    <div id="cardbuttons" class="">
-                        <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
-                        <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
-                        <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>?pageY=<%=  %> ">Kustuta</a>
+                    <div id="head2">
+                        <span id="title2">Treening</span>
                     </div>
                 </div>
                 
-            </div>
+                <div class="cardbottom2 ">
+                    <div class="harjutused2">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque rerum aspernatur alias possimus numquam laborum perspiciatis expedita ut iure? Labore veritatis perspiciatis ipsam quaerat. Fugiat id libero nobis laudantium eos.
+                    </div>
 
-        <% } %>
+                </div>
+                <div id="cardbuttons2">
+                    
+                </div>
+            </div>
+            
+        </div>
     </div>
 
 </section>
