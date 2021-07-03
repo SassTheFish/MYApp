@@ -77,7 +77,7 @@ app.get("/harjutused", async (req, res)=>{
         harjutused,
         lihasgruppid
     }
-    res.render("harjutused", {...object})
+    res.render("Harjutused/harjutused", {...object})
 })
 
 //render harjutused page with all info
@@ -185,7 +185,7 @@ app.get("/harjutused/updateH/:id", async(req,res)=>{
          harjutus,
          lihasgruppid
     }
-    res.render("uuendaHarjutust", {...object})
+    res.render("Harjutused/uuendaHarjutust", {...object})
 })
 
 

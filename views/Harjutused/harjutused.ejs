@@ -1,5 +1,5 @@
 <% layout("layout/boilerplate.ejs") %>
-<%- include("partials/navbar") %>
+<%- include("../partials/navbar") %>
 
 <div class="row my-5">
     <div class="text-center">
@@ -27,7 +27,7 @@
                             Vali
                         </option>
                         <% for(lihasgrupp of lihasgruppid) { %>
-                            <option value=<%=lihasgrupp%>>
+                            <option value='<%=lihasgrupp%>'>
                                 <%= lihasgrupp %>
                             </option>
                         <% } %>
@@ -38,7 +38,7 @@
             </div>
         </form>
         <div>
-            <a href="/harjutused/deleteAll">DELETE ALL (WIP)</a>
+            <a href="/harjutused/deleteAll">DELETE ALL (CAUTION!)</a>
         </div>
     </div>
 </div>
