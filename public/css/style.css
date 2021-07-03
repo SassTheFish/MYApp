@@ -479,6 +479,12 @@ input
     justify-content: start;
     
 }
+#TÜHJUS
+{
+    justify-self: center;
+    text-align: center;
+    font-size: 30px;
+}
 #number2
 {
 

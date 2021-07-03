@@ -67,14 +67,20 @@
                     <div class="cardbottom ">
                         <ol class="harjutused">
                             <div class="row row-cols-1 ">
-                                <% for(harjutus of kava.harjutused) { %>
-                                    <div class="col-8">
-                                        <li class="custommargin1"><%= harjutus.nimi %></li>
-                                    </div>
-                                    <div class="col-4">
-                                        <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div>
-                                    </div>
-                                <% } %>
+                                <% if (kava.harjutused.length !== 0 ) { %>
+                                    <% for(harjutus of kava.harjutused) { %>
+                                        <div class="col-8">
+                                            <li class="custommargin1"><%= harjutus.nimi %></li>
+                                        </div>
+                                        <div class="col-4">
+                                            <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div>
+                                        </div>
+                                    <% } %>
+                                <% } else { %>
+                                    <DIV id="TÜHJUS">TÜHI KAVA</DIV>
+                                <%}%>
+                                
+
                             </div>
                         </ol>
                     </div>
