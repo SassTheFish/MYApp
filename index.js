@@ -245,6 +245,21 @@ app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
     res.render("Üke/lisaharjutusukele", {...object});
 })
 
+app.get("/ukekavad/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
+    const kavaid = req.params.id1;
+    const harjid = req.params.id2;
+    const kava = await TreeningKava.findById(kavaid);
+    for(let i = 0; i < kava.harjutused.length; i++){
+        if(kava.harjutused[i]._id == harjid)
+        {
+            kava.harjutused.splice(i,1);
+        }
+    }
+    await kava.save();
+    console.log(kava);
+    res.redirect(`/ukekavad/lisaharjutus/${kavaid}`);
+})
+
 
 app.put("/ujumisekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;

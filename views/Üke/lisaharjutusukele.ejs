@@ -65,9 +65,10 @@
                             <div class="col-8 ">
                                 <li class="custommargin1"><%= harjutus.harj.nimi%></li>
                             </div>
-                            <div class="col-4 ">
+                            <div class="col-3 ">
                               <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div> 
                             </div>
+                            <div class="col-1"><a id="kustuta" href="<%=kava._id%>/delete/<%=harjutus._id%>">-</a></div>
                         <% } %>
                     </div>
                 </ol>
