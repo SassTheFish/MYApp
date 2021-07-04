@@ -30,9 +30,16 @@ input
     height: 100vh;
     background-color: #222e50;
 }
+.ükenav
+{
+    background-color: #ff9f1c;
+}
+.ujuminenav
+{
+    background-color: #222e50;
+}
 
-
-#harjutused 
+#harjutused
 {
     height: 300px;
 }

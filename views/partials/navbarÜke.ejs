@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light ükenav">
+    
+
+  <div class="container-fluid">  
+
+      <a class="navbar-brand" href="/">MySwimming</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> 
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link <% if(path === "/") { %>
+              active
+            <% } %>
+            " aria-current="page" href="/">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link <% if(path === "/swimming-plans") { %>
+              active
+            <% } %>" href="/swimming-plans">Swimming Plans</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link <% if(path === "/technique-guides") { %>
+              active
+            <% } %>" href="/technique-guides">Technique Guides</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link <% if(path === "/harjutused") { %>
+              active
+            <% } %>" href="/harjutused">Harjutused</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <% if(path === "/ukekavad" | path === "/ujumisekavad") { %>
+              active
+            <% } %>" href="/ukekavad">Kavad</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
