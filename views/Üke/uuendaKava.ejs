@@ -1,9 +1,29 @@
-<%- include("partials/head.ejs") %> 
+<%- include("../partials/head.ejs") %> 
 
 <div class="container">
     <form action="/harjutused/updateK/<%=kava._id%>?_method=PUT" method="POST">
-        <input type="text" id="nimi" placeholder="nimi" name="nimi" value="<%= kava.nimi %> ">
-        <!-- WorkInProgress -->WorkInProgress
-        <button type="submit">Update</button>
+        <div class="col-md-6">
+          <div class="col-md-2">
+            <label for="validationCustom03" class="form-label">Kava nimi</label>
+            <input type="text" class="form-control" name="nimi" id="validationCustom03" required>
+            <div class="invalid-feedback">
+              Viga kordustes
+            </div>
+          </div>
+          <div class="col-md-2">
+            <label for="validationCustom05" class="form-label">Pingutus tase</label>
+            <input type="number" class="form-control" name="raskustase" id="validationCustom05" required>
+            <div class="invalid-feedback">
+              Viga kordustes
+            </div>
+          </div>
+          <!-- <div class="col-md-6">
+              <label for="validationTextarea" class="form-label">Harjutuse kirjeldus</label>
+              <textarea class="form-control" name="kirjeldus" id="validationTextarea" placeholder="WIP" required></textarea>
+          </div> -->
+          <div class="col-12 d-flex justify-content-between align-middle py-3">
+            <button class="btn btn-primary" type="submit">Uuenda</button>
+            <a class="btn btn-secondary" href="/ukekavad">Tagasi</a>
+          </div>
     </form>
 </div>

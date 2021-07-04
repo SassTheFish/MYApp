@@ -216,6 +216,26 @@ input
     color: #80ed99;
     
 }
+
+.raskus5
+{
+    color: #f94144;
+}
+.raskus4
+{
+    color: #f3722c;
+}
+.raskus3
+{
+    color: #f9c74f;
+}
+.raskus2
+{
+    color: #06d6a0;
+}
+
+
+
 .harjutused li::before {
     size: 5px;
     color: #80ed99;

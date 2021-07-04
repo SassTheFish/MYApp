@@ -175,7 +175,7 @@ app.get("/harjutused/updateK/:id", async(req,res)=>{
     {
          kava
     }
-    res.render("uuendaKava", {...object})
+    res.render("Üke/uuendaKava", {...object})
 })
 app.get("/harjutused/updateH/:id", async(req,res)=>{
     const {id} = req.params;
@@ -220,12 +220,12 @@ app.get("/swimming-plans", verify, (req, res)=>{
 app.put("/harjutused/updateH/:id", async (req,res)=>{
     const {id} = req.params;
     const updated = await Harjutus.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
-    res.redirect("/harjutused")
+    res.redirect("Harjutused/harjutused")
 })
 app.put("/harjutused/updateK/:id", async (req,res)=>{
     const {id} = req.params;
     const updated = await TreeningKava.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
-    res.redirect("/ukekavad")
+    res.redirect("Üke/ukekavad")
 })
 
 
