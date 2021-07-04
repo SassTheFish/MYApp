@@ -69,6 +69,9 @@
                             <div class="row row-cols-1 ">
                                 <% if (kava.harjutused.length !== 0 ) { %>
                                     <% for(harjutus of kava.harjutused) { %>
+                                        <% if (harjutus.harj == null) { %>
+                                            <% continue; %> 
+                                        <% } %>
                                         <% if (harjutus.harj.raskustase === 1) { %>
                                             <div class="col-8">
                                                 <li class="custommargin1"><%= harjutus.harj.nimi %></li>

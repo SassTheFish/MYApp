@@ -112,6 +112,7 @@ app.get("/ukekavad/lisaharjutus/:id", async (req, res)=>{
     const path = req.path;
     const {id} = req.params;
     const kava = await TreeningKava.findById(id).populate('harjutused.harj');
+    console.log(kava);
     const harjutused = await Harjutus.find();
     const object = 
     {
@@ -139,7 +140,7 @@ app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
     }
     res.render("Ujumine/lisaharjutusujumisele", {...object})
 })
-//delete all entries
+//delete all entries !!!!!!!_______KÕIK MURDUB________!!!!!
 app.get("/harjutused/deleteAll", async(req,res)=>{
     console.log("deleting...")
     await Harjutus.deleteMany({}).then(res=>{console.log("Done")}).catch(err=>{console.log(err)});
@@ -148,11 +149,23 @@ app.get("/harjutused/deleteAll", async(req,res)=>{
 
 app.get("/harjutused/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
-    console.log(id);
-    const kava = req.query;
-    await Harjutus.findByIdAndDelete(id);
+    const kavad = await TreeningKava.find();
+    let usedharj = false;
+    for(kava of kavad){
+        for(harjutus of kava.harjutused)
+        {
+            if(harjutus.harj == id){usedharj = true}
+        }
+    }
+    if(!usedharj)
+    {
+        await Harjutus.findByIdAndDelete(id).then(()=>{console.log("done")}).catch(err=>{console.log("err", err)});
+    } else {
+        console.log("Kava on kasutusel");
+    }
     res.redirect("/harjutused")
 })
+
 app.get("/ukekavad/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
     console.log(id);
