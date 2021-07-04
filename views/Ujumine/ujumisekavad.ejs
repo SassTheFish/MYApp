@@ -48,8 +48,9 @@
 
 
 <section class=" p-3">
-    <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
-        <div class="col-12 col-md-6 col-lg-4 ">
+    <div class="row row-cols-md-2 row-cols-xl-3 g-3 justify-content-md-center" style="margin:0px 20px">
+        <% for(kava of kavad) { %>
+            <div class="col-12 col-md-6 col-lg-4 ">
             <div id="card" class="border">
                 <div class="cardtop2">
                     <div id="level2">
@@ -62,16 +63,25 @@
                 
                 <div class="cardbottom2 ">
                     <div class="harjutused2">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque rerum aspernatur alias possimus numquam laborum perspiciatis expedita ut iure? Labore veritatis perspiciatis ipsam quaerat. Fugiat id libero nobis laudantium eos.
+                        <div class="row row-cols-1">
+                            <div class="col-12">
+                                <div><span>4 * 400</span> <span>KR - Jal</span> <span>(pöördest 6 jalga väljumisel)</span> <span>R'1</span></div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
                 <div id="cardbuttons2">
-                    
+                    <a id="lisaHar" href="ukekavad/lisaharjutus/<%=kava._id%>">+</a>
+                    <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
+                    <a id="kustuta" href="ukekavad/deleteOne/<%=kava._id%>">Kustuta</a>
                 </div>
             </div>
-            
         </div>
+        <% } %>
+
+        
+
     </div>
 
 </section>

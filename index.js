@@ -17,6 +17,7 @@ morgan('tiny');
 
 const {Harjutus} = require('./models/harjutus');
 const {TreeningKava} = require('./models/harjutus');
+const UjumisKava = require('./models/ujumine');
 // const {UjumisTreening} = require('./models/ujumistreening');
 
 mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUnifiedTopology:true})
@@ -85,7 +86,7 @@ app.get("/ujumisekavad", async (req, res)=>{
     
     const reqbody = req.body;
     const path = req.path;
-    const kavad = await TreeningKava.find();
+    const kavad = await UjumisKava.find();
     const object =
     {
         reqbody,
@@ -128,15 +129,13 @@ app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
     const path = req.path;
     const {id} = req.params;
-    const kava = await TreeningKava.findById(id);
-    const harjutused = await Harjutus.find();
+    const kava = await UjumisKava.findById(id);
     const object = 
     {
         reqbody,
         path,
         kava,
-        id,
-        harjutused
+        id
     }
     res.render("Ujumine/lisaharjutusujumisele", {...object})
 })
@@ -176,8 +175,7 @@ app.get("/ukekavad/deleteOne/:id", async (req,res)=>{
 app.get("/ujumisekavad/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
     console.log(id);
-    const kava = req.query;
-    await TreeningKava.findByIdAndDelete(id);
+    await UjumisKava.findByIdAndDelete(id);
     res.redirect("/ujumisekavad")
 })
 //Choose one to update
@@ -278,13 +276,11 @@ app.put("/ujumisekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
 
-    const harjutused = await Harjutus.find();
-    await TreeningKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
-    const kava = await TreeningKava.findById(id);
+    await UjumisKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
+    const kava = await UjumisKava.findById(id);
 
     const object = {
         id,
-        harjutused,
         kava
     };
     res.render("Ujumine/lisaharjutusujumisele", {...object});
@@ -311,7 +307,7 @@ app.post("/ukekavad", catchAsync(async (req,res) => {
 app.post("/ujumisekavad", catchAsync(async (req,res) => {
     const sisse = req.body;
     console.log(sisse);
-    const kavad = await new TreeningKava(sisse);
+    const kavad = await new UjumisKava(sisse);
     kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
     res.redirect("ujumisekavad");
 }))
