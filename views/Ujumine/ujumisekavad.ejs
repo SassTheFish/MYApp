@@ -25,7 +25,7 @@
                     </div>
     
                     <div class="col-12 col-lg-6">
-                        <input class="my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="raskustase" min='10' step="10" max="100">
+                        <input class="my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="pingutustase" min='10' step="10" max="100">
                     </div>
     
                     <div class="col-12"><button class="btn btn-success my-2"type="submit">Lisa</button></div>
@@ -50,39 +50,35 @@
 <section class=" p-3">
     <div class="row row-cols-md-2 row-cols-xl-3 g-3 justify-content-md-center" style="margin:0px 20px">
         <% for(kava of kavad) { %>
-            <div class="col-12 col-md-6 col-lg-4 ">
+            <div class="col-12 col-md-6">
             <div id="card" class="border">
                 <div class="cardtop2">
                     <div id="level2">
-                        <span id="number2">100%</span>
+                        <span id="number2"><%= kava.pingutustase %>%</span>
                     </div>
                     <div id="head2">
-                        <span id="title2">Treening</span>
+                        <span id="title2"><%= kava.nimi %> </span>
                     </div>
                 </div>
-                
                 <div class="cardbottom2 ">
                     <div class="harjutused2">
-                        <div class="row row-cols-1">
-                            <div class="col-12">
-                                <div><span>4 * 400</span> <span>KR - Jal</span> <span>(pöördest 6 jalga väljumisel)</span> <span>R'1</span></div>
+                            <div class="row row-cols-1 ">
+                                <% for(harjutus of kava.harjutused) { %>
+                                    <div class="col-12 rida">
+                                      <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid">(<%= harjutus.vahendid %>)</span> <span id="ajastus">R'<%= harjutus.ajastus %> </span></div>
+                                    </div>
+                                <% } %>
                             </div>
-                        </div>
                     </div>
-
                 </div>
                 <div id="cardbuttons2">
-                    <a id="lisaHar" href="ukekavad/lisaharjutus/<%=kava._id%>">+</a>
+                    <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
                     <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
-                    <a id="kustuta" href="ukekavad/deleteOne/<%=kava._id%>">Kustuta</a>
+                    <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>">Kustuta</a>
                 </div>
             </div>
         </div>
         <% } %>
-
-        
-
     </div>
-
 </section>
 

@@ -10,20 +10,20 @@ const ujumiseharjutus = {
         type:String,
         enum:['Krool', 'Selili', 'Rinnuli', 'Liblikas', 'Kompleks']
     },
-    eraldus:{
+    eraldus:[{
         type:String,
-        enum:['Käed','Jalad']
-    },
+        enum:['Käed','Jalad','Koostöö']
+    }],
     harjutus:{
         type:String,
         required:true
     },
-    vahendid:{
+    vahendid:[{
         type:String,
-        enum:['laud','suured labidad','väiksed labidad','snorkel','lestad']
-    },
+        enum:['laud','suured labidad','väiksed labidad','snorkel','lestad','punn']
+    }],
     ajastus:{
-        type:Number
+        type:
     }
 }
 

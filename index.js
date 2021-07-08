@@ -145,7 +145,7 @@ app.get("/harjutused/deleteAll", async(req,res)=>{
     await Harjutus.deleteMany({}).then(res=>{console.log("Done")}).catch(err=>{console.log(err)});
     res.redirect("../harjutused")
 })
-
+ 
 app.get("/harjutused/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
     const kavad = await TreeningKava.find();
@@ -270,12 +270,25 @@ app.get("/ukekavad/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
     console.log(kava);
     res.redirect(`/ukekavad/lisaharjutus/${kavaid}`);
 })
-
+app.get("/ujumisekavad/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
+    const kavaid = req.params.id1;
+    const harjid = req.params.id2;
+    const kava = await UjumisKava.findById(kavaid);
+    for(let i = 0; i < kava.harjutused.length; i++){
+        if(kava.harjutused[i]._id == harjid)
+        {
+            kava.harjutused.splice(i,1);
+        }
+    }
+    await kava.save();
+    console.log(kava);
+    res.redirect(`/ujumisekavad/lisaharjutus/${kavaid}`);
+})
 
 app.put("/ujumisekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
-
+    console.log(harjutus);
     await UjumisKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
     const kava = await UjumisKava.findById(id);
 

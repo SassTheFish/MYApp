@@ -10,28 +10,90 @@
     
     <div class="container mt-5 bg-light rounded">
         <form class="row g-3 needs-validation mx-5" novalidate action="/ujumisekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
-            <div class="col-md-6">
-              <label for="validationCustom01" class="form-label">Harjutuse nimi</label>
-    
-              <select class="form-control" name="nimi" >
-                <option value="none" class="disabled">Vali</option>
-                <% for(harjutus of harjutused) {%>
-                  <option value="<%= harjutus.nimi%> "><%= harjutus.nimi %> </option>
-                <% } %>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label for="validationCustom03" class="form-label">Kordused x</label>
-              <input type="number" class="form-control" name="kordused_x" id="validationCustom03" required>
+            <div class="col-md-4">
+              <label for="validationCustom03" class="form-label">Kordused</label>
+              <input type="text" class="form-control" name="kordused" id="validationCustom03" required>
               <div class="invalid-feedback">
-                Please provide a valid city.
+                !
               </div>
             </div>
-            <div class="col-md-2">
-              <label for="validationCustom05" class="form-label">Kordused y</label>
-              <input type="number" class="form-control" name="kordused_y" id="validationCustom05" required>
+            <!-- <div class=" col-6 col-md-2">
+              <label for="validationCustom03" class="form-label">Ala</label>
+              <input type="text" class="form-control" name="ala" id="validationCustom03" required>
               <div class="invalid-feedback">
-                Please provide a valid zip.
+                !
+              </div>
+            </div> -->
+
+            <div class="col-6 col-md-4">
+              <label for="sel" class="form-label">Vali Ala</label>
+              <select class="form-select" id="sel" name="ala" aria-label="Default select example">
+                <option value="Selili">Selili</option>
+                <option value="Rinnuli">Rinnuli</option>
+                <option value="Liblikas">Liblikas</option>
+                <option value="Kompleks">Kompleks</option>
+                <option value="Krool">Krool</option>
+              </select>
+            </div>
+
+            <div class="col-6 col-md-4">
+              <label for="sel" class="form-label">Eraldus</label>
+              <select class="form-select" id="sel" name="eraldus" aria-label="Default select example">
+                <option value="Käed">Käed</option>
+                <option value="Jalad">Jalad</option>
+                <option value="Koostöö">Koostöö</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="validationCustom05" class="form-label">Kirjeldus</label>
+              <input type="text" class="form-control" name="harjutus" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                !
+              </div>
+            </div>
+            <div class="col-md-12 checkboxes">
+              <label for="laud" class="checkbox-label laudcheckbox">
+                <input type="checkbox"  id="laud" name="vahendid" value="laud">
+              </label>
+              <label for="punn" class="checkbox-label punncheckbox">
+                <input type="checkbox"  id="punn" name="vahendid" value="punn">
+              </label>
+              <label for="SLab" class="checkbox-label SLabcheckbox">
+                <input type="checkbox"  id="SLab" name="vahendid" value="suured labidad">
+              </label>
+              <label for="VLab" class="checkbox-label VLabcheckbox">
+                <input type="checkbox"  id="VLab" name="vahendid" value="väiksed labidad">
+              </label>
+              <label for="snorkel" class="checkbox-label snorkcheckbox">
+                <input type="checkbox"  id="snorkel" name="vahendid" value="snorkel">
+              </label>
+              <label for="lestad" class="checkbox-label lestcheckbox">
+                <input type="checkbox"  id="lestad" name="vahendid" value="lestad">
+              </label>
+
+
+
+              <!-- <label for="krool" id="checkbox">
+                <input type="checkbox" id="krool" name="vahendid" class="check" value="laud">
+                <span>Laud</span>
+              </label>
+              <input type="checkbox" id="SLab" name="vahendid" class="check" value="suured labidad">
+              <label for="SLab" id="checkbox">Suured Labidad</label>
+              <input type="checkbox" id="VLab" name="vahendid" class="check" value="väiksed labidad">
+              <label for="VLab" id="checkbox">Väiksed Labidad</label>
+              <input type="checkbox" id="Snor" name="vahendid" class="check" value="snorkel">
+              <label for="Snor" id="checkbox">Snorkel</label>
+              <input type="checkbox" id="Lest" name="vahendid" class="check" value="lestad">
+              <label for="Lest" id="checkbox">Lestad</label> -->
+              <div class="invalid-feedback">
+                !
+              </div>
+            </div>
+            <div class="col-6 col-md-2">
+              <label for="validationCustom05" class="form-label">Ajastus</label>
+              <input type="Number" class="form-control" name="ajastus" id="validationCustom05" required>
+              <div class="invalid-feedback">
+                !
               </div>
             </div>
             <!-- <div class="col-md-6">
@@ -44,30 +106,28 @@
             </div>
         </form>
     </div>
-
+ 
 
     <section>
       <div class="row row-cols-1 justify-content-center m-5">  
         <div class="col-auto col-md-6">
-          <div id="card">
-            <div class="cardtop">
-                <div id="level">
-                    <span id="number"><%= kava.raskustase %>%</span>
+          <div id="card2">
+            <div class="cardtop2">
+                <div id="level2">
+                    <span id="number2"><%= kava.pingutustase %>%</span>
                 </div>
-                <div id="head">
-                    <span id="title"><%= kava.nimi %> </span>
+                <div id="head2">
+                    <span id="title2"><%= kava.nimi %> </span>
                 </div>
             </div>
-            <div class="cardbottom ">
-                <ol class="harjutused">
+            <div class="cardbottom2 ">
+                <ol class="harjutused2">
                     <div class="row row-cols-1 ">
                         <% for(harjutus of kava.harjutused) { %>
-                            <div class="col-8 ">
-                                <li class="custommargin1"><%= harjutus.nimi %></li>
+                            <div class="col-11 rida">
+                              <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid">(<%= harjutus.vahendid %>)</span> <span id="ajastus">R'<%= harjutus.ajastus %> </span></div>
                             </div>
-                            <div class="col-4 ">
-                                <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div> 
-                            </div>
+                            <div class="col-1"><a id="kustuta" href="/ujumisekavad/lisaharjutus/<%=kava._id%>/delete/<%=harjutus._id%>">-</a></div>
                         <% } %>
                     </div>
                 </ol>
@@ -88,7 +148,7 @@
 
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
-
+    
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
         .forEach(function (form) {
