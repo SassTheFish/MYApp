@@ -23,7 +23,7 @@ const ujumiseharjutus = {
         enum:['laud','suured labidad','väiksed labidad','snorkel','lestad','punn']
     }],
     ajastus:{
-        type:
+        type:Number
     }
 }
 

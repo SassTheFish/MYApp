@@ -35,7 +35,7 @@ const harjutusSchema = {
         type:Number,
         default:10,
         min: 1
-    },
+    }
 }
 
 

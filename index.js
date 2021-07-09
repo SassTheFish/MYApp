@@ -9,6 +9,11 @@ const mongoose = require("mongoose");
 const morgan = require("morgan")
 const ejsMate = require("ejs-mate");
 const catchAsync = require("./Utils/CatchAsync");
+const ExpressError = require('./Utils/ExpressError');
+
+
+
+const ujumise_H_Validation = require('./models/validators');
 
 
 
@@ -56,6 +61,19 @@ const verify = ((req,res,next)=>{
     if(password === "chicken"){next();}
     res.send("NOPE")
 })
+
+const validateUjumiseHarjutus = (req,res,next) => {
+    const {error} = ujumise_H_Validation.validate(req.body);
+    if(error){
+        const msg = error.details.map(el => el.message).join(',');
+        throw new ExpressError(msg, 400)
+    } else {
+        next();
+    }
+}
+
+
+
 
 const lihasgruppid = ['Deltalihas', 'Rinnalihas','Triitseps','Biitseps','Kõhulihas','Ülaselg','Alaselg','Tuharalihas','Reie eeskülg','Reie tagakülg','Sääremarjalihas'];
 
@@ -285,7 +303,7 @@ app.get("/ujumisekavad/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
     res.redirect(`/ujumisekavad/lisaharjutus/${kavaid}`);
 })
 
-app.put("/ujumisekavad/lisaharjutus/:id", async (req,res) => {
+app.put("/ujumisekavad/lisaharjutus/:id", validateUjumiseHarjutus, async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
     console.log(harjutus);
