@@ -65,7 +65,7 @@
                             <div class="row row-cols-1 ">
                                 <% for(harjutus of kava.harjutused) { %>
                                     <div class="col-12 rida">
-                                      <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid">(<%= harjutus.vahendid %>)</span> <span id="ajastus">R'<%= harjutus.ajastus %> </span></div>
+                                      <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid"> (<%= harjutus.vahendid %>) </span> <span id="ajastus"> R-<%= harjutus.ajastus %> </span></div>
                                     </div>
                                 <% } %>
                             </div>
@@ -73,7 +73,7 @@
                 </div>
                 <div id="cardbuttons2">
                     <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
-                    <a id="uuenda" href="harjutused/updateK/<%=kava._id%>">Uuenda</a>
+                    <a id="uuenda" href="ujumisekavad/update/<%=kava._id%>">Uuenda</a>
                     <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>">Kustuta</a>
                 </div>
             </div>

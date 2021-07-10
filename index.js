@@ -12,6 +12,8 @@ const catchAsync = require("./Utils/CatchAsync");
 const ExpressError = require('./Utils/ExpressError');
 
 
+const {c_lihasgruppid} = require('./variables');
+
 
 const ujumise_H_Validation = require('./models/validators');
 
@@ -75,9 +77,6 @@ const validateUjumiseHarjutus = (req,res,next) => {
 
 
 
-const lihasgruppid = ['Deltalihas', 'Rinnalihas','Triitseps','Biitseps','Kõhulihas','Ülaselg','Alaselg','Tuharalihas','Reie eeskülg','Reie tagakülg','Sääremarjalihas'];
-
-
 //---------------GET---------------------
 
 app.get("/example", (req,res)=>{
@@ -94,7 +93,7 @@ app.get("/harjutused", async (req, res)=>{
         reqbody,
         path,
         harjutused,
-        lihasgruppid
+        c_lihasgruppid
     }
     res.render("Harjutused/harjutused", {...object})
 })
@@ -197,7 +196,7 @@ app.get("/ujumisekavad/deleteOne/:id", async (req,res)=>{
     res.redirect("/ujumisekavad")
 })
 //Choose one to update
-app.get("/harjutused/updateK/:id", async(req,res)=>{
+app.get("/ukekavad/update/:id", async(req,res)=>{
     const {id} = req.params;
     const kava = await TreeningKava.findById(id);
     const object =
@@ -206,13 +205,22 @@ app.get("/harjutused/updateK/:id", async(req,res)=>{
     }
     res.render("Üke/uuendaKava", {...object})
 })
+app.get("/ujumisekavad/update/:id", async(req,res)=>{
+    const {id} = req.params;
+    const kava = await UjumisKava.findById(id);
+    const object =
+    {
+         kava
+    }
+    res.render("Ujumine/uuendaKava", {...object})
+})
 app.get("/harjutused/updateH/:id", async(req,res)=>{
     const {id} = req.params;
     const harjutus = await Harjutus.findById(id);
     const object =
     {
          harjutus,
-         lihasgruppid
+         c_lihasgruppid
     }
     res.render("Harjutused/uuendaHarjutust", {...object})
 })
@@ -256,7 +264,24 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
     const updated = await TreeningKava.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
     res.redirect("Üke/ukekavad")
 })
-
+app.put("/ukekavad/update/:id", async(req,res)=>{
+    const {id} = req.params;
+    const kava = await TreeningKava.findById(id);
+    const object =
+    {
+         kava
+    }
+    res.render("Üke/uuendaKava", {...object})
+})
+app.put("/ujumisekavad/update/:id", async(req,res)=>{
+    const {id} = req.params;
+    const kava = await UjumisKava.findById(id);
+    const object =
+    {
+         kava
+    }
+    res.render("Ujumine/uuendaKava", {...object})
+})
 
 app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
     const {id} = req.params;

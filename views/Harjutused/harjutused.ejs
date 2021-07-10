@@ -22,16 +22,17 @@
                 </div>
                 <div class="col-12 col-md-6 my-1 ">
                     <label for="lihasgrupp">Vali lihasgrupp</label>
-                    <select class="form-control" name="lihasgrupp" id="lihasgrupp">
+                    <select class="form-control" name="lihasgruppid" id="lihasgrupp">
                         <option class="disabled" value="Vali">
                             Vali
                         </option>
-                        <% for(lihasgrupp of lihasgruppid) { %>
+                        <% for(lihasgrupp of c_lihasgruppid) { %>
                             <option value='<%=lihasgrupp%>'>
                                 <%= lihasgrupp %>
                             </option>
                         <% } %>
                     </select>
+
                 </div>
                 <div class="col-12 col-md-6 my-1 "><label for="raskustase">Vali raskustase</label><input class="form-control" type="number" id="raskustase" name="raskustase" min='1' max="5" value="1"></div>
                 <div class="col-12 col-md-6  my-1 mt-4"><button class="btn btn-success w-100 fs-2 p-0" type="submit">+</button></div>
@@ -51,7 +52,7 @@
                 <div id="harjutused" class="card navy shadow-lg h-100 text-white p-5">
                     <div class="row row-cols-1 lead text-uppercase overflow-hidden"><h2><%= harjutus.nimi%></h2></div>
                     <div class="row row-cols-1">
-                        <span>Lihasgrupp <small class="text-danger fs-5"><%= harjutus.lihasgrupp %></small></span>
+                        <span>Lihasgrupp <small class="text-danger fs-5"><%= harjutus.lihasgruppid %></small></span>
                         <span>Raskustase <small class="text-successfs-5" >  <%= harjutus.raskustase %></small></span>
                     </div>
     
@@ -59,10 +60,9 @@
                         <div class="col d-flex justify-content-start"><a  class="btn btn-primary btn-sm" href="harjutused/updateH/<%= harjutus._id%> ">Uuenda</a></div>
                         <div class="col d-flex justify-content-end"><a  class="btn btn-danger btn-sm" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
                     </div>
-    
                 </div>
-    
             </div>
         <% } %>
     </div>
 </div>
+

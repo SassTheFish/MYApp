@@ -1,13 +1,14 @@
 const joi = require('joi');
 const mongoose = require('mongoose')
+const {c_alad,c_eraldused,c_lihasgruppid,c_vahendid} = require('../variables');
 
 const ujumise_H_Validation = joi.object({
-    kordused:joi.string(),
-    ala:joi.string().valid('Krool', 'Selili', 'Rinnuli', 'Liblikas', 'Kompleks'),
+    kordused:joi.string().empty(''),
+    ala:joi.string().valid('Krool', 'Selili', 'Rinnuli', 'Liblikas', 'Kompleks','Põhiviis'),
     eraldus:joi.string().valid('Käed','Jalad','Koostöö'),
     harjutus:joi.string().required(),
-    vahendid:joi.string().valid('laud','suured labidad','väiksed labidad','snorkel','lestad','punn'),
-    ajastus:joi.number()
+    vahendid:joi.array().items(joi.string().valid('laud','suured labidad','väiksed labidad','snorkel','lestad','punn')).single(),
+    ajastus:joi.number().default(1)
 })
 
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { c_lihasgruppid } = require('../variables');
 
 const harjutuseSchema = new mongoose.Schema({
     
@@ -11,12 +12,11 @@ const harjutuseSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    lihasgrupp:
-    {
+    lihasgruppid:[{
         type:String,
         lowercase:true,
-        enum:['deltalihas', 'rinnalihas','triitseps','biitseps','kõhulihas','ülaselg','alaselg','tuharalihas','reie eeskülg','reie tagakülg','sääremarjalihas']
-    }
+        enum:c_lihasgruppid
+    }]
 })
 
 

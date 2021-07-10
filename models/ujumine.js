@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const {c_alad, c_eraldused, c_vahendid} = require('../variables');
 
 
 const ujumiseharjutus = {
@@ -8,11 +8,11 @@ const ujumiseharjutus = {
     },
     ala:{
         type:String,
-        enum:['Krool', 'Selili', 'Rinnuli', 'Liblikas', 'Kompleks']
+        enum:c_alad
     },
     eraldus:[{
         type:String,
-        enum:['Käed','Jalad','Koostöö']
+        enum:c_eraldused
     }],
     harjutus:{
         type:String,
@@ -20,7 +20,7 @@ const ujumiseharjutus = {
     },
     vahendid:[{
         type:String,
-        enum:['laud','suured labidad','väiksed labidad','snorkel','lestad','punn']
+        enum:c_vahendid
     }],
     ajastus:{
         type:Number

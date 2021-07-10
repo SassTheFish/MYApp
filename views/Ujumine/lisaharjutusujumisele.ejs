@@ -9,7 +9,7 @@
     </div>
     
     <div class="container mt-5 bg-light rounded">
-        <form class="row g-3 needs-validation mx-5" novalidate action="/ujumisekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
+        <form class="row g-3 mx-5" novalidate action="/ujumisekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
             <div class="col-md-4">
               <label for="validationCustom03" class="form-label">Kordused</label>
               <input type="text" class="form-control" name="kordused" id="validationCustom03" required>
@@ -32,7 +32,8 @@
                 <option value="Rinnuli">Rinnuli</option>
                 <option value="Liblikas">Liblikas</option>
                 <option value="Kompleks">Kompleks</option>
-                <option value="Krool">Krool</option>
+                <option selected value="Krool">Krool</option>
+                <option value="Põhiviis">Põhiviis</option>
               </select>
             </div>
 
@@ -41,7 +42,7 @@
               <select class="form-select" id="sel" name="eraldus" aria-label="Default select example">
                 <option value="Käed">Käed</option>
                 <option value="Jalad">Jalad</option>
-                <option value="Koostöö">Koostöö</option>
+                <option selected value="Koostöö">Koostöö</option>
               </select>
             </div>
             <div class="col-12">
@@ -90,7 +91,7 @@
               </div>
             </div>
             <div class="col-6 col-md-2">
-              <label for="validationCustom05" class="form-label">Ajastus</label>
+              <label for="validationCustom05" class="form-label needs-validation">Ajastus</label>
               <input type="Number" class="form-control" name="ajastus" id="validationCustom05" required>
               <div class="invalid-feedback">
                 !
@@ -125,7 +126,7 @@
                     <div class="row row-cols-1 ">
                         <% for(harjutus of kava.harjutused) { %>
                             <div class="col-11 rida">
-                              <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid">(<%= harjutus.vahendid %>)</span> <span id="ajastus">R'<%= harjutus.ajastus %> </span></div>
+                              <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid">(<%= harjutus.vahendid %>)</span> <span id="ajastus"> R-<%= harjutus.ajastus %> </span></div>
                             </div>
                             <div class="col-1"><a id="kustuta" href="/ujumisekavad/lisaharjutus/<%=kava._id%>/delete/<%=harjutus._id%>">-</a></div>
                         <% } %>
