@@ -30,6 +30,9 @@ input
     height: 100vh;
     background-color: #222e50;
 }
+
+
+
 .ükenav
 {
     background-color: #ff9f1c;
@@ -396,7 +399,7 @@ input
     width: 100%;
     max-width: 500px;
     height: 100px;
-    background-color: #2a4494;
+    background-color: #222e50;
     text-decoration: none;
     border-radius: 10px;
     line-height: 100px;
@@ -559,34 +562,40 @@ input
     
 }
 .harjutused2 {
-    color: #80ed99;
     display: flex;
     flex-wrap: nowrap;
     justify-content: start;
 }
-
+.harjutused2 hr 
+{
+    color: #fffffc;
+    height: 5px;
+}
 
 .harjutused2 .rida {
     margin: 5px;    
 }
 
-.harjutused2 #kordus{
+.harjutused2 .kordus{
     color: rgb(255, 126, 131);
 }
-.harjutused2 #ala{
+.harjutused2 .ala{
     color: rgb(56, 239, 221);
 }
-.harjutused2 #harjutus{
+.harjutused2 .harjutus{
     color: rgb(70, 217, 97);
 }
-.harjutused2 #eraldus{
+.harjutused2 .eraldus{
     color: rgb(222, 173, 58);
 }
-.harjutused2 #vahendid{
+.harjutused2 .vahendid{
     color: rgb(200, 222, 75);
 }
-.harjutused2 #ajastus{
+.harjutused2 .ajastus{
     color: rgb(129, 102, 236);
+}
+.harjutused2 .wht {
+    color:white;
 }
 .harjutused2 #kustuta {
     text-decoration: none;
@@ -595,6 +604,15 @@ input
     text-align: center;
 
     line-height: 100%;
+}
+
+#värvid {
+    text-decoration: none;
+    color: #2e282a;
+    padding: 5px;
+    border: none;
+    border-radius: 6px;
+    background-color: #fe7f2d;
 }
 
 

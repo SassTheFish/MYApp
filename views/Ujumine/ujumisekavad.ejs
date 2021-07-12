@@ -65,8 +65,11 @@
                             <div class="row row-cols-1 ">
                                 <% for(harjutus of kava.harjutused) { %>
                                     <div class="col-12 rida">
-                                      <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid"> (<%= harjutus.vahendid %>) </span> <span id="ajastus"> R-<%= harjutus.ajastus %> </span></div>
+                                        <div id="harjutusinujumisekava">
+                                          <span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span>
+                                        </div>
                                     </div>
+                                    <hr>
                                 <% } %>
                             </div>
                     </div>
@@ -75,6 +78,7 @@
                     <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
                     <a id="uuenda" href="ujumisekavad/update/<%=kava._id%>">Uuenda</a>
                     <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>">Kustuta</a>
+                    <button id="värvid">Värvidetta</button>
                 </div>
             </div>
         </div>
@@ -82,3 +86,29 @@
     </div>
 </section>
 
+<script>
+
+    const harjutused = document.querySelectorAll('#harjutusinujumisekava');
+    const butn = document.querySelector('#värvid')
+    let on = true;
+    butn.addEventListener('click', ()=>{
+        if(on){
+            butn.innerHTML = 'Värvidega';
+            on = !on;
+        } else {
+            butn.innerHTML = 'Värvidetta';
+            on = !on;
+        }
+        for(harj of harjutused)
+        {
+            const spans = harj.children;
+            for(span of spans){
+                span.classList.toggle('wht');
+            }
+        }
+    })
+    
+
+
+
+</script>

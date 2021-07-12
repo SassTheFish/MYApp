@@ -126,7 +126,7 @@
                     <div class="row row-cols-1 ">
                         <% for(harjutus of kava.harjutused) { %>
                             <div class="col-11 rida">
-                              <div><span id="kordus"><%= harjutus.kordused %> </span> <span id="ala"><%= harjutus.ala %> </span> <span id="eraldus"><%= harjutus.eraldus %></span> <span id="harjutus"><%= harjutus.harjutus %> </span> <span id="vahendid">(<%= harjutus.vahendid %>)</span> <span id="ajastus"> R-<%= harjutus.ajastus %> </span></div>
+                              <div><span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span></div>
                             </div>
                             <div class="col-1"><a id="kustuta" href="/ujumisekavad/lisaharjutus/<%=kava._id%>/delete/<%=harjutus._id%>">-</a></div>
                         <% } %>
