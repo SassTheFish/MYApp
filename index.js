@@ -283,21 +283,13 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
 })
 app.put("/ukekavad/update/:id", async(req,res)=>{
     const {id} = req.params;
-    const kava = await TreeningKava.findById(id);
-    const object =
-    {
-         kava
-    }
-    res.render("Üke/uuendaKava", {...object})
+    const kava = await TreeningKava.findByIdAndUpdate(id, req.body);
+    res.redirect('/ukekavad')
 })
 app.put("/ujumisekavad/update/:id", async(req,res)=>{
     const {id} = req.params;
-    const kava = await UjumisKava.findById(id);
-    const object =
-    {
-         kava
-    }
-    res.render("Ujumine/uuendaKava", {...object})
+    const kava = await UjumisKava.findByIdAndUpdate(id, req.body);
+    res.redirect('/ujumisekavad')
 })
 
 app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
