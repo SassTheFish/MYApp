@@ -88,7 +88,7 @@ input
 #footerStuff {
     width: 70%;
     border-top: 1px solid #9e9e9e;
-    height: 200px;
+    height: 100px;
 }
 #footerColumn 
 {
@@ -662,6 +662,106 @@ input[type="checkbox"]:checked
 input[type="checkbox"]:hover
 {
     background: rgb(0, 133, 178);
+}
+
+
+
+.hoverthing
+{
+    background-color: white;
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+    transition: ease all 0.3s 0s;
+}
+.hoverthing:hover {
+    border: rgb(57, 106, 203) solid 4px;
+}
+.hoverthing:active {
+    background-color: white;
+}
+
+
+.popup
+{
+    position: relative;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content:space-between;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+
+.popup form
+{
+    height: 100%;
+    width: 100%;
+}
+
+.none
+{
+    display: none;
+}
+
+
+.deltalihascheckbox input[type="checkbox"]::after {
+    content:'deltalihas';
+    font-size: 13px;
+
+}
+.rinnalihascheckbox input[type="checkbox"]::after {
+    content:'rinnalihas';
+    font-size: 13px;
+
+}
+.triitsepscheckbox input[type="checkbox"]::after {
+    content:'triitseps';
+    font-size: 13px;
+
+}
+.kõhulihascheckbox input[type="checkbox"]::after {
+    content:'kõhulihas';
+    font-size: 13px;
+
+}
+.reie_eeskülgcheckbox input[type="checkbox"]::after {
+    content:'reie eeskülg';
+    font-size: 13px;
+
+}
+.reie_tagakülgcheckbox input[type="checkbox"]::after {
+    content:'reie tagakülg';
+    font-size: 13px;
+
+}
+.säärelihascheckbox input[type="checkbox"]::after {
+    content:'säärelihas';
+    font-size: 13px;
+
+}
+.ülaselgcheckbox input[type="checkbox"]::after {
+    content:'ülaselg';
+    font-size: 13px;
+
+}
+.alaselgcheckbox input[type="checkbox"]::after {
+    content:'alaselg';
+    font-size: 13px;
+
+}
+.tuharalihascheckbox input[type="checkbox"]::after {
+    content:'tuharalihas';
+    font-size: 13px;
+
+}
+.biitsepscheckbox input[type="checkbox"]::after {
+    content:'biitseps';
+    font-size: 13px;
+
 }
 
 

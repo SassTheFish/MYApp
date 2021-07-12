@@ -1,0 +1,42 @@
+<% layout("layout/boilerplatetestsite.ejs") %>
+
+
+<section>
+    <div class="hoverthing">
+    </div>
+    <div class="popup none">
+            <form action="/testpage" method="POST">
+                <div class="row row-cols-2 justify-content-center">
+                    <div class="col">
+                        <% for(lihasgrupp of half1_lg) { %>
+                            <label for="<%=lihasgrupp%>" class="<%=lihasgrupp%>checkbox lab">
+                                <input type="checkbox"  id="<%=lihasgrupp%>" name="lihasgruppid" value="<%= lihasgrupp %>">
+                            </label>
+                        <% } %>
+                    </div>
+                    <div class="col">
+                        <% for(lihasgrupp of half2_lg) { %>
+                            <label for="<%=lihasgrupp%>" class="<%=lihasgrupp%>checkbox">
+                                <input type="checkbox"  id="<%=lihasgrupp%>" name="lihasgruppid" value="<%= lihasgrupp %>">
+                            </label>
+                        <% } %>
+                    </div>
+                </div>
+            </form>
+    </div>
+</section>
+
+
+
+
+<script>
+    let hoverthing = document.querySelector('.hoverthing');
+    let popupthing = document.querySelector('.popup');
+
+    hoverthing.addEventListener('click', function(){
+        popupthing.classList.toggle('none');
+    })
+    popupthing.addEventListener('pointerout', ()=>{
+        popupthing.classList.toggle('none');
+    })
+</script>

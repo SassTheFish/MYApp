@@ -20,20 +20,35 @@
                     <label for="nim">Harjutuse nimi</label>
                     <input class="form-control" type="text" id="nim" name="nimi" placeholder="nimi">
                 </div>
-                <div class="col-12 col-md-6 my-1 ">
-                    <label for="lihasgrupp">Vali lihasgrupp</label>
-                    <select class="form-control" name="lihasgruppid" id="lihasgrupp">
-                        <option class="disabled" value="Vali">
-                            Vali
-                        </option>
-                        <% for(lihasgrupp of c_lihasgruppid) { %>
-                            <option value='<%=lihasgrupp%>'>
-                                <%= lihasgrupp %>
-                            </option>
-                        <% } %>
-                    </select>
-
+                <div class="col-12 col-lg-6 my-1 ">
+                    <label for="hoverting">Lihasgruppid</label>
+                    <div id="hoverting" class="hoverthing">
+                        
+                    </div>
+                    <div style="height: 0; position: relative;">
+                        <div class="popup none">
+                            <form action="/testpage" method="POST">
+                                <div class="row row-cols-2 justify-content-start">
+                                    <div class="col">
+                                        <% for(lihasgrupp of half1_lg) { %>
+                                            <label for="<%=lihasgrupp%>" class="<%=lihasgrupp%>checkbox lab">
+                                                <input type="checkbox"  id="<%=lihasgrupp%>" name="lihasgruppid" value="<%= lihasgrupp %>">
+                                            </label>
+                                        <% } %>
+                                    </div>
+                                    <div class="col">
+                                        <% for(lihasgrupp of half2_lg) { %>
+                                            <label for="<%=lihasgrupp%>" class="<%=lihasgrupp%>checkbox">
+                                                <input type="checkbox"  id="<%=lihasgrupp%>" name="lihasgruppid" value="<%= lihasgrupp %>">
+                                            </label>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="col-12 col-md-6 my-1 "><label for="raskustase">Vali raskustase</label><input class="form-control" type="number" id="raskustase" name="raskustase" min='1' max="5" value="1"></div>
                 <div class="col-12 col-md-6  my-1 mt-4"><button class="btn btn-success w-100 fs-2 p-0" type="submit">+</button></div>
             </div>
@@ -65,4 +80,17 @@
         <% } %>
     </div>
 </div>
+
+
+<script>
+    let hoverthing = document.querySelector('.hoverthing');
+    let popupthing = document.querySelector('.popup');
+
+    hoverthing.addEventListener('click', function(){
+        popupthing.classList.toggle('none');
+    })
+    popupthing.addEventListener('pointerout', ()=>{
+        popupthing.classList.toggle('none');
+    })
+</script>
 

@@ -1,0 +1,141 @@
+body {
+    background-color: chocolate;
+}
+section{
+    position: relative;
+    top: 100px;
+    background-color: cornflowerblue;
+    height: 400px;
+}
+
+.hoverthing
+{
+    background-color: white;
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    left:50%;
+    border-radius: 20px;
+    transition: ease all 0.3s 0s;
+}
+
+.hoverthing:hover {
+    height: 50px;
+    background-color: rgb(224, 223, 223);
+}
+.hoverthing:active {
+    background-color: white;
+}
+
+
+.popup
+{
+    position: absolute;
+    left:50%;
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content:space-between;
+}
+
+
+.popup form
+{
+    height: 100%;
+    width: 100%;
+}
+
+.none
+{
+    display: none;
+}
+
+input[type="checkbox"]
+{
+    appearance: none;
+    -webkit-appearance: none;
+    background: deepskyblue;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: all ease 0.3s 0s;
+}
+
+.deltalihascheckbox input[type="checkbox"]::after {
+    content:'deltalihas';
+    font-size: 13px;
+
+}
+.rinnalihascheckbox input[type="checkbox"]::after {
+    content:'rinnalihas';
+    font-size: 13px;
+
+}
+.triitsepscheckbox input[type="checkbox"]::after {
+    content:'triitseps';
+    font-size: 13px;
+
+}
+.kõhulihascheckbox input[type="checkbox"]::after {
+    content:'kõhulihas';
+    font-size: 13px;
+
+}
+.reie_eeskülgcheckbox input[type="checkbox"]::after {
+    content:'reie eeskülg';
+    font-size: 13px;
+
+}
+.reie_tagakülgcheckbox input[type="checkbox"]::after {
+    content:'reie tagakülg';
+    font-size: 13px;
+
+}
+.säärelihascheckbox input[type="checkbox"]::after {
+    content:'säärelihas';
+    font-size: 13px;
+
+}
+.ülaselgcheckbox input[type="checkbox"]::after {
+    content:'ülaselg';
+    font-size: 13px;
+
+}
+.alaselgcheckbox input[type="checkbox"]::after {
+    content:'alaselg';
+    font-size: 13px;
+
+}
+.tuharalihascheckbox input[type="checkbox"]::after {
+    content:'tuharalihas';
+    font-size: 13px;
+
+}
+.biitsepscheckbox input[type="checkbox"]::after {
+    content:'biitseps';
+    font-size: 13px;
+
+}
+
+
+
+input[type="checkbox"]:checked
+{
+    background: #06d6a0;
+    color: white;
+}
+input[type="checkbox"]:hover
+{
+    background: rgb(0, 133, 178);
+}

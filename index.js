@@ -78,13 +78,28 @@ const validateUjumiseHarjutus = (req,res,next) => {
 
 
 //---------------GET---------------------
-
+app.get('/testpage', (req,res)=>{
+    const length = c_lihasgruppid.length;
+    const half1_lg = c_lihasgruppid.slice(0,length/2);
+    const half2_lg = c_lihasgruppid.slice(length/2, length);
+    const object = {
+        half1_lg,
+        half2_lg
+    }
+    res.render('testsite.ejs', {...object});
+})
+app.post('/testpage', (req,res)=>{
+    console.log(req.body);
+    res.redirect('/testpage');
+})
 app.get("/example", (req,res)=>{
     res.render("example.ejs")
 })
 
 app.get("/harjutused", async (req, res)=>{
-    
+    const length = c_lihasgruppid.length;
+    const half1_lg = c_lihasgruppid.slice(0,length/2);
+    const half2_lg = c_lihasgruppid.slice(length/2, length);
     const reqbody = req.body;
     const path = req.path;
     const harjutused = await Harjutus.find();
@@ -93,7 +108,9 @@ app.get("/harjutused", async (req, res)=>{
         reqbody,
         path,
         harjutused,
-        c_lihasgruppid
+        c_lihasgruppid,
+        half1_lg,
+        half2_lg
     }
     res.render("Harjutused/harjutused", {...object})
 })
