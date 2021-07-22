@@ -1,0 +1,41 @@
+
+Fix lihasgrupp list in harjutus card
+
+harjutuste lehe värvid? 
+
+!!! Home page ja lisa jama eemaldamine ja ümber tegemine
+
+ujumiskavade imelik suuruse muutus
+
+lisa kava õpetus? popup'is?
+
+!!! User service (
+    trenni guppid
+    treeneri õigused uuendada ja lisada
+    oma kavade kogum ja või kogutud kavad
+)
+
+valge background võiks olla huvitavam
+
+angular versioon appist???
+
+!failide korrastus(
+    css failid,
+    html failid,
+    index fail routeritesse,
+
+)
+
+!? maybe a better database structure
+
+tehnika õpetused
+
+!pildid/videod/gif'id harjutustele
+
+!! eraldi kava vaatamise "view" igale suurusele
+
+
+
+
+
+
