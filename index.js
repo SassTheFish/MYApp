@@ -15,7 +15,7 @@ const ExpressError = require('./Utils/ExpressError');
 const {c_lihasgruppid} = require('./variables');
 
 
-const ujumise_H_Validation = require('./models/validators');
+
 
 
 
@@ -24,7 +24,6 @@ morgan('tiny');
 
 const {Harjutus} = require('./models/harjutus');
 const {TreeningKava} = require('./models/harjutus');
-const UjumisKava = require('./models/ujumine');
 // const {UjumisTreening} = require('./models/ujumistreening');
 
 mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUnifiedTopology:true})
@@ -38,8 +37,8 @@ mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUn
 
 
 const homeRouter = require('./Routes/homeRouter');
-// const harjutusRouter = require('./Routes/harjutusRouter');
-// const kavaRouter = require('./Routes/kavaRouter');
+const ukekavaRouter = require('./Routes/ukekavadRouter');
+const ujumisekavaRouter = require('./Routes/ujumisekavaRouter');
 
 
 
@@ -54,8 +53,8 @@ app.use(morgan('dev'));
 
 
 app.use('/', homeRouter);
-// app.use('/harjutused', harjutusRouter);
-// app.use('/kavad', kavaRouter);
+app.use('/ukekavad', ukekavaRouter);
+app.use('/ujumisekavad', ujumisekavaRouter);
 
 
 const verify = ((req,res,next)=>{
@@ -64,15 +63,7 @@ const verify = ((req,res,next)=>{
     res.send("NOPE")
 })
 
-const validateUjumiseHarjutus = (req,res,next) => {
-    const {error} = ujumise_H_Validation.validate(req.body);
-    if(error){
-        const msg = error.details.map(el => el.message).join(',');
-        throw new ExpressError(msg, 400)
-    } else {
-        next();
-    }
-}
+
 
 
 
@@ -115,64 +106,8 @@ app.get("/harjutused", async (req, res)=>{
     res.render("Harjutused/harjutused", {...object})
 })
 
-//render harjutused page with all info
-app.get("/ujumisekavad", async (req, res)=>{
-    
-    const reqbody = req.body;
-    const path = req.path;
-    const kavad = await UjumisKava.find();
-    const object =
-    {
-        reqbody,
-        path,
-        kavad,
-    }
-    res.render("Ujumine/ujumisekavad", {...object})
-})
-app.get("/ukekavad", async (req, res)=>{
-    
-    const reqbody = req.body;
-    const path = req.path;
-    const kavad = await TreeningKava.find().populate('harjutused.harj');
-    const object = 
-    {  
-        reqbody,
-        path,
-        kavad,
-    }
-    res.render("Üke/ukekavad", {...object})
-})
-app.get("/ukekavad/lisaharjutus/:id", async (req, res)=>{
-    const reqbody = req.body;
-    const path = req.path;
-    const {id} = req.params;
-    const kava = await TreeningKava.findById(id).populate('harjutused.harj');
-    console.log(kava);
-    const harjutused = await Harjutus.find();
-    const object = 
-    {
-        reqbody,
-        path,
-        kava,
-        id,
-        harjutused
-    }
-    res.render("Üke/lisaharjutusukele", {...object})
-})
-app.get("/ujumisekavad/lisaharjutus/:id", async (req, res)=>{
-    const reqbody = req.body;
-    const path = req.path;
-    const {id} = req.params;
-    const kava = await UjumisKava.findById(id);
-    const object = 
-    {
-        reqbody,
-        path,
-        kava,
-        id
-    }
-    res.render("Ujumine/lisaharjutusujumisele", {...object})
-})
+
+
 //delete all entries !!!!!!!_______KÕIK MURDUB________!!!!!
 app.get("/harjutused/deleteAll", async(req,res)=>{
     console.log("deleting...")
@@ -199,38 +134,11 @@ app.get("/harjutused/deleteOne/:id", async (req,res)=>{
     res.redirect("/harjutused")
 })
 
-app.get("/ukekavad/deleteOne/:id", async (req,res)=>{
-    const {id} = req.params;
-    console.log(id);
-    const kava = req.query;
-    await TreeningKava.findByIdAndDelete(id);
-    res.redirect("/ukekavad")
-})
-app.get("/ujumisekavad/deleteOne/:id", async (req,res)=>{
-    const {id} = req.params;
-    console.log(id);
-    await UjumisKava.findByIdAndDelete(id);
-    res.redirect("/ujumisekavad")
-})
+
+
 //Choose one to update
-app.get("/ukekavad/update/:id", async(req,res)=>{
-    const {id} = req.params;
-    const kava = await TreeningKava.findById(id);
-    const object =
-    {
-         kava
-    }
-    res.render("Üke/uuendaKava", {...object})
-})
-app.get("/ujumisekavad/update/:id", async(req,res)=>{
-    const {id} = req.params;
-    const kava = await UjumisKava.findById(id);
-    const object =
-    {
-         kava
-    }
-    res.render("Ujumine/uuendaKava", {...object})
-})
+
+
 app.get("/harjutused/updateH/:id", async(req,res)=>{
     const {id} = req.params;
     const harjutus = await Harjutus.findById(id);
@@ -281,75 +189,13 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
     const updated = await TreeningKava.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
     res.redirect("Üke/ukekavad")
 })
-app.put("/ukekavad/update/:id", async(req,res)=>{
-    const {id} = req.params;
-    const kava = await TreeningKava.findByIdAndUpdate(id, req.body);
-    res.redirect('/ukekavad')
-})
-app.put("/ujumisekavad/update/:id", async(req,res)=>{
-    const {id} = req.params;
-    const kava = await UjumisKava.findByIdAndUpdate(id, req.body);
-    res.redirect('/ujumisekavad')
-})
 
-app.put("/ukekavad/lisaharjutus/:id", async (req,res) => {
-    const {id} = req.params;
-    const harjutus = req.body;
-    console.log(harjutus);
-    const harjutused = await Harjutus.find();
 
-    await TreeningKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
-    const kava = await TreeningKava.findById(id).populate('harjutused.harj');
-    const object = {
-        id,
-        harjutused,
-        kava
-    };
-    res.render("Üke/lisaharjutusukele", {...object});
-})
 
-app.get("/ukekavad/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
-    const kavaid = req.params.id1;
-    const harjid = req.params.id2;
-    const kava = await TreeningKava.findById(kavaid);
-    for(let i = 0; i < kava.harjutused.length; i++){
-        if(kava.harjutused[i]._id == harjid)
-        {
-            kava.harjutused.splice(i,1);
-        }
-    }
-    await kava.save();
-    console.log(kava);
-    res.redirect(`/ukekavad/lisaharjutus/${kavaid}`);
-})
-app.get("/ujumisekavad/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
-    const kavaid = req.params.id1;
-    const harjid = req.params.id2;
-    const kava = await UjumisKava.findById(kavaid);
-    for(let i = 0; i < kava.harjutused.length; i++){
-        if(kava.harjutused[i]._id == harjid)
-        {
-            kava.harjutused.splice(i,1);
-        }
-    }
-    await kava.save();
-    console.log(kava);
-    res.redirect(`/ujumisekavad/lisaharjutus/${kavaid}`);
-})
 
-app.put("/ujumisekavad/lisaharjutus/:id", validateUjumiseHarjutus, async (req,res) => {
-    const {id} = req.params;
-    const harjutus = req.body;
-    console.log(harjutus);
-    await UjumisKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
-    const kava = await UjumisKava.findById(id);
 
-    const object = {
-        id,
-        kava
-    };
-    res.render("Ujumine/lisaharjutusujumisele", {...object});
-})
+
+
 
 
 //---------------POST-------------------
@@ -362,20 +208,8 @@ app.post("/harjutused", async (req,res) => {
     harjutus1.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
     res.redirect("harjutused");
 })
-app.post("/ukekavad", catchAsync(async (req,res) => {
-    const sisse = req.body;
-    console.log(sisse);
-    const kavad = await new TreeningKava(sisse);
-    kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
-    res.redirect("ukekavad");
-}))
-app.post("/ujumisekavad", catchAsync(async (req,res) => {
-    const sisse = req.body;
-    console.log(sisse);
-    const kavad = await new UjumisKava(sisse);
-    kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
-    res.redirect("ujumisekavad");
-}))
+
+
 
 
 app.use((err,req,res,next)=>{
