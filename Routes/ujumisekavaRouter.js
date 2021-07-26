@@ -94,7 +94,7 @@ router.get("/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
     }
     await kava.save();
     console.log(kava);
-    res.redirect(`ujumisekavad/lisaharjutus/${kavaid}`);
+    res.redirect(`/ujumisekavad/lisaharjutus/${kavaid}`);
 })
 
 router.post("/", catchAsync(async (req,res) => {

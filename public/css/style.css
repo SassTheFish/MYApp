@@ -7,6 +7,7 @@
 body {
     margin: 0;
     padding: 0;
+    z-index: -10;
 }
 
 
@@ -109,6 +110,36 @@ input
     clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
     z-index: -10;
 }
+.polygon1l
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #c5c3c6;
+    clip-path: polygon(93% 53%, 55% 43%, 38% 10%, 0 0, 0 100%, 100% 100%);
+    z-index: -1;
+}
+.polygon2l
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #dcdcdd;
+    clip-path: polygon(80% 67%, 48% 53%, 23% 18%, 0 8%, 0 100%, 93% 100%);
+    z-index: -1;
+}
+.polygon3l
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #4c5c68;
+    clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
+    z-index: -1;
+}
 
 
 
@@ -136,9 +167,15 @@ input
 
 #harjutused
 {
-    height: 300px;
+    position: relative;
+    min-height: 300px;
 }
-
+#harjcardbuttons{
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
 
 #aboutpagecontainer{
     margin-left: 50px;

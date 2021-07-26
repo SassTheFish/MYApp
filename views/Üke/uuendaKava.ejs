@@ -4,17 +4,17 @@
   <h1 class="text-center text-light m-5">Uuenda Kava</h1>
 
   <div>
-    <form action="/ukekavad/update/<%=kava._id%>?_method=PUT" method="POST" style="width: 100%;">
-        <div class="row w-75 mx-auto">
+    <form class="form-control p-3 px-5" action="/ukekavad/update/<%=kava._id%>?_method=PUT" method="POST" style=" border:none;width: 100%; background-color: rgba(255, 255, 255, 0.409);">
+        <div class="row mx-auto">
             <div class="col-12 col-md-6">
-              <label for="validationCustom03" class="form-label text-light">Kava nimi</label>
+              <label for="validationCustom03" class="form-label text-dark">Kava nimi</label>
               <input type="text" class="form-control" name="nimi" id="validationCustom03" required value=<%=kava.nimi%> >
               <div class="invalid-feedback">
                 Viga
               </div>
             </div>
             <div class="col-12 col-md-6">
-              <label for="validationCustom05" class="form-label text-light">Raskustase</label>
+              <label for="validationCustom05" class="form-label text-dark">Raskustase</label>
               <input type="number" class="form-control" name="raskustase" id="validationCustom05" required min="10" step="10" max="100" value=<%=kava.raskustase%>>
               <div class="invalid-feedback">
                 Viga

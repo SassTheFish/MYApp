@@ -1,18 +1,13 @@
-<%- include("../partials/head.ejs") %> 
+<%- layout("layout/boilerplateUL.ejs") %> 
 
-
-
-
-  <div class="navy-all" style="margin: 0;padding: 0;padding-top: 100px;">
-    <div class="container mt-5">
+    <div class="container mx-auto" style="padding-top: 200px; margin-bottom: 60px;">
       <h1 class="text-center text-light">Lisa harjutus</h1>
-    </div>
     
-    <div class="container mt-5 bg-light rounded">
-        <form class="row g-3 needs-validation mx-5" novalidate action="/ukekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
-            <div class="col-md-6">
+    
+      <form class="needs-validation text-dark form-control mt-5 p-3 px-5" style="border:none; background-color: rgba(255, 255, 255, 0.505);" novalidate action="/ukekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
+          <div class="row mx-auto">
+            <div class=" col-12 col-md-6">
               <label for="validationCustom01" class="form-label">Harjutuse nimi</label>
-    
               <select class="form-control" name="harj" >
                 <option value='none' class="disabled" >Vali</option>
                 <% for(harjutus of harjutused) {%>
@@ -20,14 +15,14 @@
                 <% } %>
               </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-12 col-md-3">
               <label for="validationCustom03" class="form-label">Kordused x</label>
               <input type="number" class="form-control" name="kordused_x" id="validationCustom03" required>
               <div class="invalid-feedback">
                 Viga kordustes
               </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-12 col-md-3">
               <label for="validationCustom05" class="form-label">Kordused y</label>
               <input type="number" class="form-control" name="kordused_y" id="validationCustom05" required>
               <div class="invalid-feedback">
@@ -42,9 +37,9 @@
               <button class="btn btn-primary" type="submit">Lisa</button>
               <a class="btn btn-secondary" href="/ukekavad">Tagasi</a>
             </div>
-        </form>
+          </div>
+      </form>
     </div>
-
 
     <section>
       <div class="row row-cols-1 justify-content-center m-5">  
@@ -86,9 +81,6 @@
         </div>
       </div>
     </section>
-
-  </div>
-
 
 
 <script>

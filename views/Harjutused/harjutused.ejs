@@ -23,7 +23,7 @@
 
 <div class="container">
     <div class="row row-cols-1 mx-5 p-3">
-        <form class="form-control p-3 navy text-light" action="/harjutused" method="POST">
+        <form class="form-control p-3 navy text-light" action="/harjutused" method="POST" style="border: none;">
             <div class="row row-cols-2">
                 <div class="col-12 col-md-6 my-1 ">
                     <label for="nim">Harjutuse nimi</label>
@@ -76,11 +76,19 @@
                 <div id="harjutused" class="card navy shadow-lg h-100 text-white p-5">
                     <div class="row row-cols-1 lead text-uppercase overflow-hidden"><h2><%= harjutus.nimi%></h2></div>
                     <div class="row row-cols-1">
-                        <span>Lihasgrupp <small class="text-danger fs-5"><%= harjutus.lihasgruppid %></small></span>
-                        <span>Raskustase <small class="text-successfs-5" >  <%= harjutus.raskustase %></small></span>
+                        <div><% if (harjutus.lihasgruppid.length > 1) { %>
+                            Lihasgruppid:
+                        <% } else {%>
+                            Lihasgrupp:
+                        <% } %>
+                        <% for(lihasgrupp of harjutus.lihasgruppid){ %>
+                            <span><small class="text-danger fs-5" style="text-transform: capitalize;"><%= lihasgrupp %><%if(harjutus.lihasgruppid.length > 1){%>,<%}%>
+                            </small></span>
+                        <% } %> </div>
+                        <span>Raskustase <small class="text-warning fs-5" >  <%= harjutus.raskustase %></small></span>
                     </div>
     
-                    <div class="row row-cols-2 ">
+                    <div class="row row-cols-2" id="harjcardbuttons">
                         <div class="col d-flex justify-content-start"><a  class="btn btn-primary btn-sm" href="harjutused/update/<%= harjutus._id%> ">Uuenda</a></div>
                         <div class="col d-flex justify-content-end"><a  class="btn btn-danger btn-sm" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
                     </div>

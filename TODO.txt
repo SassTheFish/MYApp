@@ -1,12 +1,9 @@
+parem harjutuste card
 
-Fix lihasgrupp list in harjutus card
 ja parem popup ja midagi mis näitab kohe valitud lihasgruppe
 
 
-harjutuste lehe värvid? 
-
 !!! Home page ja lisa jama eemaldamine ja ümber tegemine
-
 
 lisa kava õpetus? popup'is?
 
@@ -35,7 +32,7 @@ filtering system (kast sinna alla kuhu saab panna mingeid nuppe ja asju)
 
 värvi button for one kava or globally
 
-!!!ERROR page or popup
+!!!ERROR popup
 
 admin privileges and dynamics
 
