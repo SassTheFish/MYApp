@@ -1,7 +1,7 @@
 //---------EXTERNAL----------
 const { url } = require("inspector");
-const { dirname } = require("path");
-const path  = require("path");
+const { dirname} = require("path");
+const path = require("path")
 const { object } = require("joi");
 
 const express = require("express");
