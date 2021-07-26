@@ -34,6 +34,10 @@ tehnika õpetused
 
 !! eraldi kava vaatamise "view" igale suurusele
 
+filtering system (kast sinna alla kuhu saab panna mingeid nuppe ja asju)
+
+värvi button for one kava or globally
+
 
 
 

@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require("mongoose");
-const { TreeningKava } = require('../models/harjutus');
+const { TreeningKava, Harjutus } = require('../models/harjutus');
 const router = express.Router();
 const catchAsync = require("../Utils/CatchAsync");
-
+const ExpressError = require('../Utils/ExpressError');
 
 router.get("/", async (req, res)=>{
     

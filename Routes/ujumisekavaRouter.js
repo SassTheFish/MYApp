@@ -4,6 +4,9 @@ const UjumisKava = require('../models/ujumine');
 const router = express.Router();
 const ujumise_H_Validation = require('../models/validators');
 const catchAsync = require("../Utils/CatchAsync");
+const path  = require("path");
+const ExpressError = require('../Utils/ExpressError');
+
 
 const validateUjumiseHarjutus = (req,res,next) => {
     const {error} = ujumise_H_Validation.validate(req.body);
@@ -48,7 +51,7 @@ router.get("/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
     console.log(id);
     await UjumisKava.findByIdAndDelete(id);
-    res.redirect("/")
+    res.redirect("/ujumisekavad")
 })
 
 router.get("/update/:id", async(req,res)=>{
@@ -63,7 +66,7 @@ router.get("/update/:id", async(req,res)=>{
 router.put("/update/:id", async(req,res)=>{
     const {id} = req.params;
     const kava = await UjumisKava.findByIdAndUpdate(id, req.body);
-    res.redirect('/')
+    res.redirect('/ujumisekavad')
 })
 router.put("/lisaharjutus/:id", validateUjumiseHarjutus, async (req,res) => {
     const {id} = req.params;
@@ -91,7 +94,7 @@ router.get("/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
     }
     await kava.save();
     console.log(kava);
-    res.redirect(`/lisaharjutus/${kavaid}`);
+    res.redirect(`ujumisekavad/lisaharjutus/${kavaid}`);
 })
 
 router.post("/", catchAsync(async (req,res) => {
@@ -99,7 +102,7 @@ router.post("/", catchAsync(async (req,res) => {
     console.log(sisse);
     const kavad = await new UjumisKava(sisse);
     kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
-    res.redirect("/");
+    res.redirect("/ujumisekavad");
 }))
 
 

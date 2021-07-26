@@ -8,6 +8,17 @@ section{
     height: 400px;
 }
 
+
+.polygon1 
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: cadetblue;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+
+}
+
 .hoverthing
 {
     background-color: white;

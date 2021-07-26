@@ -184,6 +184,7 @@ app.put("/harjutused/updateH/:id", async (req,res)=>{
     const updated = await Harjutus.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
     res.redirect("Harjutused/harjutused")
 })
+
 app.put("/harjutused/updateK/:id", async (req,res)=>{
     const {id} = req.params;
     const updated = await TreeningKava.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
