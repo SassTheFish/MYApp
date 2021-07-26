@@ -1,11 +1,12 @@
 
 Fix lihasgrupp list in harjutus card
+ja parem popup ja midagi mis näitab kohe valitud lihasgruppe
+
 
 harjutuste lehe värvid? 
 
 !!! Home page ja lisa jama eemaldamine ja ümber tegemine
 
-ujumiskavade imelik suuruse muutus
 
 lisa kava õpetus? popup'is?
 
@@ -15,15 +16,11 @@ lisa kava õpetus? popup'is?
     oma kavade kogum ja või kogutud kavad
 )
 
-valge background võiks olla huvitavam
-
 angular versioon appist???
 
 !failide korrastus(
     css failid,
     html failid,
-    index fail routeritesse,
-
 )
 
 !? maybe a better database structure
@@ -38,8 +35,9 @@ filtering system (kast sinna alla kuhu saab panna mingeid nuppe ja asju)
 
 värvi button for one kava or globally
 
+!!!ERROR page or popup
 
-
+admin privileges and dynamics
 
 
 

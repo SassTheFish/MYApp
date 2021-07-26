@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2e3138;
+}
+h1{
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+.errorcard{
+    background-color: #f15844d5;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    padding: 30px;
+    width: 60vw;
+    height: 70vh;
+    color: white;
+}

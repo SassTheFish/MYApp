@@ -1,16 +1,33 @@
-<%- include("../partials/head.ejs") %> 
+<%- layout("layout/boilerplateUL.ejs") %> 
 
-<div class="container">
-    <form action="/harjutused/updateH/<%=harjutus._id%>?_method=PUT" method="POST">
-        <input type="text" id="nimi" placeholder="nimi" name="nimi" value="<%= harjutus.nimi %> ">
-        <input type="number" name="raskustase" min='1' max="5" value="1">
-        <select name="lihasgrupp" id="lihasgrupp">
-            <% for(lihasgrupp of lihasgruppid) { %>
-                <option value=<%=lihasgrupp%> <%=harjutus.lihasgrupp === lihasgrupp ? 'selected': ''%>>
-                    <%= lihasgrupp %>
-                </option>
-            <% } %>
-        </select>
-        <button type="submit">Uuenda</button>
+<div class="container mx-auto" style="padding-top: 200px;">
+  <h1 class="text-center text-light m-5">Uuenda Kava</h1>
+
+  <div>
+    <form action="/harjutused/update/<%=harjutus._id%>?_method=PUT" method="POST" style="width: 100%;">
+        <div class="row w-75 mx-auto">
+            <div class="col-12 col-md-6">
+              <label for="validationCustom03" class="form-label text-light">Harjutuse nimi</label>
+              <input type="text" class="form-control" name="nimi" id="validationCustom03" required value=<%=harjutus.nimi%> >
+              <div class="invalid-feedback">
+                Viga
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="validationCustom05" class="form-label text-light">Raskustase</label>
+              <input type="number" class="form-control" name="raskustase" id="validationCustom05" required min="1"  max="5" value=<%=harjutus.raskustase%>>
+              <div class="invalid-feedback">
+                Viga
+              </div>
+            </div>
+            <!-- <div class="col-md-6">
+                <label for="validationTextarea" class="form-label">Harjutuse kirjeldus</label>
+                <textarea class="form-control" name="kirjeldus" id="validationTextarea" placeholder="WIP" required></textarea>
+            </div> -->
+            <div class="col-12 d-flex justify-content-between align-middle py-3">
+              <button class="btn btn-primary" type="submit">Uuenda</button>
+            </div>
+        </div>
     </form>
+  </div>
 </div>

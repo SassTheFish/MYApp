@@ -9,7 +9,7 @@
     </div>
     
     <div class="container mt-5 bg-light rounded">
-        <form class="row g-3 mx-5" novalidate action="/ujumisekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
+        <form class="row g-3 mx-5 needs-validation" novalidate action="/ujumisekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
             <div class="col-md-4">
               <label for="validationCustom03" class="form-label">Kordused</label>
               <input type="text" class="form-control" name="kordused" id="validationCustom03" required>
@@ -27,7 +27,7 @@
 
             <div class="col-6 col-md-4">
               <label for="sel" class="form-label">Vali Ala</label>
-              <select class="form-select" id="sel" name="ala" aria-label="Default select example">
+              <select class="form-select" id="sel" name="ala" aria-label="Default select example" required> 
                 <option value="Selili">Selili</option>
                 <option value="Rinnuli">Rinnuli</option>
                 <option value="Liblikas">Liblikas</option>
@@ -39,7 +39,7 @@
 
             <div class="col-6 col-md-4">
               <label for="sel" class="form-label">Eraldus</label>
-              <select class="form-select" id="sel" name="eraldus" aria-label="Default select example">
+              <select class="form-select" id="sel" name="eraldus" aria-label="Default select example" required>
                 <option value="Käed">Käed</option>
                 <option value="Jalad">Jalad</option>
                 <option selected value="Koostöö">Koostöö</option>
@@ -47,7 +47,7 @@
             </div>
             <div class="col-12">
               <label for="validationCustom05" class="form-label">Kirjeldus</label>
-              <input type="text" class="form-control" name="harjutus" id="validationCustom05" required>
+              <input type="text" class="form-control needs-validation" name="harjutus" id="validationCustom05" required>
               <div class="invalid-feedback">
                 !
               </div>

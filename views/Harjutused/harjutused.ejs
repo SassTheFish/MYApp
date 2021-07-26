@@ -1,6 +1,15 @@
 <% layout("layout/boilerplate.ejs") %>
 <%- include("../partials/navbar") %>
 
+<div class="polygon1h">
+    <div class="polygon2h">
+        <div class="polygon3h">
+        </div>
+    </div>
+</div>
+
+
+
 <div class="row my-5">
     <div class="text-center">
         <h1>Harjutused</h1>
@@ -54,7 +63,7 @@
             </div>
         </form>
         <div>
-            <a href="/harjutused/deleteAll">DELETE ALL (CAUTION!)</a>
+            <h4>DELETE ALL (/deleteALL)</h4>
         </div>
     </div>
 </div>
@@ -72,7 +81,7 @@
                     </div>
     
                     <div class="row row-cols-2 ">
-                        <div class="col d-flex justify-content-start"><a  class="btn btn-primary btn-sm" href="harjutused/updateH/<%= harjutus._id%> ">Uuenda</a></div>
+                        <div class="col d-flex justify-content-start"><a  class="btn btn-primary btn-sm" href="harjutused/update/<%= harjutus._id%> ">Uuenda</a></div>
                         <div class="col d-flex justify-content-end"><a  class="btn btn-danger btn-sm" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
                     </div>
                 </div>
