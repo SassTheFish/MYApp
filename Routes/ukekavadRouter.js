@@ -11,11 +11,12 @@ router.get("/", async (req, res)=>{
     const path = req.path;
     const kavad = await TreeningKava.find().populate('harjutused.harj');
     const object = 
-    {  
+    {
         reqbody,
         path,
         kavad,
     }
+    console.log(object);
     res.render("Üke/ukekavad", {...object})
 })
 

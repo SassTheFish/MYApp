@@ -13,17 +13,21 @@ const morgan = require("morgan")
 const ejsMate = require("ejs-mate");
 
 
-
 //------ MY STUFF -----------
 
 //ERROR MANAGEMENT
 const catchAsync = require("./Utils/CatchAsync");
 const ExpressError = require('./Utils/ExpressError');
 
-//VARIABLES
+//VARIABLES  AND FUNCTIONS
 const {c_lihasgruppid} = require('./variables');
+const data = require('./Utils/SortingFunctions');
+const SF = require('./Utils/SortingFunctions');
+
 
 //MODELS
+const { TreeningKava, Harjutus } = require('./models/harjutus');
+const UjumisKava = require('./models/ujumine');
 
 
 
@@ -32,7 +36,7 @@ const homeRouter = require('./Routes/homeRouter');
 const ukekavaRouter = require('./Routes/ukekavadRouter');
 const ujumisekavaRouter = require('./Routes/ujumisekavaRouter');
 const harjutusteRouter = require('./Routes/harjutusRouter');
-
+const { appendFileSync } = require("fs");
 
 
 
@@ -76,6 +80,22 @@ app.use('/harjutused', harjutusteRouter);
 
 
 //---------------GET---------------------
+app.get('/SHOW', async (req,res)=>{
+
+    const {harjutusedH, kavadU, kavadÜ} = await SF.getData();
+    SF.OrderRaskus(kavadÜ);
+    SF.OrderRaskus(harjutusedH);
+    SF.OrderRaskus(kavadU);
+    
+    const data = {
+        harjutusedH,
+        kavadU,
+        kavadÜ
+    }
+    res.render("SHOW", {...data});
+})
+
+
 app.get('/testpage', (req,res)=>{
     const length = c_lihasgruppid.length;
     const half1_lg = c_lihasgruppid.slice(0,length/2);

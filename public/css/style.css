@@ -19,6 +19,15 @@ input
     border: 3px solid #222e50;
     border-radius: 20px;
 }
+
+
+.filtermenu
+{
+    height: 150px;
+    border: solid 4px #2e4770 ;
+    border-radius: 20px;
+    background-color: white;
+}
 .polygon1h
 {
     position: fixed;
