@@ -19,9 +19,9 @@
 </div>
 <section class="mb-5">
     
-    <div class="row row-cols-1 row-cols-md-2 mx-5 p-3 g-3">
+    <div class="row row-cols-1 row-cols-md-2 mx-5 p-3">
         <div class="col">
-            <form class="form-control border-add p-4"action="/ukekavad" method="POST">
+            <form class="form-control border-add p-4"action="/ukekavad/uus" method="POST">
                 <div class="row">
                     <label class="m-2 fs-3" for="ni">Lisa kava</label>
                     <div class="col-12 col-lg-6">
@@ -49,7 +49,32 @@
         </div>
         <div class="col-12 w-100 p-3">
             <div class="filtermenu">
-
+                <div class="leftside">
+                    <h5>Filter</h5>
+                    <form action="/ujumisekavad" method="POST">
+        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rl" id="flexRadioDefault1" value=-1>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Raskemad
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rl" id="flexRadioDefault2" value=1>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Lihtsamad
+                            </label>
+                        </div>
+                        <input type="text" id="search" placeholder="Otsi" name="otsing">
+                        <button type="submit">Otsi</button>
+                    </form>
+                </div>
+                <div class="rightside">
+                    <button id="värvid">Värvidetta</button>
+                    <button id="nupp1">MingiNupp</button>
+                    <button id="nupp2">VeelMingiNupp</button>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -58,60 +83,56 @@
 
 <section class=" p-3">
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
-        <% for( let kava of kavad) { %>
-            
-
-            <div class="col-12 col-md-6 col-lg-4 ">
-                <div id="card">
-                    
-                    <div class="cardtop">
-                        <div id="level">
-                            <span id="number"><%= kava.raskustase %>%</span>
-                        </div>
-                        <div id="head">
-                            <span id="title"><%= kava.nimi %> </span>
-                        </div>
-                    </div>
-                    
-                    <div class="cardbottom ">
-                        <ol class="harjutused">
-                            <div class="row row-cols-1 ">
-                                <% if (kava.harjutused.length !== 0 ) { %>
-                                    <% for(harjutus of kava.harjutused) { %>
-                                        <% if (harjutus.harj == null) { %>
-                                            <% continue; %> 
-                                        <% } %>
-                                        <% if (harjutus.harj.raskustase === 1) { %>
-                                            <div class="col-8">
-                                                <li class="custommargin1"><%= harjutus.harj.nimi %></li>
-                                            </div>
-                                        <% } else { %>
-                                            <div class="col-8">
-                                                <li class="custommargin1 raskus<%=harjutus.harj.raskustase%>"><%= harjutus.harj.nimi %></li>
-                                            </div>
-                                        <%} %>
-
-                                        <div class="col-4">
-                                            <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div>
-                                        </div>
-                                    <% } %>
-                                <% } else { %>
-                                    <DIV id="TÜHJUS">TÜHI KAVA</DIV>
-                                <%}%>
+        <% if(kavad) { %> 
+            <% for( let kava of kavad) { %>
+                <div class="col-12 col-md-6 col-lg-4 ">
+                    <div id="card">
+                        
+                        <div class="cardtop">
+                            <div id="level">
+                                <span id="number"><%= kava.raskustase %>%</span>
                             </div>
-                        </ol>
-                    </div>
-                    
-                    <div id="cardbuttons" class="">
-                        <a id="lisaHar" href="ukekavad/lisaharjutus/<%=kava._id%>">+</a>
-                        <a id="uuenda" href="ukekavad/update/<%=kava._id%>">Uuenda</a>
-                        <a id="kustuta" href="ukekavad/deleteOne/<%=kava._id%>">Kustuta</a>
+                            <div id="head">
+                                <span id="title"><%= kava.nimi %> </span>
+                            </div>
+                        </div>
+                        <div class="cardbottom ">
+                            <ol class="harjutused">
+                                <div class="row row-cols-1 ">
+                                    <% if (kava.harjutused.length !== 0 ) { %>
+                                        <% for(harjutus of kava.harjutused) { %>
+                                            <% if (harjutus.harj == null) { %>
+                                                <% continue; %> 
+                                            <% } %>
+                                            <% if (harjutus.harj.raskustase === 1) { %>
+                                                <div class="col-8">
+                                                    <li class="custommargin1"><%= harjutus.harj.nimi %></li>
+                                                </div>
+                                            <% } else { %>
+                                                <div class="col-8">
+                                                    <li class="custommargin1 raskus<%=harjutus.harj.raskustase%>"><%= harjutus.harj.nimi %></li>
+                                                </div>
+                                            <%} %>
+
+                                            <div class="col-4">
+                                                <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div>
+                                            </div>
+                                        <% } %>
+                                    <% } else { %>
+                                        <DIV id="TÜHJUS">TÜHI KAVA</DIV>
+                                    <%}%>
+                                </div>
+                            </ol>
+                        </div>
+                        <div id="cardbuttons" class="">
+                            <a id="lisaHar" href="ukekavad/lisaharjutus/<%=kava._id%>">+</a>
+                            <a id="uuenda" href="ukekavad/update/<%=kava._id%>">Uuenda</a>
+                            <a id="kustuta" href="ukekavad/deleteOne/<%=kava._id%>">Kustuta</a>
+                        </div>
                     </div>
                 </div>
-                
-            </div>
-
-        <% } %>
+            <% } %>
+        <% } %> 
     </div>
 
 </section>

@@ -4,15 +4,15 @@ const { TreeningKava, Harjutus } = require('../models/harjutus');
 const router = express.Router();
 const catchAsync = require("../Utils/CatchAsync");
 const ExpressError = require('../Utils/ExpressError');
+const SF = require('../Utils/SortingFunctions');
+
 
 router.get("/", async (req, res)=>{
-    
-    const reqbody = req.body;
+
     const path = req.path;
     const kavad = await TreeningKava.find().populate('harjutused.harj');
     const object = 
     {
-        reqbody,
         path,
         kavad,
     }
@@ -93,12 +93,35 @@ router.get("/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
     res.redirect(`/ukekavad/lisaharjutus/${kavaid}`);
 })
 
+router.post("/uus", catchAsync(async (req,res) => {
+    const sisse = req.body;
+    console.log(sisse);
+    
+    const kavad = await new TreeningKava(sisse);
+    kavad.save().then().catch(err => {console.log(err)});
+    res.redirect("/ukekavad");
+}))
 router.post("/", catchAsync(async (req,res) => {
     const sisse = req.body;
     console.log(sisse);
-    const kavad = await new TreeningKava(sisse);
-    kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
-    res.redirect("ukekavad");
+    let kavad;
+
+    if(sisse.otsing){
+        kavad = await TreeningKava.find().byName(sisse.otsing).populate('harjutused.harj') 
+    }
+    if(sisse.rl){
+        kavad = await TreeningKava.find().sort({raskustase: sisse.rl}).populate('harjutused.harj')
+    }
+    else if(sisse.otsing === '' && !sisse.rl) {
+        kavad = await TreeningKava.find().populate('harjutused.harj')
+    }
+
+    const object = {
+
+        path:req.path,
+        kavad
+    }
+    res.render("Üke/ukekavad", {...object});
 }))
 
 module.exports = router;

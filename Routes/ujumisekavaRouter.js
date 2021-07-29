@@ -97,12 +97,34 @@ router.get("/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
     res.redirect(`/ujumisekavad/lisaharjutus/${kavaid}`);
 })
 
-router.post("/", catchAsync(async (req,res) => {
+router.post("/uus", catchAsync(async (req,res) => {
     const sisse = req.body;
     console.log(sisse);
     const kavad = await new UjumisKava(sisse);
     kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
     res.redirect("/ujumisekavad");
+}))
+router.post("/", catchAsync(async (req,res) => {
+    const sisse = req.body;
+    console.log(sisse);
+    let kavad;
+
+    if(sisse.otsing){
+        kavad = await UjumisKava.find().byName(sisse.otsing)
+    }
+    if(sisse.rl){
+        kavad = await UjumisKava.find().sort({pingutustase: sisse.rl})
+    }
+    else if(sisse.otsing === '' && !sisse.rl) {
+        kavad = await UjumisKava.find()
+    }
+
+    const object = {
+
+        path:req.path,
+        kavad
+    }
+    res.render("Ujumine/ujumisekavad", {...object});
 }))
 
 

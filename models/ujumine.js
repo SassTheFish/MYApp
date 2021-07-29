@@ -39,8 +39,10 @@ const ujumiseSchema = new mongoose.Schema({
         required:true
     },
     harjutused:[ujumiseharjutus]
-
 })
+ujumiseSchema.query.byName = function(name) {
+    return this.where({ nimi: new RegExp(name, 'i') })
+};
 
 
 const UjumisKava = mongoose.model('UjumisKava', ujumiseSchema);

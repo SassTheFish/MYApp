@@ -20,9 +20,9 @@
 </div>
 <section class="mb-5">
     
-    <div class="row row-cols-1 row-cols-md-2 mx-5 p-3 g-3">
+    <div class="row row-cols-1 row-cols-md-2 mx-5 p-3">
         <div class="col">
-            <form class="form-control border-add p-4"action="/ujumisekavad" method="POST">
+            <form class="form-control border-add p-4"action="/ujumisekavad/uus" method="POST">
                 <div class="row">
                     <label class="m-2 fs-3" for="ni">Lisa kava</label>
                     <div class="col-12 col-lg-6">
@@ -48,46 +48,78 @@
                 </ol>
             </div>
         </div>
+        <div class="col-12 w-100 p-3">
+            <div class="filtermenu">
+                <div class="leftside">
+                    <h5>Filter</h5>
+                    <form action="/ujumisekavad" method="POST">
+        
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rl" id="flexRadioDefault1" value=-1>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Raskemad
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rl" id="flexRadioDefault2" value=1>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Lihtsamad
+                            </label>
+                        </div>
+                        <input type="text" id="search" placeholder="Otsi" name="otsing">
+                        <button type="submit">Otsi</button>
+                    </form>
+                </div>
+                <div class="rightside">
+                    <button id="värvid">Värvidetta</button>
+                    <button id="nupp1">MingiNupp</button>
+                    <button id="nupp2">VeelMingiNupp</button>
+                </div>
+                
+            </div>
+        </div>
     </div>
+    
 </section>
 
 
 <section class=" p-3">
     <div class="row row-cols-md-2 row-cols-xl-3 g-3 justify-content-md-center" style="margin:0px 20px">
-        <% for(kava of kavad) { %>
-            <div class="col-12 col-md-6">
-            <div id="card">
-                <div class="cardtop2">
-                    <div id="level2">
-                        <span id="number2"><%= kava.pingutustase %>%</span>
-                    </div>
-                    <div id="head2">
-                        <span id="title2"><%= kava.nimi %> </span>
-                    </div>
-                </div>
-                <div class="cardbottom2 ">
-                    <div class="harjutused2">
-                            <div class="row row-cols-1 ">
-                                <% for(harjutus of kava.harjutused) { %>
-                                    <div class="col-12 rida">
-                                        <div id="harjutusinujumisekava">
-                                          <span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                <% } %>
+        <% if(kavad) { %> 
+            <% for(kava of kavad) { %>
+                <div class="col-12 col-md-6">
+                    <div id="card">
+                        <div class="cardtop2">
+                            <div id="level2">
+                                <span id="number2"><%= kava.pingutustase %>%</span>
                             </div>
+                            <div id="head2">
+                                <span id="title2"><%= kava.nimi %> </span>
+                            </div>
+                        </div>
+                        <div class="cardbottom2 ">
+                            <div class="harjutused2">
+                                    <div class="row row-cols-1 ">
+                                        <% for(harjutus of kava.harjutused) { %>
+                                            <div class="col-12 rida">
+                                                <div id="harjutusinujumisekava">
+                                                <span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        <% } %>
+                                    </div>
+                            </div>
+                        </div>
+                        <div id="cardbuttons2">
+                            <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
+                            <a id="uuenda" href="ujumisekavad/update/<%=kava._id%>">Uuenda</a>
+                            <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>">Kustuta</a>
+                        </div>
                     </div>
                 </div>
-                <div id="cardbuttons2">
-                    <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
-                    <a id="uuenda" href="ujumisekavad/update/<%=kava._id%>">Uuenda</a>
-                    <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>">Kustuta</a>
-                    <button id="värvid">Värvidetta</button>
-                </div>
-            </div>
-        </div>
-        <% } %>
+            <% } %>
+        <% } %> 
     </div>
 </section>
 

@@ -1,0 +1,11 @@
+#harjutused
+{
+    position: relative;
+    min-height: 300px;
+}
+#harjcardbuttons{
+    position:absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

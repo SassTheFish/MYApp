@@ -45,7 +45,9 @@ const treeningkavaSchema = new mongoose.Schema({
     harjutused:[harjutusSchema],
     raskustase:{type:Number,default:10,min:10, max:100}
 })
-
+treeningkavaSchema.query.byName = function(name) {
+    return this.where({ nimi: new RegExp(name, 'i') })
+  };
 
 // const treeningkavaSchema = new mongoose.Schema({
 //     nimi:{type:String, required:false, default:"Treening Kava"},
@@ -57,6 +59,10 @@ const treeningkavaSchema = new mongoose.Schema({
 
 const Harjutus = mongoose.model("Harjutus", harjutuseSchema);
 const TreeningKava = mongoose.model("Treeningkava", treeningkavaSchema);
+
+
+
+
 
 const object = {Harjutus, TreeningKava};
 

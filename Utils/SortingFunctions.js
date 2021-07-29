@@ -26,7 +26,6 @@ async function OrderRaskus(input)
     let temp;
     for(let i = 0; i < input.length; i++)
     {
-
         biggest = i;
         for(let j = i+1;j<input.length;j++){
             if(input[j].raskustase >= input[biggest].raskustase | input[j].pingutustase >= input[biggest].pingutustase){
@@ -39,17 +38,25 @@ async function OrderRaskus(input)
     }
 }
 
-async function SearchByName()
+async function SearchByName(sisse, kavad)
 {
-    const reg = new RegExp(`${req.params.otsi}`);
+    const reg = new RegExp(`${sisse}`);
+    console.log(reg)
     let found = [];
-    for(something of harjutusedH)
+    for(something of kavad)
     {
+        console.log(something.nimi)
         if(something.nimi.match(reg)){
+            console.log("pushed ")
             found.push(something);
         }
+        else 
+        {
+            continue;
+        }
     }
-    console.log(found);
+    kavad = found;
+
 }
 
 

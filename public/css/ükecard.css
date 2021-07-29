@@ -1,0 +1,248 @@
+#card
+{
+    width: 100%;
+    min-height: 300px;
+    max-height: 600px;
+    height: 100%;
+    background: #293241;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#cardlisamine
+{
+    width: 100%;
+    min-height: 300px;
+    max-height: 600px;
+    height: 100%;
+    background: #293241;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+
+.cardtop
+{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    min-height: 15%;
+    width: 100%;
+    
+}
+
+.cardbottom
+{
+    position: relative;
+    height:60%;
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overflow-y: auto;
+    overflow-x:hidden;
+
+}
+
+#cardbuttons 
+{
+    position: relative;
+    bottom: 0px;
+    height: 15%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#level
+{
+    
+    float: left;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #98c1d9;
+    border-radius: 5px;
+}
+
+#head
+{
+    float: right;
+    position:relative;
+    right: 0px;
+    top: 0px;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    padding-left: 10px;
+    align-items: center;
+    background: #293241;
+    word-wrap: break-word;
+    border-radius: 0px 5px 0px 0px;
+}
+
+/* Title */
+
+#title
+{
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #e0fbfc;
+    
+}
+.harjutused {
+    color: #80ed99;
+    
+}
+.raskus5
+{
+    color: #f94144;
+}
+.raskus4
+{
+    color: #f3722c;
+}
+.raskus3
+{
+    color: #f9c74f;
+}
+.raskus2
+{
+    color: #06d6a0;
+}
+
+
+
+.harjutused li::before {
+    size: 5px;
+    color: #80ed99;
+    font-weight: bold;
+    font-size: 9px;
+    display: inline-block; 
+    width: 1rem;
+    margin-left: -1em;
+  }
+
+.harjutused #kustuta {
+    text-decoration: none;
+    color: red;
+    font-size: 30px;
+    text-align: center;
+
+    line-height: 100%;
+}
+
+
+/* 5 */
+
+#cardbuttons #lisaHar 
+{
+    text-decoration: none;
+    color: #4af472;
+    background:#3d3d3e;
+    padding: 5px;
+    border-radius: 6px;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cardbuttons #lisaHar:hover 
+{
+    color: #47fb3a;
+    background:#606064;
+}
+#cardbuttons #uuenda 
+{
+    text-decoration: none;
+    color: #FFFFFF;
+    background:#3d3d3e;
+    padding: 5px;
+    border-radius: 6px;
+}
+#cardbuttons #uuenda:hover 
+{
+    color: #55a630;
+    background:#606064;
+}
+#cardbuttons #kustuta 
+{
+    text-decoration: none;
+    color: #ee6c4d;
+    background:#3d3d3e;
+    padding: 5px;
+    border-radius: 6px;
+}
+#cardbuttons #kustuta:hover 
+{
+    color: #e56b6f;
+    background:#606064;
+}
+
+
+
+#number
+{
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    
+    text-align: center;
+
+    color: #000000;
+}
+
+
+/* Nimi 1. 2. 3. 4. 5. 6. 7. */
+
+#nimi
+{
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+#kordused
+{
+    color: #fffffa;
+    background:#1f7a8c;
+    border-bottom:solid 2px yellowgreen;
+    border-radius: 3px;
+    min-width: 50px;
+    max-width: 100px;
+    padding: 3px;
+    margin-left: 8px;
+    margin-bottom: 5px;
+    text-align: center;
+}
