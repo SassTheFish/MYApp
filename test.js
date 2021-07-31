@@ -1,19 +1,19 @@
-let array = [1,4,5,6,3,2,7,98,4,5];
 
 
-
-let biggest;
-let temp;
-for(let i = 0; i < array.length; i++)
-{
-    biggest = i;
-    for(let j = i + 1; j < array.length;j++){
-        if(array[biggest] < array[j]){
-            biggest = j;
-        }
+let num = 100001001010101001100101013;
+let loops = 0;
+while(num !== 1){
+    console.log(num)
+    loops++;
+    if(num % 2 == 0){
+        num = num/2;
+        continue;
     }
-    temp = array[i];
-    array[i] = array[biggest];
-    array[biggest] = temp;
+    if(num % 2 != 0){
+        num = num * 3 + 1;
+        continue;
+    }
 }
-console.log(array);
+
+console.log(1);
+console.log("Loops: ", loops);

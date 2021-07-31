@@ -6,11 +6,16 @@ const { object } = require("joi");
 
 const express = require("express");
 const app = express();
+const session = require('express-session');
 const methodOverride = require("method-override")
+const cookieParser = require('cookie-parser')
+const flash = require('connect-flash');
 
 const mongoose = require("mongoose");
 const morgan = require("morgan")
 const ejsMate = require("ejs-mate");
+
+
 
 
 //------ MY STUFF -----------
@@ -44,7 +49,7 @@ morgan('tiny');
 
 
 
-mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUnifiedTopology:true})
+mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false})
     .then(()=>{
         console.log("Mongo connected");
     })
@@ -58,6 +63,16 @@ mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUn
 
 
 //--------------MIDDLEWARE-----------------
+const sessionConfig = {
+    secret: 'thisisasecret',
+    resave:false,
+    saveUninitialized:true,
+    cookie: {
+        expires:5000,
+        maxAge:500000
+    }
+}
+
 
 app.engine('ejs', ejsMate);
 app.set("view engine", "ejs");
@@ -67,6 +82,15 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'));
+app.use(cookieParser('thisisasecret'));
+app.use(session(sessionConfig));
+
+app.use(flash());
+
+app.use((req,res,next)=>{
+    res.locals.messages = req.flash('info');
+    next();
+})
 
 
 //--------------ROUTERS--------------
@@ -81,18 +105,26 @@ app.use('/harjutused', harjutusteRouter);
 
 //---------------GET---------------------
 app.get('/SHOW', async (req,res)=>{
-
+    
     const {harjutusedH, kavadU, kavadÜ} = await SF.getData();
     SF.OrderRaskus(kavadÜ);
     SF.OrderRaskus(harjutusedH);
     SF.OrderRaskus(kavadU);
-    
+    res.cookie('name', 'john', {signed:true});
+    if(req.session.viewCount){
+        req.session.viewCount++;
+    }
+    else {
+        req.session.viewCount = 1;
+    }
+
     const data = {
         harjutusedH,
         kavadU,
         kavadÜ
     }
-    res.render("SHOW", {...data});
+    req.flash('info', 'Flash message');
+    res.cookie('viewCount', req.session.viewCount).render("SHOW", {...data});
 })
 
 
