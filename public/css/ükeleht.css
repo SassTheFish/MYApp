@@ -1,0 +1,15 @@
+#üke_form_section .row{
+    min-width: 400px;
+}
+
+.ükeform form{
+    border: 4px #2e4770 solid;
+    border-radius: 20px;
+}
+.ükekirj div{
+    border: 4px #63c1d4 solid;
+    border-radius: 20px;
+}
+.ükefilter {
+
+}

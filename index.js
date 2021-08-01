@@ -17,6 +17,9 @@ const ejsMate = require("ejs-mate");
 
 
 
+const bcrypt = require('bcrypt');
+
+
 
 //------ MY STUFF -----------
 
@@ -33,7 +36,7 @@ const SF = require('./Utils/SortingFunctions');
 //MODELS
 const { TreeningKava, Harjutus } = require('./models/harjutus');
 const UjumisKava = require('./models/ujumine');
-
+const User = require('./models/user');
 
 
 //ROUTER
@@ -45,7 +48,21 @@ const { appendFileSync } = require("fs");
 
 
 
+
 morgan('tiny');
+
+const hashPassword = async (pw)=>{
+    const salt = await bcrypt.genSalt(12);
+    const hash = await bcrypt.hash(pw, salt)
+    console.log(salt);
+    console.log(hash);
+}
+
+hashPassword('monkey');
+
+
+
+
 
 
 
@@ -88,7 +105,9 @@ app.use(session(sessionConfig));
 app.use(flash());
 
 app.use((req,res,next)=>{
-    res.locals.messages = req.flash('info');
+    res.locals.info = req.flash('info');
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     next();
 })
 
@@ -101,6 +120,55 @@ app.use('/ujumisekavad', ujumisekavaRouter);
 app.use('/harjutused', harjutusteRouter);
 
 
+app.get('/login', (req,res)=>{
+    res.render('login');
+})
+app.post('/login', async(req,res)=>{
+    const {username, password} = req.body;
+    if(!username | username === '' | !password | password === ''){
+        req.flash('error', 'empty fields!');
+        res.redirect('/login');    
+    }
+    const user = await User.findOne({username});
+    if(!user){
+        req.flash('error', 'Incorrecto')
+        res.redirect('login')
+    }
+    const validPassword = await bcrypt.compare(password, user.password);
+    if(validPassword){
+        req.flash('success', 'Logged in');
+        res.redirect('/');
+    }
+    else {
+        req.flash('error', 'Incorrecto')
+        res.redirect('/login')
+    }
+    
+})
+
+
+app.get('/secret', (req,res)=>{
+    res.render('secret')
+})
+app.get('/register', (req,res)=>{
+
+    res.render('register')
+})
+
+
+app.post('/register', async (req,res)=>{
+    const {username, password} = req.body;
+    const hash = await bcrypt.hash(password, 12);
+
+    const user = new User({
+        username, 
+        password:hash
+    })
+    await user.save()
+
+
+    res.redirect('register');
+})
 
 
 //---------------GET---------------------

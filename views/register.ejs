@@ -1,0 +1,13 @@
+<% layout("layout/boilerplateClean.ejs") %>
+<%- include('../partials/flash')  %>
+
+<h1>REGISTER</h1>
+
+
+<form action="/register" method="POST">
+    <input type="text" placeholder="username" name="username">
+
+
+    <input type="text" palceholder="password" name="password">
+    <button type="submit">Submit</button>
+</form>

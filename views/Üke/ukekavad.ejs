@@ -1,5 +1,6 @@
 <% layout("layout/boilerplate.ejs") %>
 <%- include("../partials/navbarÜke") %>
+<%- include('../partials/flash')  %>
 
 <div class="polygon1">
     <div class="polygon2">
@@ -17,10 +18,9 @@
         <div class="col-2"></div>
     </div>
 </div>
-<section class="mb-5">
-    
+<section class="mb-5" id="üke_form_section">
     <div class="row row-cols-1 row-cols-md-2 mx-5 p-3">
-        <div class="col">
+        <div class="col ükeform">
             <form class="form-control border-add p-4"action="/ukekavad/uus" method="POST">
                 <div class="row">
                     <label class="m-2 fs-3" for="ni">Lisa kava</label>
@@ -37,8 +37,8 @@
             </form>
         </div>
 
-        <div class="border-desc col p-3">
-            <div>
+        <div class="col ükekirj">
+            <div class="border-desc p-3 mt-3">
                 <ol>
                     <li>Loo kava oma nimega</li>
                     <li>Vali harjutusi</li>
@@ -47,7 +47,7 @@
                 </ol>
             </div>
         </div>
-        <div class="col-12 w-100 p-3">
+        <div class="col-12 w-100 p-3 ükefilter">
             <div class="filtermenu">
                 <div class="leftside">
                     <h5>Filter</h5>

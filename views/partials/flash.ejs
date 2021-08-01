@@ -1,0 +1,18 @@
+<% if (success && success.length) { %>
+    <div class="alert alert-success w-50 mx-auto mt-5 alert-dismissible fade show" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (info && info.length) { %>
+    <div class="alert alert-info w-50 mx-auto mt-5 alert-dismissible fade show" role="alert">
+        <%= info %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (error && error.length) { %>
+    <div class="alert alert-danger w-50 mx-auto mt-5 alert-dismissible fade show" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
