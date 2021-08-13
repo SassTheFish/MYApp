@@ -10,7 +10,8 @@ router.get("/", (req, res)=>{
     const object = 
     {
         reqbody,
-        path
+        path,
+        user: req.session.user,
     }
     res.render("home.ejs", {...object, data})
 })

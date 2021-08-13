@@ -28,6 +28,7 @@ router.get("/", async (req, res)=>{
         reqbody,
         path,
         kavad,
+        user: req.session.user,
     }
     res.render("Ujumine/ujumisekavad", {...object})
 })

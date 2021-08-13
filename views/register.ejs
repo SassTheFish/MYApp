@@ -1,13 +1,20 @@
-<% layout("layout/boilerplateClean.ejs") %>
-<%- include('../partials/flash')  %>
-
-<h1>REGISTER</h1>
+<% layout("layout/boilerplateUL.ejs") %>
+<%- include('./partials/flash')  %>
 
 
-<form action="/register" method="POST">
-    <input type="text" placeholder="username" name="username">
+<h1 class="loginh1">Registreeri</h1>
 
 
-    <input type="text" palceholder="password" name="password">
-    <button type="submit">Submit</button>
+
+<form class="loginform" action="/register" method="POST">
+    <div>
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" type="text" name="password">
+    </div>
+    <button class="login" type="submit">Registreeri</button>
+    <a class="tagasi" href="/">Tagasi</a>
 </form>

@@ -82,11 +82,10 @@ mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUn
 //--------------MIDDLEWARE-----------------
 const sessionConfig = {
     secret: 'thisisasecret',
-    resave:false,
+    resave:true,
     saveUninitialized:true,
     cookie: {
-        expires:5000,
-        maxAge:500000
+        maxAge:1000* 60 * 60 * 24 * 10 // 10 days
     }
 }
 
@@ -100,6 +99,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'));
 app.use(cookieParser('thisisasecret'));
+
 app.use(session(sessionConfig));
 
 app.use(flash());
@@ -123,6 +123,11 @@ app.use('/harjutused', harjutusteRouter);
 app.get('/login', (req,res)=>{
     res.render('login');
 })
+app.post('/logout', (req,res)=>{
+    req.session.user = null;
+    req.flash('info', 'logged out')
+    res.redirect(req.headers.referer.slice('http://localhost:4000'.length));
+})
 app.post('/login', async(req,res)=>{
     const {username, password} = req.body;
     if(!username | username === '' | !password | password === ''){
@@ -137,13 +142,13 @@ app.post('/login', async(req,res)=>{
     const validPassword = await bcrypt.compare(password, user.password);
     if(validPassword){
         req.flash('success', 'Logged in');
+        req.session.user = user._id;
         res.redirect('/');
     }
     else {
         req.flash('error', 'Incorrecto')
         res.redirect('/login')
     }
-    
 })
 
 
@@ -158,16 +163,19 @@ app.get('/register', (req,res)=>{
 
 app.post('/register', async (req,res)=>{
     const {username, password} = req.body;
+    if(!username | username === '' | !password | password === ''){
+        req.flash('error', 'empty fields!');
+        res.redirect('/register');    
+    }
     const hash = await bcrypt.hash(password, 12);
-
+    
     const user = new User({
         username, 
         password:hash
     })
     await user.save()
-
-
-    res.redirect('register');
+    req.session.user = user._id;
+    res.redirect('/');
 })
 
 
@@ -189,7 +197,8 @@ app.get('/SHOW', async (req,res)=>{
     const data = {
         harjutusedH,
         kavadU,
-        kavadÜ
+        kavadÜ,
+        user: req.session.user,
     }
     req.flash('info', 'Flash message');
     res.cookie('viewCount', req.session.viewCount).render("SHOW", {...data});
@@ -202,7 +211,8 @@ app.get('/testpage', (req,res)=>{
     const half2_lg = c_lihasgruppid.slice(length/2, length);
     const object = {
         half1_lg,
-        half2_lg
+        half2_lg,
+        user: req.session.user,
     }
     res.render('testsite.ejs', {...object});
 })
@@ -222,6 +232,7 @@ app.get("/technique-guides", (req, res)=>{
     const path = req.path;
     const object = 
     {
+        user: req.session.user,
         reqbody,
         path
     }
@@ -234,9 +245,16 @@ app.get("/swimming-plans", (req, res)=>{
     const object =
     {
         reqbody,
-        path
+        path,
+        user: req.session.user,
     }
-    res.render("swimming-plans.ejs", {...object})
+    if(req.session.user){
+        res.render("swimming-plans.ejs", {...object })
+    }
+    else{
+        req.flash('info', 'not logged in')
+        res.redirect(req.headers.referer.slice('http://localhost:4000'.length))
+    }
 })
 
 
