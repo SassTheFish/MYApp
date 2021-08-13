@@ -4,7 +4,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: #014e86c8;
+    background-color: #265373c8;
     clip-path: polygon(93% 53%, 55% 43%, 38% 10%, 0 0, 0 100%, 100% 100%);
     z-index: -10;
 }
@@ -14,7 +14,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: #2c7da0cc;
+    background-color: #497588cc;
     clip-path: polygon(80% 67%, 48% 53%, 23% 18%, 0 8%, 0 100%, 93% 100%);
     z-index: -10;
 }
@@ -24,7 +24,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: #013a63b7;
+    background-color: #152e40b7;
     clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
     z-index: -10;
 }
@@ -34,7 +34,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: rgba(100, 148, 237, 0.8);
+    background-color: #004d80;
     clip-path: polygon(93% 53%, 55% 43%, 38% 10%, 0 0, 0 100%, 100% 100%);
     z-index: -10;
 }
@@ -44,7 +44,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: rgba(165, 193, 246, 0.8);
+    background-color: #005c99;
     clip-path: polygon(80% 67%, 48% 53%, 23% 18%, 0 8%, 0 100%, 93% 100%);
     z-index: -10;
 }
@@ -54,7 +54,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: rgba(76, 139, 255, 0.8);
+    background-color: #003d66;
     clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
     z-index: -10;
 }
@@ -65,7 +65,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: #ffb54d;
+    background-color: #c71f37;
     clip-path: polygon(93% 53%, 55% 43%, 38% 10%, 0 0, 0 100%, 100% 100%);
     z-index: -10;
 }
@@ -75,7 +75,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: #ffc470;
+    background-color: #e01e37;
     clip-path: polygon(80% 67%, 48% 53%, 23% 18%, 0 8%, 0 100%, 93% 100%);
     z-index: -10;
 }
@@ -85,7 +85,7 @@
     bottom: 0px;
     height: 100vh;
     width: 100%;
-    background-color: #ffaa00d6;
+    background-color: #b21e35;
     clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
     z-index: -10;
 }

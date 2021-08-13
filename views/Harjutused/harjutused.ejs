@@ -1,5 +1,5 @@
 <% layout("layout/boilerplate.ejs") %>
-<%- include("../partials/navbar") %>
+<%- include("../partials/navbarHarjutused") %>
 <%- include('../partials/flash')  %>
 
 <div class="polygon1h">
@@ -16,15 +16,11 @@
         <h1>Harjutused</h1>
     </div>
 </div>
-<div class="row mx-5 row-cols-2">
-    <div>
-        <p></p>
-    </div>
-</div>
+
 
 <div class="container">
     <div class="row row-cols-1 mx-5 p-3">
-        <form class="form-control p-3 navy text-light" action="/harjutused" method="POST" style="border: none;">
+        <form class="form-control p-3 greynavy text-light" action="/harjutused" method="POST" style="border: none;">
             <div class="row row-cols-2">
                 <div class="col-12 col-md-6 my-1 ">
                     <label for="nim">Harjutuse nimi</label>
@@ -74,7 +70,7 @@
     <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
         <% for( let harjutus of harjutused) { %>
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-                <div id="harjutused" class="card navy shadow-lg h-100 text-white p-5">
+                <div id="harjutused" class="card cardcolor shadow-lg h-100 text-white p-5">
                     <div class="row row-cols-1 lead text-uppercase overflow-hidden"><h2><%= harjutus.nimi%></h2></div>
                     <div class="row row-cols-1">
                         <div><% if (harjutus.lihasgruppid.length > 1) { %>

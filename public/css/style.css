@@ -107,11 +107,16 @@ input
     background-color: #222e50;
 }
 
+.greynavy
+{
+    background-color: #0e3049;
+}
+
 
 
 .ükenav
 {
-    background-color: #ff9f1c;
+    background-color: #a11d33;
 }
 .ujuminenav
 {
@@ -170,10 +175,10 @@ input
     width: 100%;
     max-width: 500px;
     height: 100px;
-    background-color: #ff9f1c;
+    background-color: #a11d33;
     text-decoration: none;
     border-radius: 10px;
-    color: #12263a;
+    color: #eff5fa;
     line-height: 100px;
     font-size: 25px;
     transition: all ease 0.1s 0s;
@@ -208,7 +213,7 @@ input
 
 #üke a:hover
 {
-    background-color: #f26419;
+    background-color: #b7102c;
 }
 #ujumine a:hover 
 {
@@ -226,7 +231,9 @@ input
 
 /* ---------------------------------- */
 
-
+.cardcolor{
+    background-color: #293241;
+}
 #card2
 {
     width: 100%;
