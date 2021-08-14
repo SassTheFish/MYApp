@@ -20,7 +20,7 @@ router.get("/", async (req, res)=>{
         c_lihasgruppid,
         half1_lg,
         half2_lg,
-        user: req.session.user,
+        user: req.session.userid,
     }
     res.render("Harjutused/harjutused", {...object})
 })

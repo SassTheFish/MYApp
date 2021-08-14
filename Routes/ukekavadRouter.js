@@ -15,7 +15,7 @@ router.get("/", async (req, res)=>{
     {
         path,
         kavad,
-        user: req.session.user,
+        user: req.session.userid,
     }
     console.log(object);
     res.render("Üke/ukekavad", {...object})

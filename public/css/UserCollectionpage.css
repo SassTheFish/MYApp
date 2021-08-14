@@ -1,0 +1,59 @@
+.ujumiserow {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.ukerow {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.harjrow {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+
+
+#ujumisesection 
+{
+
+    padding: 20px;
+    min-height: 1000px;
+    background-image: url('../images/Group\ 1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#ükesection 
+{
+
+    padding: 20px;
+    min-height: 1000px;
+    background-image: url('../images/Group\ 2.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#harjsection 
+{
+    padding: 20px;
+    min-height: 1000px;
+    background-image: url('../images/Group\ 3.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+

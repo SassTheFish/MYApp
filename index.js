@@ -124,7 +124,7 @@ app.get('/login', (req,res)=>{
     res.render('login');
 })
 app.post('/logout', (req,res)=>{
-    req.session.user = null;
+    req.session.userid = null;
     req.flash('info', 'logged out')
     res.redirect(req.headers.referer.slice('http://localhost:4000'.length));
 })
@@ -142,7 +142,7 @@ app.post('/login', async(req,res)=>{
     const validPassword = await bcrypt.compare(password, user.password);
     if(validPassword){
         req.flash('success', 'Logged in');
-        req.session.user = user._id;
+        req.session.userid = user._id;
         res.redirect('/');
     }
     else {
@@ -174,7 +174,7 @@ app.post('/register', async (req,res)=>{
         password:hash
     })
     await user.save()
-    req.session.user = user._id;
+    req.session.userid = user._id;
     res.redirect('/');
 })
 
@@ -198,7 +198,7 @@ app.get('/SHOW', async (req,res)=>{
         harjutusedH,
         kavadU,
         kavadÜ,
-        user: req.session.user,
+        user: req.session.userid,
     }
     req.flash('info', 'Flash message');
     res.cookie('viewCount', req.session.viewCount).render("SHOW", {...data});
@@ -212,7 +212,7 @@ app.get('/testpage', (req,res)=>{
     const object = {
         half1_lg,
         half2_lg,
-        user: req.session.user,
+        user: req.session.userid,
     }
     res.render('testsite.ejs', {...object});
 })
@@ -232,23 +232,31 @@ app.get("/technique-guides", (req, res)=>{
     const path = req.path;
     const object = 
     {
-        user: req.session.user,
+        user: req.session.userid,
         reqbody,
         path
     }
     res.render("technique-guides.ejs", {...object})
 })
-app.get("/swimming-plans", (req, res)=>{
+app.get("/swimming-plans", async (req, res)=>{
     
     const reqbody = req.body;
     const path = req.path;
+    const userid = req.session.userid;
+    const user = await User.findById(userid);
+    const ujumisekavad = await UjumisKava.find();
+    const ükekavad = await TreeningKava.find().populate('harjutused.harj');
+    const harjutused = await Harjutus.find();
     const object =
     {
         reqbody,
         path,
-        user: req.session.user,
+        user: req.session.userid,
+        ujumisekavad,
+        ükekavad,
+        harjutused,
     }
-    if(req.session.user){
+    if(req.session.userid){
         res.render("swimming-plans.ejs", {...object })
     }
     else{

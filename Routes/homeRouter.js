@@ -11,7 +11,7 @@ router.get("/", (req, res)=>{
     {
         reqbody,
         path,
-        user: req.session.user,
+        user: req.session.userid,
     }
     res.render("home.ejs", {...object, data})
 })
