@@ -1,11 +1,44 @@
+#ujumisesection {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
 .ujumiserow {
     margin-top: 20px;
     margin-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: 49% 49%;
     column-gap: 10px;
     row-gap: 10px;
+    overflow-y: auto;
+    max-height: 900px;
+}
+#ujumisesection h2 {
+    color: rgb(241, 241, 241);
+}
+@media all and (max-width:2000px) {
+    #ujumisesection{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media all and (max-width:1200px){
+    .ujumiserow {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media all and (max-width:770px){
+    .ujumiserow {
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+#ükesection {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+#ükesection h2 {
+    color: rgb(241, 241, 241);
 }
 .ukerow {
     margin-top: 20px;
@@ -15,45 +48,86 @@
     grid-template-rows: repeat(2,1fr);
     column-gap: 10px;
     row-gap: 10px;
+    max-height: 620px;
+    overflow-y: auto;
+}
+@media all and (max-width:2000px) {
+    #ükesection{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media all and (max-width:1200px){
+    .ukerow {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media all and (max-width:770px){
+    .ukerow {
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+#harjsection {
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+#harjsection h2 {
+    color: rgb(241, 241, 241);
 }
 .harjrow {
-    margin-top: 20px;
-    margin-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(2,1fr);
     column-gap: 10px;
     row-gap: 10px;
+    overflow-y: auto;
+    max-height: 620px;
+}
+@media all and (max-width:2000px) {
+    #harjsection{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+@media all and (max-width:1200px){
+    .harjrow {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media all and (max-width:770px){
+    .harjrow {
+        grid-template-columns: repeat(1,1fr);
+    }
 }
 
+#body-swim
+{
+    background-image: url('../images/Group\ 8.svg');
+    background-repeat: no-repeat;
+    background-size: cover ;
+    z-index: 10;
+    
+}
+#body-grid {
+    display: grid;
+    top: 40px;
+    grid-template-rows: repeat(3,1fr);
+}
 
 
 #ujumisesection 
 {
-
-    padding: 20px;
-    min-height: 1000px;
-    background-image: url('../images/Group\ 1.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    grid-row: 1;
 }
 #ükesection 
 {
-
-    padding: 20px;
-    min-height: 1000px;
-    background-image: url('../images/Group\ 2.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    grid-row: 2;
 }
 #harjsection 
 {
-    padding: 20px;
-    min-height: 1000px;
-    background-image: url('../images/Group\ 3.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    grid-row: 3;
 }
+
 
 
 
