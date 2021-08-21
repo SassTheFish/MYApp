@@ -56,16 +56,63 @@
 }
 #sc-harj ul {
     list-style:upper-alpha;
+    margin: 0;
+    padding: 0;
 }
 
 #sc-harj li {
     margin: 0 0 15px 15px;
     font-size: 30px;
 }
+@media all and (max-width:1000px) 
+{
+    #showcard {
+        padding: 5px;
+    }
+    #sc-harj li 
+    {
+        font-size: 20px;
+    }    
+}
+
+
+
 #sc-harj span {
 
 }
 
 #sc-buttons{
+ 
+}
 
+#k-table 
+{
+    width: 100%;
+    text-align: center;
+}
+#k-table th
+{
+    border: 2px solid white;
+    height: 40px;
+}
+
+#k-table td {
+    border: 2px solid white;
+    height: 40px;
+}
+
+#k-table #ajastus svg
+{
+    height: 100px;
+    width: 100px;
+}
+#k-table #harjutus svg
+{
+    height: 100px;
+    width: 100px;
+}
+#k-table #vahendid svg
+{
+    height: 100px;
+    width: 100px;
 }

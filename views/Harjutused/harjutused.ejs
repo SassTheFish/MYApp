@@ -72,6 +72,7 @@
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <div id="harjutused" class="card cardcolor shadow-lg h-100 text-white p-5">
                     <div class="row row-cols-1 lead text-uppercase overflow-hidden"><h2><%= harjutus.nimi%></h2></div>
+                    
                     <div class="row row-cols-1">
                         <div><% if (harjutus.lihasgruppid.length > 1) { %>
                             Lihasgruppid:
@@ -88,12 +89,33 @@
                     <div class="row row-cols-2" id="harjcardbuttons">
                         <div class="col d-flex justify-content-start"><a  class="btn btn-primary btn-sm" href="harjutused/update/<%= harjutus._id%> ">Uuenda</a></div>
                         <div class="col d-flex justify-content-end"><a  class="btn btn-danger btn-sm" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
+                        <a href="/save" method="POST">Save harj</a>
                     </div>
                 </div>
             </div>
         <% } %>
     </div>
 </div>
+<div class="harjutused-harjutused">
+    <div id="harj-grid">
+        <% for( let harj of harjutused) { %>
+            <div id="harj-card">
+
+                <div id="harj-card-head">
+                    <h1><%= harj.raskustase %></h1>
+                    <h1><%= harj.nimi %></h1>
+                </div>
+                <div id="harj-card-main">
+                    <%= harj.lihasgruppid %> 
+                </div>
+                <div id="harj-card-buttons">
+
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
 
 
 <script>

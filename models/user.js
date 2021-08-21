@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:[true, 'Password cannot be blank']
+    },
+    saved:
+    {
+        type:[mongoose.Schema.Types.ObjectId]
     }
 })
 
