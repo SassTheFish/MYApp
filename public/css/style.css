@@ -6,7 +6,7 @@
 
 
 
-
+@import url('./colors.css');
 @import url('./filtermenu.css');
 @import url('./polygonBackgrounds.css');
 @import url('./footer.css');
@@ -15,6 +15,7 @@
 @import url('./login.css');
 @import url('./UserCollectionpage.css');
 @import url('./showcard.css');
+
 
 body {
     margin: 0;
