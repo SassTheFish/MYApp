@@ -1,6 +1,6 @@
 .harjutused-harjutused {
-    margin: 100px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 #harj-heading 
 {
@@ -11,11 +11,29 @@
 
 #harj-grid {
     display: grid;
-    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-columns: repeat(7,1fr);
     row-gap: 15px;
     width: 95%;
-    margin: auto;
-    justify-content: space-around;
+    justify-items: center;
+}
+@media all and (max-width:2400px)
+{
+    #harj-grid {
+        grid-template-columns: repeat(6,1fr);
+    }
+}
+@media all and (max-width:2000px)
+{
+    #harj-grid
+    {
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+@media all and (max-width:1700px){
+
+    #harj-grid{
+        grid-template-columns: repeat(4,1fr);
+    }
 }
 @media all and (max-width:1400px)
 {
@@ -33,7 +51,8 @@
 @media all and (max-width:700px)
 {
     #harj-grid {
-        grid-template-columns: 90%;
+        grid-template-columns: 300px;
+
     }
 }
 
@@ -62,14 +81,33 @@
     color: white;
     width: 90%;
     height: 90%;
-    background-color: rgb(54, 114, 226);
     border-radius: 20px;
     border-top-left-radius: 7px;
     font-size: 30px;
     line-height: 67px;
     text-align: center;
-
 }
+
+.level5
+{
+    background-color: #f94144;
+}
+.level4
+{
+    background-color: #f3722c;
+}
+.level3
+{
+    background-color: #f9c74f;
+}
+.level2
+{
+    background-color: #06d6a0;
+}
+.level1 {
+    background-color: rgb(53, 95, 142);
+}
+
 #harj-card-head span:nth-of-type(2){
     grid-column: 2/5;
     grid-row: 1;
@@ -97,11 +135,21 @@
 
 #harj-card-main {
     grid-row: 2/6;
-    display: block;
+    display: grid;
     width: 300px;
     padding: 10px;
     word-wrap: break-word;
     color: white;
+    grid-template-columns: 50% 50%;
+}
+#harj-card-main svg {
+    grid-column: 1;
+}
+
+#harj-card-main ul {
+    grid-column: 2;
+    overflow-y: auto;
+    word-wrap: break-word;
 }
 
 #harj-card-buttons 
@@ -175,3 +223,19 @@
 #harj-save:hover  #lips{
     fill: gold;
 }
+
+
+#harj-card-main .deltalihas .deltalihas-s {fill:rgb(224, 49, 49)} 
+#harj-card-main .triitseps  .triitseps-s {fill:rgb(80, 113, 232)}
+#harj-card-main .biitseps  .biitseps-s {fill:rgb(61, 234, 113)}
+#harj-card-main .kõhulihas  .kõhulihas-s {fill:rgb(243, 151, 47)}
+#harj-card-main .rinnalihas  .rinnalihas-s {fill:rgb(236, 41, 90)}
+#harj-card-main .ülaselg  .ülaselg-s {fill:rgb(251, 79, 79)}
+#harj-card-main .alaselg  .alaselg-s {fill:rgb(234, 65, 175)}
+#harj-card-main .tuharalihas  .tuharalihas-s {fill:rgb(197, 44, 44)}
+#harj-card-main .reie_eeskülg .reie-eeskülg-s {fill:rgb(84, 207, 186)}
+#harj-card-main .reie_tagakülg .reie-tagakülg-s {fill:rgb(35, 237, 123)}
+#harj-card-main .säärelihas  .säärelihas-s {fill:rgb(20, 22, 173)}
+#harj-card-main .kaelalihas   .kaelalihas-s {fill:rgb(168, 221, 36)}
+#harj-card-main .küljelihas  .küljelihas-s {fill:rgb(232, 87, 24)}
+#harj-card-main .käevars  .käevars-s {fill:rgb(125, 38, 217)}
