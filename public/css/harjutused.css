@@ -1,3 +1,50 @@
+.containerC {
+    width: 1500px;
+    margin: auto;
+}
+
+
+@media all and (max-width:1600px){
+    .containerC {
+        width: 1300px;
+    }
+}
+@media all and (max-width:1400px){
+    .containerC {
+        width: 1000px;
+    }
+}
+@media all and (max-width:1100px){
+    .containerC {
+        width: 700px;
+    }
+}
+@media all and (max-width:820px){
+    .containerC {
+        width: 600px;
+
+    }
+}
+@media all and (max-width:670px){
+    .containerC {
+        width: 400px;
+
+    }
+}
+@media all and (max-width:450px){
+    .containerC {
+        width: 300px;
+    }
+}
+@media all and (max-width:350px){
+    .containerC {
+        width: 250px;
+    }
+    .harj-card{
+        width: 270px;
+    }
+}
+
 .harjutused-harjutused {
     display: flex;
     justify-content: center;
@@ -14,6 +61,7 @@
     grid-template-columns: repeat(7,1fr);
     row-gap: 15px;
     width: 95%;
+    margin: auto;
     justify-items: center;
 }
 @media all and (max-width:2400px)
@@ -39,20 +87,13 @@
 {
     #harj-grid 
     {
-        grid-template-columns: 30% 30% 30%;
+        grid-template-columns: repeat(3,1fr);
     }
 }
 @media all and (max-width:1000px)
 {
     #harj-grid {
-        grid-template-columns: 40% 40%;
-    }
-}
-@media all and (max-width:700px)
-{
-    #harj-grid {
-        grid-template-columns: 300px;
-
+        grid-template-columns: repeat(2,1fr);
     }
 }
 
@@ -64,6 +105,8 @@
     height: 350px;
     border-radius: 7px;
 }
+
+
 
 #harj-card-head {
     display: grid;
@@ -161,6 +204,61 @@
     padding: 5px;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: 1;
+}
+
+@media all and (max-width:700px)
+{
+    #harj-grid {
+        grid-template-columns: repeat(1,1fr);
+
+    }
+    #harj-card {
+        width: 500px;
+    }
+
+    #harj-card-main{
+        width: 500px;
+    }
+    #harj-card-buttons {
+        width: 500px;
+    }
+
+}
+@media all and (max-width:400px)
+{
+    #harj-grid {
+        grid-template-columns: repeat(1,1fr);
+
+    }
+    #harj-card {
+        width: 340px;
+    }
+
+    #harj-card-main{
+        width: 340px;
+    }
+    #harj-card-buttons {
+        width: 340px;
+    }
+
+}
+@media all and (max-width:350px)
+{
+    #harj-grid {
+        grid-template-columns: repeat(1,1fr);
+
+    }
+    #harj-card {
+        width: 270px;
+    }
+
+    #harj-card-main{
+        width: 270px;
+    }
+    #harj-card-buttons {
+        width: 270px;
+    }
+
 }
 
 #harj-update 

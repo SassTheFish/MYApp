@@ -13,9 +13,10 @@
 
 
 
-<div class="container">
+
+<div class="containerC">
     <h1 id="harj-heading">Harjutused</h1>
-    <div class="row row-cols-1 mx-5 p-3">
+    <div class="row row-cols-1">
         <form class="form-control p-3 greynavy text-light" action="/harjutused" method="POST" style="border: none;">
             <div class="row row-cols-2">
                 <div class="col-12 col-md-6 my-1 ">
@@ -25,7 +26,7 @@
                 <div class="col-12 col-lg-6 my-1 ">
                     <label for="hoverting">Lihasgruppid</label>
                     <div id="hoverting" class="hoverthing">
-                        
+    
                     </div>
                     <div style="height: 0; position: relative;">
                         <div class="popup none">
@@ -50,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                
+    
                 <div class="col-12 col-md-6 my-1 "><label for="raskustase">Vali raskustase</label><input class="form-control" type="number" id="raskustase" name="raskustase" min='1' max="5" value="1"></div>
                 <div class="col-12 col-md-6  my-1 mt-4"><button class="btn btn-success w-100 fs-2 p-0" type="submit">+</button></div>
             </div>
@@ -61,7 +62,8 @@
     </div>
 </div>
 
-<div class="harjutused-harjutused">
+
+<div class="harjutused-harjutused mt-5">
     <div id="harj-grid">
         <% for( let harj of harjutused) { %>
             <div id="harj-card">
