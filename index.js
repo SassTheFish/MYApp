@@ -1,4 +1,10 @@
 //---------EXTERNAL----------
+
+if(process.env.NODE_ENV !== "production"){
+    require('dotenv').config();
+}
+
+
 const { url } = require("inspector");
 const { dirname} = require("path");
 const path = require("path")
@@ -15,6 +21,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan")
 const ejsMate = require("ejs-mate");
 
+const MongoDBStore = require("connect-mongo");
 
 
 const bcrypt = require('bcrypt');
@@ -62,10 +69,16 @@ hashPassword('monkey');
 
 
 
-
-
-
-mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify:false})
+const database_url_d = 'mongodb://localhost:27017/MYAPP';
+const database_url_p = process.env.DB_URL; 
+const database_url = database_url_p || database_url_d;
+// 'mongodb://localhost:27017/MYAPP'
+mongoose.connect(database_url, 
+    {
+    useNewUrlParser:true, 
+    useUnifiedTopology:true, 
+    useFindAndModify:false
+    })
     .then(()=>{
         console.log("Mongo connected");
     })
@@ -78,14 +91,29 @@ mongoose.connect('mongodb://localhost:27017/MYAPP', {useNewUrlParser:true, useUn
 
 
 
+
 //--------------MIDDLEWARE-----------------
+const store = new MongoDBStore({
+    mongoUrl:database_url,
+    touchAfter: 24 * 3600
+})
+
+
+store.on("error", function(e){
+    console.log("Session store error", e);
+})
+
+
+const Secret = process.env.SECRET || 'thisisasecret'
+
 const sessionConfig = {
-    secret: 'thisisasecret',
+    secret: Secret,
     resave:true,
     saveUninitialized:true,
     cookie: {
         maxAge:1000* 60 * 60 * 24 * 10 // 10 days
-    }
+    },
+    store
 }
 
 
@@ -97,7 +125,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'));
-app.use(cookieParser('thisisasecret'));
+app.use(cookieParser(Secret));
 
 app.use(session(sessionConfig));
 
