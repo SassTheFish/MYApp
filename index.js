@@ -72,10 +72,10 @@ hashPassword('monkey');
 const database_url_d = 'mongodb://localhost:27017/MYAPP';
 const database_url_p = process.env.DB_URL; 
 const database_url = database_url_p || database_url_d;
-// 'mongodb://localhost:27017/MYAPP'
 mongoose.connect(database_url, 
     {
-    useNewUrlParser:true, 
+    useNewUrlParser:true,
+    useCreateIndex:true,
     useUnifiedTopology:true, 
     useFindAndModify:false
     })
@@ -115,7 +115,6 @@ const sessionConfig = {
     },
     store
 }
-
 
 app.engine('ejs', ejsMate);
 app.set("view engine", "ejs");
@@ -157,7 +156,7 @@ app.get('/login', (req,res)=>{
 app.post('/logout', (req,res)=>{
     req.session.userid = null;
     req.flash('info', 'logged out')
-    res.redirect(req.headers.referer.slice('http://localhost:4000'.length));
+    res.redirect("/");
 })
 app.post('/login', async(req,res)=>{
     const {username, password} = req.body;
@@ -292,7 +291,7 @@ app.get("/swimming-plans", async (req, res)=>{
     }
     else{
         req.flash('info', 'not logged in')
-        res.redirect(req.headers.referer.slice('http://localhost:4000'.length))
+        res.redirect('/')
     }
 })
 
