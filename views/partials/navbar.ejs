@@ -40,7 +40,7 @@
             <% } %>" href="/ukekavad">Kavad</a>
           </li>
         </ul>
-        <% if (user) { %>
+        <% if (currentUser) { %>
           <form id="navform" action="/logout" method="POST">
             <button class="Out" type="submit">Logout</button>
           </form>

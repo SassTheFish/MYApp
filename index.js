@@ -23,9 +23,9 @@ const ejsMate = require("ejs-mate");
 
 const MongoDBStore = require("connect-mongo");
 
-
 const bcrypt = require('bcrypt');
-
+const passport = require('passport');
+const LocalStrat = require('passport-local');
 
 
 //------ MY STUFF -----------
@@ -52,6 +52,8 @@ const ukekavaRouter = require('./Routes/ukekavadRouter');
 const ujumisekavaRouter = require('./Routes/ujumisekavaRouter');
 const harjutusteRouter = require('./Routes/harjutusRouter');
 const showcardRouter = require('./Routes/showcardRouter');
+const userRouter = require('./Routes/userRouter');
+
 const { appendFileSync } = require("fs");
 
 
@@ -93,6 +95,10 @@ mongoose.connect(database_url,
 
 
 //--------------MIDDLEWARE-----------------
+
+const isLoggedIn = require('./middleware');
+
+
 const store = new MongoDBStore({
     mongoUrl:database_url,
     touchAfter: 24 * 3600
@@ -125,12 +131,21 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(morgan('dev'));
 app.use(cookieParser(Secret));
-
 app.use(session(sessionConfig));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrat(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 app.use(flash());
 
 app.use((req,res,next)=>{
+    res.locals.currentUser = req.user;
     res.locals.info = req.flash('info');
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
@@ -145,68 +160,18 @@ app.use('/ukekavad', ukekavaRouter);
 app.use('/ujumisekavad', ujumisekavaRouter);
 app.use('/harjutused', harjutusteRouter);
 app.use('/showcard', showcardRouter);
+app.use('/', userRouter);
 
 
 
 
 
-app.get('/login', (req,res)=>{
-    res.render('login');
-})
-app.post('/logout', (req,res)=>{
-    req.session.userid = null;
-    req.flash('info', 'logged out')
-    res.redirect("/");
-})
-app.post('/login', async(req,res)=>{
-    const {username, password} = req.body;
-    if(!username | username === '' | !password | password === ''){
-        req.flash('error', 'empty fields!');
-        res.redirect('/login');    
-    }
-    const user = await User.findOne({username});
-    if(!user){
-        req.flash('error', 'Incorrecto')
-        res.redirect('login')
-    }
-    const validPassword = await bcrypt.compare(password, user.password);
-    if(validPassword){
-        req.flash('success', 'Logged in');
-        req.session.userid = user._id;
-        res.redirect('/');
-    }
-    else {
-        req.flash('error', 'Incorrecto')
-        res.redirect('/login')
-    }
-})
 
 
-app.get('/secret', (req,res)=>{
+app.get('/secret', isLoggedIn,(req,res)=>{
     res.render('secret')
 })
-app.get('/register', (req,res)=>{
 
-    res.render('register')
-})
-
-
-app.post('/register', async (req,res)=>{
-    const {username, password} = req.body;
-    if(!username | username === '' | !password | password === ''){
-        req.flash('error', 'empty fields!');
-        res.redirect('/register');    
-    }
-    const hash = await bcrypt.hash(password, 12);
-    
-    const user = new User({
-        username, 
-        password:hash
-    })
-    await user.save()
-    req.session.userid = user._id;
-    res.redirect('/');
-})
 
 
 //---------------GET---------------------
@@ -228,7 +193,6 @@ app.get('/SHOW', async (req,res)=>{
         harjutusedH,
         kavadU,
         kavadÜ,
-        user: req.session.userid,
     }
     req.flash('info', 'Flash message');
     res.cookie('viewCount', req.session.viewCount).render("SHOW", {...data});
@@ -242,7 +206,7 @@ app.get('/testpage', (req,res)=>{
     const object = {
         half1_lg,
         half2_lg,
-        user: req.session.userid,
+        
     }
     res.render('testsite.ejs', {...object});
 })
@@ -262,18 +226,15 @@ app.get("/technique-guides", (req, res)=>{
     const path = req.path;
     const object = 
     {
-        user: req.session.userid,
         reqbody,
         path
     }
     res.render("technique-guides.ejs", {...object})
 })
-app.get("/swimming-plans", async (req, res)=>{
+app.get("/swimming-plans", isLoggedIn, async (req, res)=>{
     
     const reqbody = req.body;
     const path = req.path;
-    const userid = req.session.userid;
-    const user = await User.findById(userid);
     const ujumisekavad = await UjumisKava.find();
     const ükekavad = await TreeningKava.find().populate('harjutused.harj');
     const harjutused = await Harjutus.find();
@@ -281,18 +242,11 @@ app.get("/swimming-plans", async (req, res)=>{
     {
         reqbody,
         path,
-        user: req.session.userid,
         ujumisekavad,
         ükekavad,
         harjutused,
     }
-    if(req.session.userid){
-        res.render("swimming-plans.ejs", {...object })
-    }
-    else{
-        req.flash('info', 'not logged in')
-        res.redirect('/')
-    }
+    res.render("swimming-plans.ejs", {...object })
 })
 
 
