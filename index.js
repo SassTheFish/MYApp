@@ -333,9 +333,9 @@ app.use((err,req,res,next)=>{
 })
 
 
-
-app.listen(4000, ()=>{
-    console.log("Listening on 4000");
+const port = process.env.PORT || 3000;
+app.listen(port, ()=>{
+    console.log(`Listening on ${port}`);
 })
 
 
