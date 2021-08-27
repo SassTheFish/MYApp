@@ -15,7 +15,7 @@
 @import url('./login.css');
 @import url('./UserCollectionpage.css');
 @import url('./showcard.css');
-
+@import url('./home.css');
 
 body {
     margin: 0;
@@ -94,11 +94,15 @@ input
     }
 }
 
-
 .magnific {
     color: rgb(233, 233, 233);
 }
-
+.highlightNav {
+    background-color: rgb(246, 246, 246);
+    padding: 5px;
+    color: rgb(39, 39, 39) !important;
+    border-radius: 20px;
+}
 
 
 .navy

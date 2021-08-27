@@ -41,8 +41,8 @@ const SF = require('./Utils/SortingFunctions');
 
 
 //MODELS
-const { TreeningKava, Harjutus } = require('./models/harjutus');
-const UjumisKava = require('./models/ujumine');
+const { Üke, Harjutus } = require('./models/harjutus');
+const Ujumine = require('./models/ujumine');
 const User = require('./models/user');
 
 
@@ -211,7 +211,6 @@ app.get('/testpage', (req,res)=>{
     res.render('testsite.ejs', {...object});
 })
 app.post('/testpage', (req,res)=>{
-    console.log(req.body);
     res.redirect('/testpage');
 })
 app.get("/example", (req,res)=>{
@@ -231,25 +230,43 @@ app.get("/technique-guides", (req, res)=>{
     }
     res.render("technique-guides.ejs", {...object})
 })
-app.get("/swimming-plans", isLoggedIn, async (req, res)=>{
+app.get("/minapage", isLoggedIn, async (req, res)=>{
     
     const reqbody = req.body;
     const path = req.path;
-    const ujumisekavad = await UjumisKava.find();
-    const ükekavad = await TreeningKava.find().populate('harjutused.harj');
-    const harjutused = await Harjutus.find();
-    const object =
+    const ids = req.user.saved;
+    let ujumisekavad = await Ujumine.find({'_id': {$in: ids}});
+    let ükekavad = await Üke.find({'_id': {$in: ids}});
+    let harjutused = await Harjutus.find({'_id': {$in: ids}});
+
+    const object = 
     {
         reqbody,
         path,
         ujumisekavad,
         ükekavad,
-        harjutused,
+        harjutused
     }
-    res.render("swimming-plans.ejs", {...object })
+    res.render("minapage.ejs", {...object })
 })
 
+app.post('/save/:id', async(req,res)=>{
+    console.log(req.user)
+    console.log(req.params.id)
 
+    const user = await User.findById(req.user._id)
+    if(!user.saved.includes(req.params.id)){
+        user.saved.push(req.params.id);
+    }
+    else {
+        req.flash('error', 'already saved');
+        res.redirect('/harjutused');
+    }
+    
+    user.save();
+    req.flash('success', 'saved');
+    res.redirect('/harjutused');
+})
 
 //------------PUT------------------
 

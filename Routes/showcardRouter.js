@@ -1,12 +1,14 @@
 const express = require('express');
 const TreeningKava = require('../models/ujumine');
+const isLoggedIn = require('../middleware')
+
 
 const router = express.Router();
 
 router.get("/:id", async (req, res)=>{
     
     const reqbody = req.body;
-    const path = req.path;
+    const path = req.originalUrl;
     const kava = await TreeningKava.findById(req.params.id); 
     const object = 
     {

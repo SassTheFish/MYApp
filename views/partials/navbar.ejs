@@ -12,31 +12,25 @@
 
           <li class="nav-item">
             <a class="nav-link <% if(path === "/") { %>
-              active
+              highlightNav
             <% } %>
             " aria-current="page" href="/">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link <% if(path === "/swimming-plans") { %>
-              active
-            <% } %>" href="/swimming-plans">Swimming Plans</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link <% if(path === "/technique-guides") { %>
-              active
-            <% } %>" href="/technique-guides">Technique Guides</a>
+            <a class="nav-link <% if(path === "/minapage") { %>
+              highlightNav
+            <% } %>" href="/minapage">Mina</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link <% if(path === "/harjutused") { %>
-              active
+              highlightNav
             <% } %>" href="/harjutused">Harjutused</a>
           </li>
           <li class="nav-item">
             <a class="nav-link <% if(path === "/ukekavad" | path === "/ujumisekavad") { %>
-              active
+              highlightNav
             <% } %>" href="/ukekavad">Kavad</a>
           </li>
         </ul>

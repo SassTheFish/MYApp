@@ -1,0 +1,30 @@
+.home-section {
+    width: 100%;
+    padding: 40px;
+}
+
+.home-grid {
+    display: flex;
+    grid-template-areas: 
+        "a a c c"  
+        "b b d d";
+    row-gap: 15px;
+    width: 1000px;
+    justify-items: center;
+}
+
+
+.home-grid #ujumineShort {
+    grid-area: a;
+    width: 100px;   
+    height: 100px;
+    background-color: green;
+}
+
+.home-grid #ükeshort
+{
+    grid-area: c;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}

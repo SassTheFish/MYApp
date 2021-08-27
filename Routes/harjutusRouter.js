@@ -10,7 +10,8 @@ router.get("/", async (req, res)=>{
     const half1_lg = c_lihasgruppid.slice(0,length/2);
     const half2_lg = c_lihasgruppid.slice(length/2, length);
     const reqbody = req.body;
-    const path = req.path;
+    const path = req.originalUrl;
+    console.log(path);
     const harjutused = await Harjutus.find();
     const object =
     {
@@ -39,7 +40,7 @@ router.get("/deleteOne/:id", async (req,res)=>{
     {
         await Harjutus.findByIdAndDelete(id).then(()=>{console.log("done")}).catch(err=>{console.log("err", err)});
     } else {
-        console.log("Harjutus on kasutusel");
+        req.flash('error','harj kasutusel');
     }
     res.redirect("/harjutused")
 })
@@ -70,9 +71,8 @@ router.put("/update/:id", async (req,res)=>{
 
 router.post("/", async (req,res) => {
     const harjutus = req.body;
-    console.log(harjutus);
     const harjutus1 = await new Harjutus(harjutus);
-    harjutus1.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
+    harjutus1.save().then().catch(err => {console.log(err)});
     res.redirect("/harjutused");
 })
 

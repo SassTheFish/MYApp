@@ -21,7 +21,7 @@ const validateUjumiseHarjutus = (req,res,next) => {
 router.get("/", async (req, res)=>{
     
     const reqbody = req.body;
-    const path = req.path;
+    const path = req.originalUrl;
     const kavad = await UjumisKava.find();
     const object =
     {
@@ -35,7 +35,7 @@ router.get("/", async (req, res)=>{
 
 router.get("/lisaharjutus/:id", async (req, res)=>{
     const reqbody = req.body;
-    const path = req.path;
+    const path = req.originalUrl;
     const {id} = req.params;
     const kava = await UjumisKava.findById(id);
     const object = 
@@ -50,7 +50,6 @@ router.get("/lisaharjutus/:id", async (req, res)=>{
 
 router.get("/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
-    console.log(id);
     await UjumisKava.findByIdAndDelete(id);
     res.redirect("/ujumisekavad")
 })
@@ -72,7 +71,6 @@ router.put("/update/:id", async(req,res)=>{
 router.put("/lisaharjutus/:id", validateUjumiseHarjutus, async (req,res) => {
     const {id} = req.params;
     const harjutus = req.body;
-    console.log(harjutus);
     await UjumisKava.findByIdAndUpdate(id, {$push:{harjutused:harjutus}},{runValidators:true, useFindAndModify:false});
     const kava = await UjumisKava.findById(id);
 
@@ -94,20 +92,17 @@ router.get("/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
         }
     }
     await kava.save();
-    console.log(kava);
     res.redirect(`/ujumisekavad/lisaharjutus/${kavaid}`);
 })
 
 router.post("/uus", catchAsync(async (req,res) => {
     const sisse = req.body;
-    console.log(sisse);
     const kavad = await new UjumisKava(sisse);
-    kavad.save().then(res =>{console.log(res)}).catch(err => {console.log(err)});
+    kavad.save().then().catch(err => {console.log(err)});
     res.redirect("/ujumisekavad");
 }))
 router.post("/", catchAsync(async (req,res) => {
     const sisse = req.body;
-    console.log(sisse);
     let kavad;
 
     if(sisse.otsing){
@@ -122,7 +117,7 @@ router.post("/", catchAsync(async (req,res) => {
 
     const object = {
 
-        path:req.path,
+        path:req.originalUrl,
         kavad
     }
     res.render("Ujumine/ujumisekavad", {...object});

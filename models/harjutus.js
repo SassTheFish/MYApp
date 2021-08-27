@@ -58,13 +58,13 @@ treeningkavaSchema.query.byName = function(name) {
 
 
 const Harjutus = mongoose.model("Harjutus", harjutuseSchema);
-const TreeningKava = mongoose.model("Treeningkava", treeningkavaSchema);
+const Üke = mongoose.model("Treeningkava", treeningkavaSchema);
 
 
 
 
 
-const object = {Harjutus, TreeningKava};
+const object = {Harjutus, Üke};
 
 module.exports = object;
 

@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", (req, res)=>{
     
     const reqbody = req.body;
-    const path = req.path;
+    const path = req.originalUrl;
     const object = 
     {
         reqbody,
