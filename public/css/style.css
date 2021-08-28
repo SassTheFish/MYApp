@@ -15,6 +15,7 @@
 @import url('./login.css');
 @import url('./UserCollectionpage.css');
 @import url('./showcard.css');
+@import url('./homepage.css');
 
 body {
     margin: 0;
@@ -96,12 +97,16 @@ input
 .magnific {
     color: rgb(233, 233, 233);
 }
-.highlightNav {
-    background-color: rgb(246, 246, 246);
-    padding: 5px;
-    color: rgb(39, 39, 39) !important;
-    border-radius: 20px;
+
+@media all and (min-width:992px) {
+    .highlightNav {
+        background-color: rgb(246, 246, 246);
+        padding: 5px;
+        color: rgb(39, 39, 39) !important;
+        border-radius: 20px;
+    }
 }
+
 
 
 .navy
@@ -120,8 +125,14 @@ input
     background-color: #0e3049;
 }
 
-
-
+.üke_h_nav
+{
+    background-color: #152e40;
+}
+.ujumise_h_nav
+{
+    background-color: #1e88e5;
+}
 .ükenav
 {
     background-color: #a11d33;

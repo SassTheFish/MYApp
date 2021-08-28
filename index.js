@@ -48,11 +48,12 @@ const User = require('./models/user');
 
 //ROUTER
 const homeRouter = require('./Routes/homeRouter');
-const ukekavaRouter = require('./Routes/ukekavadRouter');
-const ujumisekavaRouter = require('./Routes/ujumisekavaRouter');
-const harjutusteRouter = require('./Routes/harjutusRouter');
+const Ük_kavaRouter = require('./Routes/ukekavadRouter');
+const U_kavaRouter = require('./Routes/ujumisekavaRouter');
+const Ük_harjRouter = require('./Routes/harjutusRouter');
 const showcardRouter = require('./Routes/showcardRouter');
 const userRouter = require('./Routes/userRouter');
+const U_harjRouter = require('./Routes/ujumiseharjRouter');
 
 const { appendFileSync } = require("fs");
 
@@ -156,9 +157,10 @@ app.use((req,res,next)=>{
 //--------------ROUTERS--------------
 
 app.use('/', homeRouter);
-app.use('/ukekavad', ukekavaRouter);
-app.use('/ujumisekavad', ujumisekavaRouter);
-app.use('/harjutused', harjutusteRouter);
+app.use('/ukekavad', Ük_kavaRouter);
+app.use('/ujumisekavad', U_kavaRouter);
+app.use('/harjutused', Ük_harjRouter);
+app.use('/ujumiseharj', U_harjRouter);
 app.use('/showcard', showcardRouter);
 app.use('/', userRouter);
 

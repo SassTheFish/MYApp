@@ -28,6 +28,36 @@
     clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
     z-index: -10;
 }
+.polygon1uh
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #00b4d8;
+    clip-path: polygon(93% 53%, 55% 43%, 38% 10%, 0 0, 0 100%, 100% 100%);
+    z-index: -10;
+}
+.polygon2uh
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #48cae4;
+    clip-path: polygon(80% 67%, 48% 53%, 23% 18%, 0 8%, 0 100%, 93% 100%);
+    z-index: -10;
+}
+.polygon3uh
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #0077b6;
+    clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
+    z-index: -10;
+}
 .polygon1u
 {
     position: fixed;

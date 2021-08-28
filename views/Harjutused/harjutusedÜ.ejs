@@ -1,5 +1,5 @@
 <% layout("layout/boilerplate.ejs") %>
-<%- include("../partials/navbarHarjutused") %>
+<%- include("../partials/navbar_Ük_harj") %>
 <%- include('../partials/flash')  %>
 
 <div class="polygon1h">
@@ -12,12 +12,17 @@
 
 
 
+<h1 id="harj-heading">Üke harjutused</h1>
+<div class="harj-switch">
+    <a id="ükeharj-btn" href="/harjutused">Üke</a>
+    <a id="ujumiseharj-btn" href="/ujumiseharj">Ujumine</a>
+</div>
+
 
 
 <div class="containerC">
-    <h1 id="harj-heading">Harjutused</h1>
     <div class="row row-cols-1">
-        <form class="form-control p-3 greynavy text-light" action="/harjutused" method="POST" style="border: none;">
+        <form class="form-control p-4 üke_h_nav text-light" action="/harjutused" method="POST" style="border: none;">
             <div class="row row-cols-2">
                 <div class="col-12 col-md-6 my-1 ">
                     <label for="nim">Harjutuse nimi</label>
@@ -56,9 +61,6 @@
                 <div class="col-12 col-md-6  my-1 mt-4"><button class="btn btn-success w-100 fs-2 p-0" type="submit">+</button></div>
             </div>
         </form>
-        <div>
-            <h4>DELETE ALL (/deleteALL)</h4>
-        </div>
     </div>
 </div>
 

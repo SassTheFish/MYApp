@@ -23,7 +23,7 @@ router.get("/", async (req, res)=>{
         half2_lg,
         user: req.session.userid,
     }
-    res.render("Harjutused/harjutused", {...object})
+    res.render("Harjutused/harjutusedÜ", {...object})
 })
 
 router.get("/deleteOne/:id", async (req,res)=>{
