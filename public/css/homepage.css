@@ -1,27 +1,70 @@
-.home-home {
-    display: flex;
-    justify-content: center;
+.home-select {
+    width: 100%;
+    margin-bottom: 100px;
+    height: 100px;
+}
+.select-menu {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    height: 100%;
+}
+.home-s-alad {
+    grid-column: 1;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    line-height: 100px;
+    background-color: rgb(241, 241, 241);
+}
+.home-s-trennigruppid
+{
+    width: 100%;
+    grid-column: 2;
+    text-align: center;
+    font-size: 25px;
+    line-height: 100px;
+    background-color: rgb(241, 241, 241);
+}
+.home-s-alad:hover, .home-s-trennigruppid:hover {
+    background-color: rgb(224, 223, 223);
 }
 
 
+.home-home {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
 
 #home-grid
 {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 1;
+    grid-template-columns: repeat(2,1fr);
     width: 95%;
-    height: 600px;
-    row-gap: 10px;
+    max-width: 1500px;
+
+    row-gap: 40px;
     margin:auto;
     justify-items: center;
+}
+@media all and (max-width:850px) {
+    #home-grid {
+        grid-template-columns: repeat(1,1fr);
+    }
+    #ujuminego {
+        grid-row: 1;
+    }
+    #ujumisetext 
+    {
+        grid-row: 2;
+    }
 }
 
 .ujuminego
 {
     grid-column: 1;
-    grid-row: 1;
-    background-color: rgb(75, 75, 181);
+    background-color: #163e5b;
     width: 300px;
     height: 350px;
     display: grid;
@@ -31,46 +74,114 @@
     border-radius:20px;
     text-decoration: none;
     color: white;
-}
-.ujuminego div:nth-of-type(1){
-    font-size: 30px;
-    text-transform:capitalize;
+    justify-self: end;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-.harjgo {
-    grid-column: 3;
-    grid-row: 1;
-    background-color: rgb(37, 78, 96);
-    width: 300px;
-    height: 350px;
-    grid-template-rows: repeat(3,1fr);
-    text-align: center;
-    padding: 15px;
-    border-radius:20px;
+.ujuminego div {
+    font-size: 30px;
+    z-index: 3;
+}
+.ujuminego a:nth-of-type(1){
+    font-size: 20px;
+    background-color: #4899D3;
+    color: rgb(44, 44, 44);
     text-decoration: none;
-    color: white;
+    line-height: 75px;
+    margin: 20px;
+    border-radius: 15px;
+    grid-row: 2;
 }
 
-.harjgo div:nth-of-type(1){
-    font-size: 30px;
-    text-transform:capitalize;
+.ujuminego a:nth-of-type(2){
+    font-size: 20px;
+    background-color: #4899D3;
+    color: rgb(44, 44, 44);
+    text-decoration: none;
+    line-height: 75px;
+    margin: 20px;
+    border-radius: 15px;
+    grid-row: 3;
+}
+.ujuminego a:nth-of-type(1):hover, .ujuminego a:nth-of-type(2):hover {
+    background-color: #3b7baa;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.ujuminego a:nth-of-type(1):active, .ujuminego a:nth-of-type(2):active {
+    border: 2px solid black;
 }
 
 .ukego {
     grid-column: 2;
-    grid-row: 1;
-    background-color: rgb(190, 59, 59);
+    background-color: #a11d33;
     width: 300px;
     height: 350px;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    text-align: center;
+    padding: 15px;
+    border-radius:20px;
+    color: white;
+    justify-self: start;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.uketext {
+    padding: 30px;
+    max-width: 600px
+
+}
+
+.ukego div {
+    font-size: 30px;
+    
+}
+.ukego a:nth-of-type(1){
+    font-size: 20px;
+    background-color: #DB3D57;
+    color: rgb(44, 44, 44);
+    text-decoration: none;
+    line-height: 75px;
+    margin: 20px;
+    border-radius: 15px;
+    grid-row: 2;
+}
+.ukego a:nth-of-type(2){
+    font-size: 20px;
+    background-color: #DB3D57;
+    color: rgb(44, 44, 44);
+    text-decoration: none;
+    line-height: 75px;
+    margin: 20px;
+    border-radius: 15px;
+    grid-row: 3;
+}
+.ukego a:nth-of-type(1):hover, .ukego a:nth-of-type(2):hover {
+    background-color: #b4364b;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.ukego a:nth-of-type(1):active, .ukego a:nth-of-type(2):active {
+    border: 2px solid black;
+}
+.rattago
+{
+    grid-column: 1;
+    background-color: #343a40;
+    width: 300px;
+    height: 350px;
+    display: grid;
     grid-template-rows: repeat(3,1fr);
     text-align: center;
     padding: 15px;
     border-radius:20px;
     text-decoration: none;
     color: white;
+    justify-self: end;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-
-.ukego div:nth-of-type(1){
+.rattago div {
     font-size: 30px;
-    text-transform:capitalize;
+}
+.rattatext {
+    padding: 30px;
+    max-width: 600px;
 }

@@ -349,19 +349,22 @@
 }
 
 
-
+#harj-card-buttons form {
+    margin: auto;
+    width: 50%;
+}
 #harj-save 
 {
     grid-column: 3;
     margin: auto auto;
     background-color: #3d3d3e;
     padding:10px;
+    border: none;
     border-radius: 10px;
     transition: all ease 0.3s 0s;
     width: 60px;
 }
 #harj-save svg{
-    transform: translateX(50%);
 }
 
 #harj-save #lips {
