@@ -1,98 +1,102 @@
 .filtermenu
 {
     display: grid;
-    height: 150px;
-    border: solid 4px #2e4770 ;
-    border-radius: 20px;
-    background-color: white;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-}
-
-.filtermenu .leftside{
-    padding: 10px;
-    grid-column: 1/7;
-    grid-row: 1/11;
-}
-.filtermenu .leftside h5
-{
-    grid-row:1/10;
+    grid-template-columns: 60% 40%;
+    background: white;
+    padding: 15px;
 }
 
 
-.filtermenu form 
-{
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-}
+
+
 .filtermenu form input[type="text"] {
-    grid-row: 2;
-    height: 40px;
-    grid-column: 1/4;
+    max-width: 60%;
 }
 .filtermenu form .form-check:nth-of-type(1)
 {
-    grid-column: 1;
-    grid-row: 1;
-    margin-left: 5px;
+
 }
 .filtermenu form .form-check:nth-of-type(2)
 {
-    grid-column: 2;
-    grid-row: 1;
-    margin-left: 5px;
 }
 .filtermenu button[type="submit"]
 {
     border: none;
-    background-color: #ff9f1c;
     border-radius: 20px;
+    height: 40px;
+    width: 70px;
+    background-color: #ff9f1c;
     color: black;
-    font-weight: 600;
-    letter-spacing: 2px;
-    width: 100%;
-    grid-column: 4/6;
-    grid-row: 2;
-    margin-left: 5px;
+    margin: 5px;
 
 }
 .rightside {
-    padding: 10px;
-    grid-column: 7/10;
-    grid-row: 1/11;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(3,1fr);
+    row-gap: 5px;
+    justify-items: center;
 }
 .filtermenu .rightside #värvid {
-    grid-column: 3;
-    grid-row: 1;
-    margin: 2px;
+    border: none;
+    border-radius: 20px;
+    
+    width: 50%;
+    background-color: #ff9f1c;
 }
 .filtermenu .rightside #nupp1 {
-    grid-column: 3;
-    grid-row: 2;
     border: none;
-    border-radius: 5px;
-    background-color: #dd8b18;
-    color: black;
-    margin: 2px;
+    border-radius: 20px;
+   
+    width: 50%;
+    background-color: #ff9f1c;
+
 }
 .filtermenu .rightside #nupp2 {
-    grid-column: 3;
-    grid-row: 3;
     border: none;
-    border-radius: 5px;
-    background-color: #dd8b18;
-    color: black;
-    margin: 2px;
-}
-#värvid {
-    text-decoration: none;
-    color: #2e282a;
-    padding: 5px;
-    border: none;
-    border-radius: 6px;
+    border-radius: 20px;
+    
+    width: 50%;
     background-color: #ff9f1c;
+}
+@media all and (max-width:900px){
+    .filtermenu .rightside #värvid{
+        width: 70%;
+    }
+    .filtermenu .rightside #nupp1{
+        width: 70%;
+    }
+    .filtermenu .rightside #nupp2{
+        width: 70%;
+    }
+}
+@media all and (max-width:700px){
+    .filtermenu .rightside #värvid{
+        width: 90%;
+    }
+    .filtermenu .rightside #nupp1{
+        width: 90%;
+    }
+    .filtermenu .rightside #nupp2{
+        width: 90%;
+    }
+}
+@media all and (max-width:500px){
+
+    .filtermenu {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .filtermenu .rightside {
+        grid-template-columns: repeat(3,1fr);
+        height: 30px;
+    }
+    .filtermenu .rightside #värvid{
+        width: 100px;
+    }
+    .filtermenu .rightside #nupp1{
+        width: 100px;
+    }
+    .filtermenu .rightside #nupp2{
+        width: 100px;
+    }
 }

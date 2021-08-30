@@ -16,11 +16,7 @@
 @import url('./UserCollectionpage.css');
 @import url('./showcard.css');
 @import url('./homepage.css');
-
-body {
-    margin: 0;
-    padding: 0;
-}
+@import url('./kavadpage.css');
 
 
 input 
@@ -187,68 +183,7 @@ input
     border: 4px #2e4770 solid;
     border-radius: 20px;
 }
-/* ----------- ÜKE & UJUMINE switch buttons ---------------- */
-#üke a 
-{
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: 100px;
-    background-color: #a11d33;
-    text-decoration: none;
-    border-radius: 10px;
-    color: #eff5fa;
-    line-height: 100px;
-    font-size: 25px;
-    transition: all ease 0.1s 0s;
-    float: right;
-}
 
-#ujumine a 
-{
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: 100px;
-    background-color: #222e50;
-    text-decoration: none;
-    border-radius: 10px;
-    line-height: 100px;
-    font-size: 25px;
-    color: #eff5fa;
-    transition: all ease 0.1s 0s;
-    float:left;
-}
-@media all and (max-width:450px){
-    #üke a {
-        min-width: 100px;
-        font-size: 20px;
-    }
-    #ujumine a {
-        min-width:100px;
-        font-size: 20px;
-    }
-}
-
-#üke a:hover
-{
-    background-color: #b7102c;
-}
-#ujumine a:hover 
-{
-    background-color: #2f4858;
-}
-#üke a:active
-{
-    border: solid 3px black;
-}
-#ujumine a:active 
-{
-    border: solid 3px black;
-}
-
-
-/* ---------------------------------- */
 
 .cardcolor{
     background-color: #293241;

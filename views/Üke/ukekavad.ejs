@@ -9,19 +9,19 @@
     </div>
 </div>
 
-<div class="text-center m-4">
-    <h1>Üke Kavad</h1>
-    <div class="row row-cols-4 justify-contnent-center my-5">
-        <div class="col-2"></div>
-        <div class="col-4"><div id="üke" ><a href="/ukekavad"  >Üke</a></div></div>
-        <div class="col-4"><div id="ujumine" ><a href="/ujumisekavad" >Ujumine</a></div></div>
-        <div class="col-2"></div>
-    </div>
+
+<h1 id="kav-heading">Üke Kavad</h1>
+<div class="kav-switch">
+    <a id="ükeharj-btn" href="/ukekavad">Üke</a>
+    <a id="ujumiseharj-btn" href="/ujumisekavad">Ujumine</a>
 </div>
-<section class="mb-5" id="üke_form_section">
-    <div class="row row-cols-1 row-cols-md-2 mx-5 p-3">
-        <div class="col ükeform">
-            <form class="form-control border-add p-4"action="/ukekavad/uus" method="POST">
+
+
+<section class="mb-5">
+    
+    <div class="kav-kastid">
+        <div class="lisamine">
+            <form class="form-control border-add p-4"action="/ujumisekavad/uus" method="POST">
                 <div class="row">
                     <label class="m-2 fs-3" for="ni">Lisa kava</label>
                     <div class="col-12 col-lg-6">
@@ -29,7 +29,7 @@
                     </div>
     
                     <div class="col-12 col-lg-6">
-                        <input class="my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="raskustase" min='10' step="10" max="100">
+                        <input class="my-1"type="number" value=10 placeholder="pingutus (%)" id="percent" name="pingutustase" min='10' step="10" max="100">
                     </div>
     
                     <div class="col-12"><button class="btn btn-success my-2"type="submit">Lisa</button></div>
@@ -37,21 +37,19 @@
             </form>
         </div>
 
-        <div class="col ükekirj">
-            <div class="border-desc p-3 mt-3">
-                <ol>
-                    <li>Loo kava oma nimega</li>
-                    <li>Vali harjutusi</li>
-                    <li>Jaga teistega ja vaata ka teiste kavasid</li>
-                    <li>Keskendu rohkem treeningule</li>
-                </ol>
-            </div>
+        <div class="õpetus border-add">
+            <ol>
+                <li>Loo kava oma nimega</li>
+                <li>Vali harjutusi</li>
+                <li>Jaga teistega ja vaata ka teiste kavasid</li>
+                <li>Keskendu rohkem treeningule</li>
+            </ol>
         </div>
-        <div class="col-12 w-100 p-3 ükefilter">
-            <div class="filtermenu">
+        <div class="kav-filter">
+            <div class="filtermenu border-add">
                 <div class="leftside">
                     <h5>Filter</h5>
-                    <form action="/ukekavad" method="POST">
+                    <form action="/ujumisekavad" method="POST">
         
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="rl" id="flexRadioDefault1" value=-1>
@@ -78,6 +76,7 @@
             </div>
         </div>
     </div>
+    
 </section>
 
 

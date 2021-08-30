@@ -43,21 +43,14 @@
     grid-template-columns: repeat(2,1fr);
     width: 95%;
     max-width: 1500px;
-
     row-gap: 40px;
     margin:auto;
     justify-items: center;
 }
+
 @media all and (max-width:850px) {
     #home-grid {
         grid-template-columns: repeat(1,1fr);
-    }
-    #ujuminego {
-        grid-row: 1;
-    }
-    #ujumisetext 
-    {
-        grid-row: 2;
     }
 }
 
@@ -77,6 +70,15 @@
     justify-self: end;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
+.ujumisetext 
+{
+    grid-column: 2;
+    padding: 20px;
+    max-width: 500px;
+    justify-self: start;
+}
+
 
 .ujuminego div {
     font-size: 30px;
@@ -126,9 +128,10 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .uketext {
+    grid-column: 1;
     padding: 30px;
-    max-width: 600px
-
+    max-width: 500px;
+    justify-self: end;
 }
 
 .ukego div {
@@ -182,6 +185,50 @@
     font-size: 30px;
 }
 .rattatext {
+    grid-column: 2;
     padding: 30px;
-    max-width: 600px;
+    max-width: 500px;
+    justify-self: start;
+}
+.hr-toggle {
+    display: none;
+    color: black;
+    height: 5px;
+    margin-top: 40px;
+    margin-bottom: 0;
+}
+
+@media all and (max-width:850px) {
+    .ujuminego{
+        grid-column: 1;
+        justify-self: center;
+    }
+    .ujumisetext {
+        grid-column: 1;
+        justify-self: center;
+    }
+
+    .ukego {
+        grid-column: 1;
+        justify-self: center;
+    }
+    .uketext {
+        grid-column: 1;
+        justify-self: center;
+    
+    }
+
+    .rattago {
+        grid-column: 1;
+        justify-self: center;
+    }
+    .rattatext {
+        grid-column: 1;
+        justify-self: center;
+    }
+    .hr-toggle {
+        display: block;
+    }
+
+
 }
