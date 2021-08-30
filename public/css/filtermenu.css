@@ -6,9 +6,6 @@
     padding: 15px;
 }
 
-
-
-
 .filtermenu form input[type="text"] {
     max-width: 60%;
 }
@@ -43,7 +40,7 @@
     width: 50%;
     background-color: #ff9f1c;
 }
-.filtermenu .rightside #nupp1 {
+.filtermenu .rightside #väikevaade {
     border: none;
     border-radius: 20px;
    

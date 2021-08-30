@@ -68,8 +68,8 @@
                     </form>
                 </div>
                 <div class="rightside">
-                    <button id="värvid">Värvidetta</button>
-                    <button id="nupp1">MingiNupp</button>
+                    <button id="värvid">Mingi nupp</button>
+                    <button id="väikevaade">Väike vaade</button>
                     <button id="nupp2">VeelMingiNupp</button>
                 </div>
                 
@@ -81,10 +81,25 @@
 
 
 <section class=" p-3">
-    <div class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
-        <% if(kavad) { %> 
+    <% if(kavad) { %> 
+        <div id="väikeVaade" class="invisibility">
+            <% for(kava of kavad) { %>
+                    <div id="VäVaade">
+                        <div>
+                            <%= kava.raskustase %>
+                        </div>
+                        <div>
+                            <%= kava.nimi %>
+                        </div>
+                    </div>
+            <% } %>
+        </div>
+    <% } %> 
+    <div id="suurVaade" class="row row-cols-md-2 row-cols-xl-4 g-3 justify-content-md-center" style="margin:0px 20px">
+        <% if(kavad) { %>
             <% for( let kava of kavad) { %>
                 <div class="col-12 col-md-6 col-lg-4 ">
+                    
                     <div id="card">
                         
                         <div class="cardtop">
@@ -135,4 +150,22 @@
     </div>
 
 </section>
+<script>
+    const VäVaNupp = document.querySelector('#väikevaade')
+    const kaardid = document.querySelector('#suurVaade')
+    const väKaardid = document.querySelector('#väikeVaade')
+    VäVaNupp.addEventListener('click', function(){
+        kaardid.classList.toggle('invisibility');
+        väKaardid.classList.toggle('invisibility');
+        if(this.innerText === 'Suur vaade'){
+            this.innerText = 'Väike vaade';
+        }
+        else {
+            this.innerText = 'Suur vaade';
+        }
+
+    })
+
+
+</script>
 

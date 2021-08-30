@@ -79,7 +79,7 @@
 /* ---------------------------------- */
 
 
-/* -------------Kastid---------------- */
+/* -------------Kastid ++ ---------------- */
 
 .kav-kastid 
 {
@@ -175,3 +175,61 @@
     }
 }
 /* ----------------------------------- */
+
+#väikeVaade {
+    width: 95%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-items: center;
+    margin: auto;
+}
+
+#VäVaade {
+    background-color: #293241;
+    border-radius: 5px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 70px;
+}
+#VäVaade div:nth-of-type(1) {
+    background-color: cornflowerblue;
+    padding: 10px;
+    border-radius: 5px;
+    height: 100%;
+    font-size: 25px;
+}
+#VäVaade div:nth-of-type(2){
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+@media all and (max-width:800px){
+    #väikeVaade {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media all and (max-width:500px){
+    #väikeVaade {
+        grid-template-columns: 90%;
+        justify-self: center;
+    }
+}
+/* Nuppud vaja lisada väiksele vaatele */
+
+
+
+
+
+
+
+
+.invisibility {
+    display: none!important;
+}
