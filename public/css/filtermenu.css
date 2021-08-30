@@ -104,14 +104,15 @@
     .filtermenu .rightside {
         grid-template-columns: repeat(2,1fr);
         height: 60px;
+        justify-items: center;
     }
     .filtermenu .rightside #värvid{
-        width: 80px;
+        width: 100px;
     }
     .filtermenu .rightside #nupp1{
-        width: 80px;
+        width: 100px;
     }
     .filtermenu .rightside #nupp2{
-        width: 80px;
+        width: 100px;
     }
 }
