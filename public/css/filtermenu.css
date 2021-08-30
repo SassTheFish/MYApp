@@ -101,7 +101,7 @@
     }
 }
 @media all and (max-width:350px){
-    .filtermenu {
+    .filtermenu .rightside {
         grid-template-columns: repeat(2,1fr);
         height: 60px;
     }
