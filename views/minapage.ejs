@@ -1,154 +1,90 @@
-<% layout("layout/boilerplateSwimplans.ejs") %> 
-<%- include("partials/navbar") %> 
+<% layout("layout/boilerplateSwimplans.ejs") %>
+<%- include("partials/navbar") %>
 
+<div class="mina-main">
+    <div id="mina-grid-main">
+        <div id="mina-left">
 
-
-
-
-
-
-
-    
-
-<section id="ujumisesection">
-    <div class="container">
-        <h2 class="mt-5">Ujumise Kavad</h2>
-        <div class="ujumiserow">
-            <% if(ujumisekavad) { %> 
-                <% for(kava of ujumisekavad) { %>
-                        <div id="card">
-                            <div class="cardtop2">
-                                <div id="level2">
-                                    <span id="number2"><%= kava.pingutustase %>%</span>
-                                </div>
-                                <div id="head2">
-                                    <span id="title2"><%= kava.nimi %> </span>
-                                </div>
-                            </div>
-                            <div class="cardbottom2 ">
-                                <div class="harjutused2">
-                                        <div class="row row-cols-1 ">
-                                            <% for(harjutus of kava.harjutused) { %>
-                                                <div class="col-12 rida">
-                                                    <div id="harjutusinujumisekava">
-                                                    <span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                            <% } %>
-                                        </div>
-                                </div>
-                            </div>
-                            <div id="cardbuttons2">
-                                <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
-                                <a id="uuenda" href="ujumisekavad/update/<%=kava._id%>">Uuenda</a>
-                                <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>">Kustuta</a>
-                                <a href="showcard/<%=kava._id%>">
-                                    <svg class="magnific" xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                <% } %>
-            <% } %>
         </div>
-    </div>
-</section>
-
-<section id="ükesection">
-    <div class="container">
-        <h2>Üke Kavad</h2>
-        <div class="ukerow">
-            <% if(ükekavad) { %> 
-                <% for( let kava of ükekavad) { %>
-                    <div id="card">
-                        
-                        <div class="cardtop">
-                            <div id="level">
-                                <span id="number"><%= kava.raskustase %>%</span>
-                            </div>
-                            <div id="head">
-                                <span id="title"><%= kava.nimi %> </span>
-                            </div>
-                        </div>
-                        <div class="cardbottom ">
-                            <ol class="harjutused">
-                                <div class="row row-cols-1 ">
-                                    <% if (kava.harjutused.length !== 0 ) { %>
-                                        <% for(harjutus of kava.harjutused) { %>
-                                            <% if (harjutus.harj == null) { %>
-                                                <% continue; %> 
-                                            <% } %>
-                                            <% if (harjutus.harj.raskustase === 1) { %>
-                                                <div class="col-8">
-                                                    <li class="custommargin1"><%= harjutus.harj.nimi %></li>
-                                                </div>
-                                            <% } else { %>
-                                                <div class="col-8">
-                                                    <li class="custommargin1 raskus<%=harjutus.harj.raskustase%>"><%= harjutus.harj.nimi %></li>
-                                                </div>
-                                            <%} %>
-
-                                            <div class="col-4">
-                                                <div id="kordused"><%= harjutus.kordused_x %> * <%= harjutus.kordused_y %></div>
-                                            </div>
-                                        <% } %>
-                                    <% } else { %>
-                                        <DIV id="TÜHJUS">TÜHI KAVA</DIV>
-                                    <%}%>
-                                </div>
-                            </ol>
-                        </div>
-                        <div id="cardbuttons" class="">
-                            <a id="lisaHar" href="ukekavad/lisaharjutus/<%=kava._id%>">+</a>
-                            <a id="uuenda" href="ukekavad/update/<%=kava._id%>">Uuenda</a>
-                            <a id="kustuta" href="ukekavad/deleteOne/<%=kava._id%>">Kustuta</a>
-                            <a href="showcard/<%kava._id%>">
-                                <svg class="magnific" xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <div id="middle-grid"> 
+            <% for( let harj of harjutused) { %>
+                <div id="harj-card">
+                    <div id="harj-card-head">
+                        <span class="level<%=harj.raskustase%>"><%= harj.raskustase %></span>
+                        <span><%= harj.nimi %></span>
+                    </div>
+                    <div id="harj-card-main">
+                        <svg class= "<% for(lih of harj.lihasgruppid) {%><%=lih%> <%} %>"    width="144" height="200" viewBox="0 0 144 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            
+                            <path d="M40.5 359L42.5 370.5H57.5L60 357L40.5 359Z" fill="#C4C4C4"/>
+                            <path d="M57.5 370.5H42.5L37 381.5L60 380.5L57.5 370.5Z" fill="#C4C4C4"/>
+                            <path d="M104.5 370.5H89.5L87 380.5L110 381.5L104.5 370.5Z" fill="#C4C4C4"/>
+                            <path d="M106.5 359L87 357L89.5 370.5H104.5L106.5 359Z" fill="#C4C4C4"/>
+                            <path d="M3.54478 227.5L23.9032 235L18.8136 213L3.54481 208.5L3.54478 227.5Z" fill="#C4C4C4"/>  <!--käsi-->
+                            <path d="M63 281.5L33.287 279.5L38 289.5V345L40.5 359L60 357V346L51.5 316.5L60 296.5L63 281.5Z" fill="#C4C4C4"/>   
+                            <path d="M24.2951 141.5L9.5 128L2.24974 143.196L2.03876 150L7.51938 154.75L13 159.5L23.8252 157.5L24.2951 141.5Z" fill="#C4C4C4"/>
+                            <path d="M66.5 119L72 128L77 119L72 91.5L66.5 119Z" fill="#C4C4C4"/>
+                            <path d="M134.5 128L118.196 141.5L119.587 157.5L129 159.5L134.5 154.75L141.342 150V141.5L134.5 128Z" fill="#C4C4C4"/>
+                            <path d="M123.5 213L119.587 235L140.454 227.5L138 208.5L123.5 213Z" fill="#C4C4C4"/> <!--käsi-->
+                            <path d="M87 357L106.5 359L107.5 345L109 289.5L110.935 279.5L84 281.5L87 296.5L96 316.5L87.5 346.5L87 357Z" fill="#C4C4C4"/> <!-- shin left -->
+                            
+                            <path class="reie-eeskülg-s" d="M29.5019 208.5V232.5L33.287 279.5L63 281.5L66.5 229.557V215.057L29.5019 208.5Z" fill="#C4C4C4"/>
+                            <path class="reie-eeskülg-s"d="M110.935 279.5L114.497 232.5V208.5L77 215.057V229.557L84 281.5L110.935 279.5Z" fill="#C4C4C4"/>
+                            <path id="pea-s"d="M51.8961 50.2767L56 53.5V65.5L66.5 76L72 91.5L77 76L89.5 65.5V53.5L92.6124 50.2767L95 31L93.5 15.5L83.5 1H58.5L50 15.5L49 31L51.8961 50.2767Z" fill="#C4C4C4"/>
+                            <path class="säärelihas-s" d="M60 296.5L51.5 316.5L60 346V296.5Z" fill="#C4C4C4"/>
+                            <path class="käevars-s" d="M18.8136 213L22.8854 189.5L23.8252 157.5L13 159.5L7.51938 154.75L2.03876 150L1 183.5L3.54481 208.5L18.8136 213Z" fill="#C4C4C4"/>
+                            <path class="triitseps-s" d="M1 102L3 119L2.24974 143.196L9.5 128L15 100.25L1 102Z" fill="#C4C4C4"/>
+                            <path class="biitseps-s" d="M27.6885 95L29.5019 84.7664L21 99.5L15 100.25L9.5 128L24.2951 141.5L25 117.5L27.6885 95Z" fill="#C4C4C4"/>
+                            <path class="deltalihas-s" d="M4.56275 82.5L1 102L15 100.25L21 99.5L29.5019 84.7664L40.5 71.4322L29.5019 69.5L4.56275 82.5Z" fill="#C4C4C4"/>
+                            <path class="rinnalihas-s" d="M27.6885 95L31.4736 110L34 119H43.5H51.8961H66.5L72 91.5L66.5 76L40.5 71.4322L29.5019 84.7664L27.6885 95Z" fill="#C4C4C4"/>
+                            <path class="kaelalihas-s" d="M56 65.5L29.5019 69.5L40.5 71.4322L66.5 76L56 65.5Z" fill="#C4C4C4"/>
+                            <path class="rinnalihas-s" d="M110.935 110L114.497 95V84.5401L103.351 71.4322L77 76L72 91.5L77 119H92.6124H101H109L110.935 110Z" fill="#C4C4C4"/>
+                            <path class="kaelalihas-s" d="M114.497 69.5L89.5 65.5L77 76L103.351 71.4322L114.497 69.5Z" fill="#C4C4C4"/>
+                            <path class="deltalihas-s" d="M140.454 82.5L114.497 69.5L103.351 71.4322L114.497 84.5401L119.587 99.5L126.611 100.25L142.999 102L140.454 82.5Z" fill="#C4C4C4"/>
+                            <path class="biitseps-s" d="M114.497 84.5401V95L117.5 117.5L118.196 141.5L134.5 128L126.611 100.25L119.587 99.5L114.497 84.5401Z" fill="#C4C4C4"/>
+                            <path class="triitseps-s" d="M140.454 119L142.999 102L126.611 100.25L134.5 128L141.342 141.5L140.454 119Z" fill="#C4C4C4"/>
+                            <path class="käevars-s" d="M138 208.5L141.342 183.5V150L134.5 154.75L129 159.5L119.587 157.5V189.5L123.5 213L138 208.5Z" fill="#C4C4C4"/>
+                            <path class="küljelihas-s" d="M33.287 189.5L29.5019 208.5L43.5 191.5V119H34L31.4736 110L33.287 189.5Z" fill="#C4C4C4"/>
+                            <path id="kõht-ümber-s" d="M29.5019 208.5L66.5 215.057H77L114.497 208.5L101 191.5V119H92.6124V191.5L77 202.5H71.75H66.5L51.8961 191.5V119H43.5V191.5L29.5019 208.5Z" fill="#C4C4C4"/>
+                            <path class="kõhulihas-s" d="M72 128L66.5 119H51.8961V191.5L66.5 202.5H71.75L72 128Z" fill="#C4C4C4"/>
+                            <path class="kõhulihas-s" d="M77 119L72 128L71.75 202.5H77L92.6124 191.5V119H77Z" fill="#C4C4C4"/>
+                            <path class="küljelihas-s" d="M114.497 208.5L110.935 189.5V110L109 119H101V191.5L114.497 208.5Z" fill="#C4C4C4"/>
+                            <path class="säärelihas-s" d="M87 296.5L87.5 346.5L96 316.5L87 296.5Z" fill="#C4C4C4"/>
+                            <path d="M56 65.5L29.5019 69.5M56 65.5L66.5 76M56 65.5V53.5L51.8961 50.2767L49 31L50 15.5L58.5 1H83.5L93.5 15.5L95 31L92.6124 50.2767L89.5 53.5V65.5M89.5 65.5L114.497 69.5M89.5 65.5L77 76M114.497 69.5L140.454 82.5L142.999 102M114.497 69.5L103.351 71.4322M142.999 102L140.454 119L141.342 141.5M142.999 102L126.611 100.25M114.497 95L110.935 110M114.497 95V84.5401M114.497 95L117.5 117.5L118.196 141.5M114.497 208.5L77 215.057M114.497 208.5L110.935 189.5V110M114.497 208.5V232.5L110.935 279.5M114.497 208.5L101 191.5V119M29.5019 208.5L66.5 215.057M29.5019 208.5L33.287 189.5L31.4736 110M29.5019 208.5V232.5L33.287 279.5M29.5019 208.5L43.5 191.5V119M27.6885 95L31.4736 110M27.6885 95L29.5019 84.7664M27.6885 95L25 117.5L24.2951 141.5M1 102L4.56275 82.5L29.5019 69.5M1 102L3 119L2.24974 143.196M1 102L15 100.25M29.5019 69.5L40.5 71.4322M33.287 279.5L63 281.5M33.287 279.5L38 289.5V345L40.5 359M63 281.5L60 296.5M63 281.5L66.5 229.557V215.057M66.5 215.057H77M60 357V346M60 357L57.5 370.5M60 357L40.5 359M40.5 359L42.5 370.5M110.935 279.5L84 281.5M110.935 279.5L109 289.5L107.5 345L106.5 359M106.5 359L87 357M106.5 359L104.5 370.5M87 357L87.5 346.5M87 357L89.5 370.5M84 281.5L87 296.5M84 281.5L77 229.557V215.057M77 76L72 91.5M77 76L103.351 71.4322M66.5 76L72 91.5M66.5 76L40.5 71.4322M31.4736 110L34 119H43.5M110.935 110L109 119H101M72 128L66.5 119M72 128L77 119M72 128L71.75 202.5M72 91.5L66.5 119M72 91.5L77 119M18.8136 213L22.8854 189.5L23.8252 157.5M18.8136 213L23.9032 235L3.54478 227.5L3.54481 208.5M18.8136 213L3.54481 208.5M87 296.5L87.5 346.5M87 296.5L96 316.5L87.5 346.5M60 296.5L51.5 316.5L60 346M60 296.5V346M29.5019 84.7664L40.5 71.4322M29.5019 84.7664L21 99.5L15 100.25M114.497 84.5401L103.351 71.4322M114.497 84.5401L119.587 99.5L126.611 100.25M66.5 119H51.8961M77 119H92.6124M15 100.25L9.5 128M9.5 128L24.2951 141.5M9.5 128L2.24974 143.196M24.2951 141.5L23.8252 157.5M126.611 100.25L134.5 128M134.5 128L118.196 141.5M134.5 128L141.342 141.5M118.196 141.5L119.587 157.5M2.24974 143.196L2.03876 150M141.342 141.5V150M2.03876 150L1 183.5L3.54481 208.5M2.03876 150L7.51938 154.75L13 159.5L23.8252 157.5M138 208.5L141.342 183.5V150M138 208.5L123.5 213M138 208.5L140.454 227.5L119.587 235L123.5 213M123.5 213L119.587 189.5V157.5M119.587 157.5L129 159.5L134.5 154.75L141.342 150M42.5 370.5H57.5M42.5 370.5L37 381.5L60 380.5L57.5 370.5M104.5 370.5H89.5M104.5 370.5L110 381.5L87 380.5L89.5 370.5M43.5 119H51.8961M101 119H92.6124M51.8961 119V191.5L66.5 202.5H71.75M92.6124 119V191.5L77 202.5H71.75" stroke="white"/>
+                            
+                        </svg>
+                        <ul>
+                            <% for(lih of harj.lihasgruppid) { %>
+                                <li><%= lih %> </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div id="harj-card-buttons">
+                        <a id="harj-update" href="harjutused/update/<%= harj._id%> ">Muuda</a>
+                        <a id="harj-delete" href="harjutused/deleteOne/<%= harj._id%> ">
+                            <svg width="20" height="7" viewBox="0 0 38 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect id="minus" width="38" height="7" rx="4" fill="black"/>
+                            </svg>
+                        </a>
+                        <form action="/save/<%=harj._id%>"method="POST">
+                            <button id="harj-save" type="submit">
+                                <svg width="18" height="25" viewBox="0 0 18 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="lips" d="M0 1C0 0.447716 0.447715 0 1 0H8.5H17C17.5523 0 18 0.447715 18 1V19.6552C18 19.8786 17.9252 20.0956 17.7875 20.2715L9.7875 30.4937C9.38713 31.0053 8.61287 31.0053 8.21249 30.4937L0.212495 20.2715C0.0748085 20.0956 0 19.8786 0 19.6552V1Z" fill="white"/>
                                 </svg>
-                            </a>
-                        </div>
-                    </div>
-                <% } %>
-            <% } %> 
-        </div>
-    </div>
-</section>
-<section id="harjsection">
-    <div class="container">
-        <h2>Harjutused</h2>
-        <div class="harjrow">
-            <% for( let harjutus of harjutused) { %>
-                <div id="harjutused" class="card cardcolor shadow-lg h-100 text-white p-5">
-                    <div class="row row-cols-1 lead text-uppercase overflow-hidden"><h2><%= harjutus.nimi%></h2></div>
-                    <div class="row row-cols-1">
-                        <div><% if (harjutus.lihasgruppid.length > 1) { %>
-                            Lihasgruppid:
-                        <% } else {%>
-                            Lihasgrupp:
-                        <% } %>
-                        <% for(lihasgrupp of harjutus.lihasgruppid){ %>
-                            <span><small class="text-danger fs-5" style="text-transform: capitalize;"><%= lihasgrupp %><%if(harjutus.lihasgruppid.length > 1){%>,<%}%>
-                            </small></span>
-                        <% } %> </div>
-                        <span>Raskustase <small class="text-warning fs-5" >  <%= harjutus.raskustase %></small></span>
-                    </div>
-    
-                    <div class="row row-cols-2" id="harjcardbuttons">
-                        <div class="col d-flex justify-content-start"><a  class="btn btn-primary btn-sm" href="harjutused/update/<%= harjutus._id%> ">Uuenda</a></div>
-                        <div class="col d-flex justify-content-end"><a  class="btn btn-danger btn-sm" href="harjutused/deleteOne/<%= harjutus._id%> "> - </a></div>
+                            </button>
+                        </form>
                     </div>
                 </div>
             <% } %>
         </div>
+        <div id="mina-right">
+            <h1>Nimi:  <%= currentUser.username %> </h1>
+            <h2>Email:  <%= currentUser.email %></h2>
+            <h2>Roll:  <%= currentUser.type %> </h2>
+        </div>
+    
     </div>
-</section>
-
-
-
-
+</div>
 
 
 

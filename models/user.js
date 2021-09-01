@@ -8,9 +8,9 @@ const userSchema = new mongoose.Schema({
     },
     type:
     {
-        type:Number,
-        default:1,
-        enum:[1,2,1453]       //1 = tavaline, 2 = treener, 1453 = admin 
+        type:String,
+        default:"sportlane",
+        enum:["sportlane", "treener", "admin", "külaline"]       //1 = tavaline, 2 = treener, 1453 = admin 
     }
 })
 userSchema.plugin(passportLocalMongo);

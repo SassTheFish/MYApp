@@ -57,7 +57,7 @@
 .ujuminego
 {
     grid-column: 1;
-    background-color: #163e5b;
+    background: linear-gradient(to bottom right, #11344c, #3b7ead);
     width: 300px;
     height: 350px;
     display: grid;
@@ -116,6 +116,7 @@
 .ukego {
     grid-column: 2;
     background-color: #a11d33;
+    background: linear-gradient(to bottom left, #8d162a, #ca3952);
     width: 300px;
     height: 350px;
     display: grid;
@@ -169,6 +170,7 @@
 {
     grid-column: 1;
     background-color: #343a40;
+    background: linear-gradient(to bottom right, #23262a, #5b6167);
     width: 300px;
     height: 350px;
     display: grid;

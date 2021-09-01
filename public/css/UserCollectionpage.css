@@ -1,133 +1,95 @@
-#ujumisesection {
-    margin-top: 200px;
-    margin-bottom: 200px;
+.mina-main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
-.ujumiserow {
-    margin-top: 20px;
-    margin-bottom: 20px;
+#mina-grid-main {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 49% 49%;
+    grid-template-columns: 3fr 8fr 3fr;
+    min-height: 1100px;
+    height: 100%;
+    width: 100%;
+    justify-items: center;
     column-gap: 10px;
-    row-gap: 10px;
-    overflow-y: auto;
-    max-height: 900px;
-}
-#ujumisesection h2 {
-    color: rgb(241, 241, 241);
-}
-@media all and (max-width:2000px) {
-    #ujumisesection{
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-}
-@media all and (max-width:1200px){
-    .ujumiserow {
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-@media all and (max-width:770px){
-    .ujumiserow {
-        grid-template-columns: repeat(1,1fr);
-    }
-}
-#ükesection {
-    margin-top: 200px;
-    margin-bottom: 200px;
-}
-#ükesection h2 {
-    color: rgb(241, 241, 241);
-}
-.ukerow {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,1fr);
-    column-gap: 10px;
-    row-gap: 10px;
-    max-height: 620px;
-    overflow-y: auto;
-}
-@media all and (max-width:2000px) {
-    #ükesection{
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-}
-@media all and (max-width:1200px){
-    .ukerow {
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-@media all and (max-width:770px){
-    .ukerow {
-        grid-template-columns: repeat(1,1fr);
-    }
-}
-#harjsection {
-    margin-top: 200px;
-    margin-bottom: 200px;
-}
-#harjsection h2 {
-    color: rgb(241, 241, 241);
-}
-.harjrow {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,1fr);
-    column-gap: 10px;
-    row-gap: 10px;
-    overflow-y: auto;
-    max-height: 620px;
-}
-@media all and (max-width:2000px) {
-    #harjsection{
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-}
-@media all and (max-width:1200px){
-    .harjrow {
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-@media all and (max-width:770px){
-    .harjrow {
-        grid-template-columns: repeat(1,1fr);
-    }
 }
 
-#body-swim
+#mina-left{
+    grid-column: 1;
+    border-bottom-right-radius: 5px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom left, rgb(226, 226, 226), rgb(241, 241, 241));
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#mina-right{
+    grid-column: 3;
+    border-bottom-left-radius: 5px;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom left, rgb(226, 226, 226), rgb(241, 241, 241));
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}   
+
+#middle-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    height: 95%;
+    max-height: 1100px;
+    margin-top: 2.5%;
+    padding: 30px;
+    row-gap: 40px;
+    column-gap: 40px;
+    justify-items: center;
+    overflow-y: auto;
+}
+
+@media all and (max-width:1800px)
 {
-    background-image: url('../images/Group\ 8.svg');
-    background-repeat: no-repeat;
-    background-size: cover ;
-    z-index: 10;
+    #middle-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+    #mina-grid-main {
+        grid-template-columns: 8fr 4fr;
+        grid-template-rows: 1fr 6fr;
+    }
+    #mina-left {
+        grid-column: 2/3;
+        grid-row: 1;
+    }
+    #mina-right {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    #middle-grid {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
+
+@media all and (max-width:1550px)
+{
+    #middle-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media all and (max-width:1050px) {
     
-}
-#body-grid {
-    display: grid;
-    top: 40px;
-    grid-template-rows: repeat(3,1fr);
-}
+    #mina-grid-main {
+        grid-template-rows: 2fr 6fr;
+    }
 
+    #middle-grid {
+        justify-items: center;
+        margin: auto;
+    }
 
-#ujumisesection 
-{
-    grid-row: 1;
+    #mina-right {
+        grid-column: 1/2;
+        grid-row: 1;
+    }
 }
-#ükesection 
-{
-    grid-row: 2;
-}
-#harjsection 
-{
-    grid-row: 3;
-}
-
-
 
 
