@@ -90,7 +90,8 @@
     padding-left: 10px;
     align-items: center;
     background: #293241;
-    word-wrap: break-word;
+    overflow-x: auto;
+    overflow-y: hidden;
     border-radius: 0px 5px 0px 0px;
 }
 
