@@ -11,6 +11,14 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:"sportlane",
         enum:["sportlane", "treener", "admin", "külaline"]       //1 = tavaline, 2 = treener, 1453 = admin 
+    },
+    email: {
+        type:String,
+        default:"Lisamata"
+    },
+    trennigrupp:{
+        type:String,
+        default: "Pole treening gruppis"
     }
 })
 userSchema.plugin(passportLocalMongo);

@@ -1,13 +1,6 @@
 :root {
-    /*   Harjutused    */
-    --harj-col1-card:#293241,
-    --harj-col2:
-    --harj-col3:
-    --harj-col4:
-    --harj-col5:
-    --harj-col6:
-    --harj-col7:
-    --harj-col8:
-    --harj-col9:
-
+    --ujumine:#23376e;
+    --üke:#a11d33;
+    --rattasoit:rgb(61, 61, 61);
+    --card:#293241;
 }
