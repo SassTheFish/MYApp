@@ -4,4 +4,41 @@
     --rattasoit:rgb(61, 61, 61);
     --card:#293241;
     --formborder1:#2e4770;
+    --üke-h-nav:linear-gradient(to right, #152e40, #243e51);
+    --ujumine-h-nav:#1e88e5;
+    --ükenav:linear-gradient(to right, #bc243d, #7d1b2b);
+    --ujuminenav:linear-gradient(to right,#222e50 60%, #32457a);
+}
+
+.navy
+{
+    background: linear-gradient(to right, #141e30, #243b55);
+}
+.navy-all
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #222e50;
+}
+
+.greynavy
+{
+    background-color: #0e3049;
+}
+
+.üke_h_nav
+{
+    background: var(--üke-h-nav);
+}
+.ujumise_h_nav
+{
+    background-color: #1e88e5;
+}
+.ükenav
+{
+    background:var(--ükenav);
+}
+.ujuminenav
+{
+    background:var(--ujuminenav);
 }

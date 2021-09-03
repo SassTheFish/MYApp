@@ -106,38 +106,7 @@ input
 
 
 
-.navy
-{
-    background-color: #222e50;
-}
-.navy-all
-{
-    width: 100vw;
-    height: 100vh;
-    background-color: #222e50;
-}
 
-.greynavy
-{
-    background-color: #0e3049;
-}
-
-.üke_h_nav
-{
-    background-color: #152e40;
-}
-.ujumise_h_nav
-{
-    background-color: #1e88e5;
-}
-.ükenav
-{
-    background-color: #a11d33;
-}
-.ujuminenav
-{
-    background-color: #222e50;
-}
 
 
 #aboutpagecontainer{
@@ -174,11 +143,6 @@ input
     padding: 10px;
 }
 
-.border-desc
-{
-    border: 4px #63c1d4 solid;
-    border-radius: 20px;
-}
 .border-add
 {
     border: 4px #2e4770 solid;

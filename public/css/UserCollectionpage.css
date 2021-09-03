@@ -29,7 +29,7 @@
 }
 #mina-left h3{
     height: 70px;
-    background-color: var(--formborder1);
+    background: linear-gradient(to right, #1e314f, var(--formborder1));
     padding: 10px;
     color: white;
     margin-bottom: 0;
@@ -46,8 +46,12 @@
     width: 100%;
     background-color: rgb(221, 221, 221);
     border: none;
-}.left-btns button:hover {
-    background-color: rgb(207, 207, 207);
+}
+.left-btns button:hover {
+    background: linear-gradient(to left, rgb(221, 221, 221),rgb(152, 152, 152))
+}
+.left-btns button:nth-of-type(2):hover {
+    background: linear-gradient(to right, rgb(221, 221, 221),rgb(152, 152, 152))
 }
 
 .hrj-left {
@@ -55,36 +59,44 @@
     flex-direction: column;
     justify-content: center;
 }
-.hrj-left button, .kav-left button
+.hrj-left button
 {
     border: none;
     border-radius: 10px;
     width: 50%;
     height: 50px;
     color: white;
-    align-self: center;
+    align-self: start;
+    margin: 5px;
+}
+.kav-left button {
+    align-self: flex-end;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    height: 50px;
+    color: white;
     margin: 5px;
 }
 
 .hrj-left button:nth-of-type(1){
-    background-color: var(--ujumine);
+    background: linear-gradient(to bottom right, var(--ujumine), rgb(35, 86, 144))
 }
 .hrj-left button:nth-of-type(2){
-
-    background-color: var(--üke);
+    background: linear-gradient(to bottom right, var(--üke), rgb(200, 70, 70))
 }
 .hrj-left button:nth-of-type(3){
  
-    background-color: var(--rattasoit);
+    background: linear-gradient(to bottom right, var(--rattasoit), rgb(88, 97, 107))
 }
 .kav-left button:nth-of-type(1){
-    background-color: var(--ujumine);
+    background: linear-gradient(to bottom right, var(--ujumine), rgb(35, 86, 144))
 }
 .kav-left button:nth-of-type(2){
-    background-color: var(--üke);
+    background: linear-gradient(to bottom right, var(--üke), rgb(200, 70, 70))
 }
 .kav-left button:nth-of-type(3){
-    background-color: var(--rattasoit);
+    background: linear-gradient(to bottom right, var(--rattasoit), rgb(88, 97, 107))
 }
 
 
@@ -106,7 +118,7 @@
     
 }
 #mina-right h1 {
-    background-color: var(--formborder1);
+    background: linear-gradient(to right, #1e314f, var(--formborder1));
     padding: 10px;
     color: white;
 }
