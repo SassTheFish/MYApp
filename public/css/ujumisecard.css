@@ -1,0 +1,177 @@
+#card2
+{
+    width: 450px;
+    height: 500px;
+    background: #293241;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cardtop2
+{
+    position: relative;
+    left: 0px;
+    top: 0px;
+    min-height: 15%;
+    width: 100%;
+    
+}
+
+.cardbottom2
+{
+    position: relative;
+    height:60%;
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+
+#cardbuttons2
+{
+    position: relative;
+    bottom: 0px;
+    height: 15%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#cardbuttons2 #lisaHar 
+{
+    text-decoration: none;
+    color: #4af472;
+    background:#3d3d3e;
+    padding: 5px;
+    border-radius: 6px;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cardbuttons2 #lisaHar:hover 
+{
+    background:#606064;
+}
+#cardbuttons2 #uuenda 
+{
+    text-decoration: none;
+    color: #FFFFFF;
+    background:#3d3d3e;
+    padding: 5px;
+    border-radius: 6px;
+}
+#cardbuttons2 #uuenda:hover 
+{
+    background:#606064;
+}
+#cardbuttons2 #kustuta 
+{
+    text-decoration: none;
+    color: #ee6c4d;
+    background:#3d3d3e;
+    padding: 5px;
+    border-radius: 6px;
+}
+#cardbuttons2 #kustuta:hover 
+{
+    background:#606064;
+}
+
+#level2
+{
+    
+    float: left;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #98c1d9;
+    border-radius: 5px;
+}
+
+#head2
+{
+    float: right;
+    position:relative;
+    right: 0px;
+    top: 0px;
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    padding-left: 10px;
+    align-items: center;
+    background: #293241;
+    word-wrap: break-word;
+    border-radius: 0px 5px 0px 0px;
+}
+
+/* Title */
+
+#title2
+{
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 41px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #e0fbfc;
+    
+}
+.harjutused2 {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+.harjutused2 hr 
+{
+    color: #fffffc;
+    height: 5px;
+}
+
+.harjutused2 .rida {
+    margin: 5px;    
+}
+
+.harjutused2 .kordus{
+    color: rgb(255, 126, 131);
+}
+.harjutused2 .ala{
+    color: rgb(56, 239, 221);
+}
+.harjutused2 .harjutus{
+    color: rgb(70, 217, 97);
+}
+.harjutused2 .eraldus{
+    color: rgb(222, 173, 58);
+}
+.harjutused2 .vahendid{
+    color: rgb(200, 222, 75);
+}
+.harjutused2 .ajastus{
+    color: rgb(129, 102, 236);
+}
+.harjutused2 .wht {
+    color:white;
+}
+.harjutused2 #kustuta {
+    text-decoration: none;
+    color: red;
+    font-size: 30px;
+    text-align: center;
+
+    line-height: 100%;
+}

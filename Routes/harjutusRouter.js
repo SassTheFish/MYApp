@@ -1,6 +1,6 @@
 const express = require('express')
 const {Harjutus} = require('../models/harjutus');
-const {TreeningKava} = require('../models/harjutus');
+const {Üke} = require('../models/harjutus');
 const router = express.Router();
 const { c_lihasgruppid } = require('../variables');
 
@@ -28,7 +28,7 @@ router.get("/", async (req, res)=>{
 
 router.get("/deleteOne/:id", async (req,res)=>{
     const {id} = req.params;
-    const kavad = await TreeningKava.find();
+    const kavad = await Üke.find();
     let usedharj = false;
     for(kava of kavad){
         for(harjutus of kava.harjutused)

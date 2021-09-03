@@ -238,7 +238,7 @@ app.get("/minapage", isLoggedIn, async (req, res)=>{
     const path = req.path;
     const ids = req.user.saved;
     let ujumisekavad = await Ujumine.find({'_id': {$in: ids}});
-    let ükekavad = await Üke.find({'_id': {$in: ids}});
+    let ükekavad = await Üke.find({'_id': {$in: ids}}).populate('harjutused.harj');
     let harjutused = await Harjutus.find({'_id': {$in: ids}});
 
     const object = 
@@ -267,7 +267,7 @@ app.post('/save/:id', async(req,res)=>{
     
     user.save();
     req.flash('success', 'saved');
-    res.redirect('/harjutused');
+    res.redirect(req.path)
 })
 
 //------------PUT------------------

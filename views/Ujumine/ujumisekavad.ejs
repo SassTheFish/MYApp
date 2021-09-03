@@ -81,11 +81,11 @@
 
 
 <section class="m-0 p-0 p-sm-3">
-    <div class="row row-cols-md-2 row-cols-xl-3 g-3 justify-content-md-center" style="margin:0px 20px;">
+    <div class="row row-cols-md-2 row-cols-xl-3 g-3 justify-content-md-center" style="margin:0 20px;">
         <% if(kavad) { %> 
             <% for(kava of kavad) { %>
                 <div class="col-12 col-md-6 smcol">
-                    <div id="card">
+                    <div id="card2" style="margin: auto;">
                         <div class="cardtop2">
                             <div id="level2">
                                 <span id="number2"><%= kava.pingutustase %>%</span>
@@ -112,6 +112,13 @@
                             <a id="lisaHar" href="ujumisekavad/lisaharjutus/<%=kava._id%>">+</a>
                             <a id="uuenda" href="ujumisekavad/update/<%=kava._id%>">Uuenda</a>
                             <a id="kustuta" href="ujumisekavad/deleteOne/<%=kava._id%>">Kustuta</a>
+                            <form action="/save/<%=kava._id%>"method="POST">
+                                <button id="harj-save" type="submit">
+                                    <svg width="18" height="25" viewBox="0 0 18 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path id="lips" d="M0 1C0 0.447716 0.447715 0 1 0H8.5H17C17.5523 0 18 0.447715 18 1V19.6552C18 19.8786 17.9252 20.0956 17.7875 20.2715L9.7875 30.4937C9.38713 31.0053 8.61287 31.0053 8.21249 30.4937L0.212495 20.2715C0.0748085 20.0956 0 19.8786 0 19.6552V1Z" fill="white"/>
+                                    </svg>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
