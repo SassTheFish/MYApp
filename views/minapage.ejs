@@ -1,5 +1,7 @@
 <% layout("layout/boilerplateSwimplans.ejs") %>
 <%- include("partials/navbar") %>
+<%- include('./partials/flash')  %>
+
 
 <div class="mina-main">
     <div id="mina-grid-main">
@@ -172,23 +174,35 @@
             </div>
         </div>
         <div id="mina-right">
-            <h1>Kasutaja Info</h1>
+            <h1>Kasutaja Info<span>Muuda</span></h1>
             <div>
                 <h2>Nimi <%= currentUser.username %></h2>
                 <h5>Email:  <span><%= currentUser.email %></span></h2>
                 <h5>Roll:  <span><%= currentUser.type %> </span></h2>
                 <h5>Trennigrupp:  <span><%= currentUser.trennigrupp %></span></h5>
             </div>
+            <div class="invisibility userfield">
+                <form action="/minapage/updateUser/<%=currentUser.id%>" method="POST">
+                    <h2>Nimi <%= currentUser.username %></h2> <input type="text" placeholder="nimi" name="nimi"> 
+                    <h5>Email:  <span><%= currentUser.email %></span></h2><input type="email" placeholder="email" name="email">
+                    <h5>Roll:  <span><%= currentUser.type %> </span></h2><input type="text" placeholder="roll" name="roll">
+                    <h5>Trennigrupp:  <span><%= currentUser.trennigrupp %></span></h5>
+                    <button type="submit">Uuenda</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
+    const userfieldbtn = document.querySelector('#mina-right h1 span')
+    const userfield1 = document.querySelector('#mina-right div:nth-of-type(1)')
+    const userfield2 = document.querySelector('#mina-right div:nth-of-type(2)')
 
-    const first = document.querySelector('.hrj-left')
-    const second = document.querySelector('.kav-left')
-    const firstbtn = document.querySelector('.hrjbtn')
-    const secondbtn = document.querySelector('.kvbtn')
+    userfieldbtn.addEventListener('click', function(){
+        userfield1.classList.toggle('invisibility');
+        userfield2.classList.toggle('invisibility');
+    })
 
     const displays = document.querySelectorAll('#middle-main #middle-gridH, #middle-main #middle-gridHk, #middle-main #middle-gridUk')
     const btns = document.querySelectorAll('.hrj-left button, .kav-left button')
@@ -225,6 +239,10 @@
         })
     }
 
+    const first = document.querySelector('.hrj-left')
+    const second = document.querySelector('.kav-left')
+    const firstbtn = document.querySelector('.hrjbtn')
+    const secondbtn = document.querySelector('.kvbtn')
 
     firstbtn.addEventListener('click', function(){
         first.classList.remove('invisibility')

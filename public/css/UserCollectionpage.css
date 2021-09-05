@@ -122,6 +122,45 @@
     padding: 10px;
     color: white;
 }
+#mina-right h1 span {
+    float: right;
+    font-size:20px;
+    padding: 10px;
+}
+#mina-right h1 span:hover {
+    color: #809cca;
+    cursor: pointer;
+}
+#mina-right h1 span:active {
+    color: #51627d;
+    cursor: pointer;
+}
+#mina-right .userfield form {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(5,1fr);
+    padding-right: 10px;
+
+}
+
+#mina-right .userfield input{
+    grid-column: 2;
+    max-width: 300px;
+    height: 30px;
+    float: right;
+    justify-self: end;
+}
+#mina-right .userfield form button {
+    border: none;
+    border-radius: 10px;
+    background-color: #1e314f;
+    color: white;
+    height: 50px;
+    width: 50%;
+    justify-self: end;
+}
+
+
 #mina-right div {
     padding: 10px;
     padding-left: 20px;
@@ -202,7 +241,7 @@
     }
 
     #mina-right {
-        height: 250px;
+        height: 300px;
         border: none;
         border-bottom: 6px solid var(--formborder1);
         border-radius: 0;

@@ -252,6 +252,27 @@ app.get("/minapage", isLoggedIn, async (req, res)=>{
     res.render("minapage.ejs", {...object })
 })
 
+
+app.post('/minapage/updateUser/:userid', async (req,res,next)=>{
+
+    let updateData = {}
+    if(req.body.nimi !== ''){
+        updateData.name = req.body.nimi
+    }
+    if(req.body.email !== ''){
+        updateData.email = req.body.email
+    }
+    if(req.body.roll !== ''){
+        updateData.type = req.body.roll
+    }
+    const user = await User.findByIdAndUpdate(req.params.userid, updateData, {runValidators:true, new:true}).catch(()=>{
+        req.flash('error', 'ei ole sellist rolli')
+    });
+    console.log(user)
+    res.redirect('/minapage')
+})
+
+
 app.post('/save/:id', async(req,res)=>{
     console.log(req.user)
     console.log(req.params.id)
