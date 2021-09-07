@@ -68,9 +68,21 @@
                     </form>
                 </div>
                 <div class="rightside">
-                    <button id="värvid">Mingi nupp</button>
-                    <button id="väikevaade">Väike vaade</button>
-                    <button id="nupp2">VeelMingiNupp</button>
+                    <button id="väikevaade" class="invisibility">
+                        <svg width="30" height="30" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="10" height="10" rx="1" fill="white"/>
+                            <rect x="12" width="10" height="10" rx="1" fill="white"/>
+                            <rect x="12" y="12" width="10" height="10" rx="1" fill="white"/>
+                            <rect y="12" width="10" height="10" rx="1" fill="white"/>
+                        </svg>
+                    </button>
+                    <button id="väikevaade2" >
+                        <svg width="30" height="30" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect y="8" width="22" height="5" rx="1" fill="white"/>
+                            <rect width="22" height="5" rx="1" fill="white"/>
+                            <rect y="16" width="22" height="5" rx="1" fill="white"/>
+                        </svg>
+                    </button>
                 </div>
                 
             </div>
@@ -158,19 +170,21 @@
 
 </section>
 <script>
-    const VäVaNupp = document.querySelector('#väikevaade')
+    const VäVaNupp1 = document.querySelector('#väikevaade')
+    const VäVaNupp2 = document.querySelector('#väikevaade2')
     const kaardid = document.querySelector('#suurVaade')
     const väKaardid = document.querySelector('#väikeVaade')
-    VäVaNupp.addEventListener('click', function(){
+    VäVaNupp1.addEventListener('click', function(){
         kaardid.classList.toggle('invisibility');
         väKaardid.classList.toggle('invisibility');
-        if(this.innerText === 'Suur vaade'){
-            this.innerText = 'Väike vaade';
-        }
-        else {
-            this.innerText = 'Suur vaade';
-        }
-
+        VäVaNupp1.classList.toggle('invisibility')
+        VäVaNupp2.classList.toggle('invisibility')
+    })
+    VäVaNupp2.addEventListener('click', function(){
+        kaardid.classList.toggle('invisibility');
+        väKaardid.classList.toggle('invisibility');
+        VäVaNupp1.classList.toggle('invisibility')
+        VäVaNupp2.classList.toggle('invisibility')
     })
 
 
