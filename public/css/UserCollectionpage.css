@@ -10,8 +10,7 @@
         "a b b b c"
         "a b b b c"
         ". b b b .";
-    min-height: 0;
-    height: 1500px;
+    min-height: 800px;
     width: 100%;
     justify-items: center;
     column-gap: 10px;
@@ -20,16 +19,15 @@
 
 #mina-left{
     grid-area: a;
-    border-bottom-right-radius: 5px;
-    height: 1000px;
     width: 100%;
-    border: 4px var(--formborder1) solid;
-    border-radius: 10px;
+    overflow-x: hidden;
     justify-self: start;
 }
 #mina-left h3{
     height: 70px;
     background: linear-gradient(to right, #1e314f, var(--formborder1));
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     padding: 10px;
     color: white;
     margin-bottom: 0;
@@ -44,14 +42,14 @@
 }
 .left-btns button {
     width: 100%;
-    background-color: rgb(221, 221, 221);
+    background-color: white;
     border: none;
 }
-.left-btns button:hover {
-    background: linear-gradient(to left, rgb(221, 221, 221),rgb(152, 152, 152))
+.left-btns button:hover,.left-btns button:active {
+    background: linear-gradient(to left, white,rgb(152, 152, 152))
 }
-.left-btns button:nth-of-type(2):hover {
-    background: linear-gradient(to right, rgb(221, 221, 221),rgb(152, 152, 152))
+.left-btns button:nth-of-type(2):hover,.left-btns button:nth-of-type(2):active {
+    background: linear-gradient(to right, white,rgb(152, 152, 152))
 }
 
 .hrj-left {
@@ -110,15 +108,14 @@
 
 #mina-right{
     grid-area: c;
-    border-bottom-left-radius: 5px;
     width: 100%;
-    height: 1000px;
-    border: 4px var(--formborder1) solid;
-    border-radius: 10px;
+    height: auto;
+    overflow-x: hidden;
     
 }
 #mina-right h1 {
     background: linear-gradient(to right, #1e314f, var(--formborder1));
+    border-radius: 5px;
     padding: 10px;
     color: white;
 }
@@ -169,7 +166,14 @@
 #middle-main {
     grid-area: b;
     height: 95%;
+    width: 100%;
     max-height: 1100px;
+
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 
     
 }
@@ -183,7 +187,7 @@
     row-gap: 20px;
     column-gap: 20px;
     height: 95%;
-    padding: 10px;
+    padding: 20px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -225,7 +229,9 @@
 }
 
 @media all and (max-width:1050px) {
-    
+    #middle-main {
+        box-shadow: none;
+    }
     #mina-grid-main {
         grid-template-areas: 
             "c c c"
@@ -243,14 +249,19 @@
     #mina-right {
         height: 300px;
         border: none;
-        border-bottom: 6px solid var(--formborder1);
+    }
+    #mina-right h1
+    {
+        border-radius: 0;
+    }
+    #mina-left h3
+    {
         border-radius: 0;
     }
     #mina-left {
         height: 350px;
         border: none;
         border-bottom: 6px solid var(--formborder1);
-        border-radius: 0;
         width:100vw;
         max-width:none;
         overflow-y: auto;

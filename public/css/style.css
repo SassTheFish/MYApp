@@ -31,21 +31,36 @@ input
 
 
 
+
+
+#logbutton {
+    color: white;
+    margin: 5px;
+    margin-right: 20px;
+    font-size: 20px;
+    grid-column: 1;
+}
+#logbutton svg {
+    margin: 5px;
+}
+
 #navform 
 {
-    display: grid;
+    display: flex;
     position: absolute;
     right:2%;
     min-width: 200px;
+    justify-content:space-between;
 }
 #navform button {
     max-width: 200px;
+    min-width: 100px;
     padding: 5px;
     border: none;
     border-radius: 10px;
     color: white;
     font-size: 20px;
-    
+    grid-column: 2;
 }
 
 #navform .In {
@@ -73,7 +88,6 @@ input
 
 @media all and (max-width:992px){
     #navform {
-        display: grid;
         position:relative;
         right: 0;
         width: 100%;
@@ -322,8 +336,5 @@ input[type="checkbox"]:hover
     font-size: 13px;
 
 }
-
-
-
 
 
