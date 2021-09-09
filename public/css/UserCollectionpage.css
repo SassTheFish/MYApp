@@ -109,6 +109,7 @@
 #mina-right{
     grid-area: c;
     width: 100%;
+    min-width: 360px;
     height: auto;
     overflow-x: hidden;
     
@@ -197,7 +198,7 @@
 {
     #mina-grid-main {
         grid-template-areas:
-            "c c c a"
+            "c c c c"
             "b b b a"
             "b b b a"
         ;
@@ -220,6 +221,10 @@
         grid-template-columns: repeat(2,1fr);
         justify-self: center;
     }
+    #middle-gridH {
+        grid-template-columns: repeat(3,1fr);
+        justify-self: center;
+    }
     #mina-left h3 {
         font-size: 25px;
     }
@@ -227,7 +232,13 @@
         font-size: 25px;
     }
 }
-
+@media all and (max-width:1350px){
+    #middle-gridH,#middle-gridHk, #middle-gridUk {
+        grid-template-columns: repeat(2,1fr);
+        justify-items: center;
+        margin: auto;
+    }
+}
 @media all and (max-width:1050px) {
     #middle-main {
         box-shadow: none;
@@ -242,6 +253,7 @@
         padding: 0;
     }
     #middle-gridH,#middle-gridHk, #middle-gridUk {
+        grid-template-columns: repeat(2,1fr);
         justify-items: center;
         margin: auto;
     }

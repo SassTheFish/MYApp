@@ -1,3 +1,74 @@
+#logbutton {
+    color: white;
+    margin: 5px;
+    margin-right: 20px;
+    font-size: 20px;
+    grid-column: 1;
+}
+#logbutton svg {
+    margin: 5px;
+}
+
+#navform 
+{
+    display: flex;
+    position: absolute;
+    right:2%;
+    min-width: 200px;
+    justify-content:space-between;
+}
+#navform button {
+    max-width: 200px;
+    min-width: 100px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    grid-column: 2;
+}
+
+#navform .In {
+    background-color: #198754ff;
+}
+
+#navform .Out {
+    background-color: rgb(195, 51, 51);
+}
+
+
+#navform .In:hover {
+    background-color: rgb(18, 107, 65);
+}
+#navform .In:active {
+    background-color: rgb(33, 180, 111);
+}
+#navform .Out:hover {
+    background-color: rgb(194, 33, 33);
+}
+#navform .Out:active {
+    background-color: rgb(183, 63, 63);
+}
+
+
+@media all and (max-width:992px){
+    #navform {
+        position:relative;
+        right: 0;
+        width: 100%;
+    }
+    #navform button{
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        max-width: 200px;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        
+    }
+}
 
 .loginh1 {
     position: relative;

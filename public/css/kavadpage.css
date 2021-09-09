@@ -187,27 +187,45 @@
     margin: auto;
 }
 
-#VäVaade {
+#ükekavadgrid .VäVaade {
     background-color: #293241;
     border-radius: 5px;
-    width: 100%;
+    width: 300px;
     display: grid;
     grid-template-columns: 20% 80%;
-    height: 70px;
+    grid-template-rows: 70% 30%;
+    height: 80px;
 }
-#VäVaade div:nth-of-type(1) {
+#ükekavadgrid .VäVaade #pingutus {
+    grid-column: 1;
+    grid-row: 1/3;
     background-color: cornflowerblue;
     padding: 10px;
     border-radius: 5px;
     height: 100%;
     font-size: 25px;
 }
-#VäVaade div:nth-of-type(2){
+#ükekavadgrid .VäVaade #nimi{
+    grid-column: 2;
+    grid-row: 1;
     padding: 10px;
     color: white;
+    overflow-y: hidden;
+    overflow-x: auto;
     font-size: 20px;
+}
+#ükekavadgrid .VäVaade .nuppud {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-around;
+}
+.nuppud a {
+    text-decoration: none;
+    color: white;
     height: 100%;
-    overflow-y: auto;
+    width: 30px;
+    text-align: center;
 }
 
 @media all and (max-width:800px){

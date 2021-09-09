@@ -357,27 +357,6 @@
     margin: auto;
     width: 50%;
 }
-#harj-save 
-{
-    grid-column: 3;
-    margin: auto auto;
-    background-color: #3d3d3e;
-    padding:10px;
-    border: none;
-    border-radius: 10px;
-    transition: all ease 0.3s 0s;
-    width: 60px;
-}
-#harj-save svg{
-}
-
-#harj-save #lips {
-    fill: rgb(224, 196, 36);
-}
-
-#harj-save:hover  #lips{
-    fill: gold;
-}
 
 
 #harj-card-main .deltalihas .deltalihas-s {fill:rgb(224, 49, 49)} 
