@@ -10,6 +10,11 @@
     flex-direction: column;
     justify-content: space-between;
 }
+@media all and (max-width:750px) {
+    #card {
+        width: 100%;
+    }
+}
 #cardlisamine
 {
     width: 100%;
@@ -200,7 +205,7 @@
 
 
 
-#number
+.cardtop #number
 {
 
     font-family: Arial;
@@ -218,7 +223,7 @@
 
 /* Nimi 1. 2. 3. 4. 5. 6. 7. */
 
-#nimi
+.cardtop #nimi
 {
 
     font-family: Arial;
@@ -232,7 +237,7 @@
 }
 
 
-#kordused
+.cardbottom #kordused
 {
     color: #fffffa;
     background:#1f7a8c;

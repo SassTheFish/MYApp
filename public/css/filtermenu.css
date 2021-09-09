@@ -4,6 +4,7 @@
     grid-template-columns: 60% 40%;
     background: white;
     padding: 15px;
+    max-width: 1020px;
 }
 
 .filtermenu form input[type="text"] {

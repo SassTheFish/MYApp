@@ -108,36 +108,40 @@
             </div>
         </form>
     </div>
- 
 
-    <section>
-      <div class="row row-cols-1 justify-content-center m-5">  
-        <div class="col-auto col-md-6">
-          <div id="card2">
-            <div class="cardtop2">
-                <div id="level2">
-                    <span id="number2"><%= kava.pingutustase %>%</span>
-                </div>
-                <div id="head2">
-                    <span id="title2"><%= kava.nimi %> </span>
-                </div>
-            </div>
-            <div class="cardbottom2 ">
-                <ol class="harjutused2">
-                    <div class="row row-cols-1 ">
-                        <% for(harjutus of kava.harjutused) { %>
-                            <div class="col-11 rida">
-                              <div><span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span></div>
-                            </div>
-                            <div class="col-1"><a id="kustuta" href="/ujumisekavad/lisaharjutus/<%=kava._id%>/delete/<%=harjutus._id%>">-</a></div>
-                        <% } %>
+    <div id="card2" style="margin: auto; margin-top: 100px; width: 90%;">
+      <div class="cardtop2">
+          <div id="level2">
+              <span id="number2"><%= kava.pingutustase %>%</span>
+          </div>
+          <div id="head2">
+              <span id="title2"><%= kava.nimi %> </span>
+          </div>
+      </div>
+      <div class="cardbottom2 ">
+          <div class="harjutused2">
+            <div class="row row-cols-1 ">
+                <% for(harjutus of kava.harjutused) { %>
+                    <div class="col-12 rida">
+                        <div id="harjutusinujumisekava">
+                        <span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span>
+                        <a id="kustuta" href="/ujumisekavad/lisaharjutus/<%=kava._id%>/delete/<%=harjutus._id%>">
+                          <svg width="15" height="15" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="15.5563" width="4" height="22" rx="1" transform="rotate(45 15.5563 0)" fill="white"/>
+                          <rect width="4" height="22" rx="1" transform="matrix(-0.707107 0.707107 0.707107 0.707107 2.82843 0)" fill="white"/>
+                          </svg>
+                        </a>
+                        </div>
+                        
                     </div>
-                </ol>
+                    <hr>
+                <% } %>
             </div>
           </div>
-        </div>
       </div>
-    </section>
+      <div id="cardbuttons2">
+      </div>
+  </div>
 
   </div>
 

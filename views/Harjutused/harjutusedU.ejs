@@ -43,4 +43,53 @@
             </div>
         </form>
     </div>
+    <div class="filtermenu border-add mt-3">
+        <div class="leftside">
+            <h5>Filter</h5>
+            <form action="/ujumisekavad" method="POST">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rl" id="flexRadioDefault1" value=-1>
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Raskemad
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rl" id="flexRadioDefault2" value=1>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Lihtsamad
+                    </label>
+                </div>
+                <input type="text" id="search" placeholder="Otsi" name="otsing">
+                <button type="submit">Otsi</button>
+            </form>
+        </div>
+        <div class="rightside">
+            <button id="värvid">
+                <svg width="30" height="30" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="11" fill="white"/>
+                    <circle cx="11" cy="11" r="10" fill="#535FCB"/>
+                    <path d="M21 11C21 9.02219 20.4135 7.08879 19.3147 5.4443C18.2159 3.79981 16.6541 2.51808 14.8268 1.7612C12.9996 1.00433 10.9889 0.806295 9.0491 1.19215C7.10929 1.578 5.32746 2.53041 3.92893 3.92893C2.53041 5.32746 1.578 7.10929 1.19215 9.0491C0.806295 10.9889 1.00433 12.9996 1.7612 14.8268C2.51808 16.6541 3.79981 18.2159 5.4443 19.3147C7.08879 20.4135 9.02219 21 11 21L11 11H21Z" fill="#40D73D"/>
+                    <path d="M21 11C21 8.34784 19.9464 5.8043 18.0711 3.92893C16.1957 2.05357 13.6522 1 11 1C8.34784 1 5.8043 2.05357 3.92893 3.92893C2.05357 5.80429 1 8.34783 1 11L11 11H21Z" fill="#E93434"/>
+                    <path d="M21 11C21 9.68678 20.7413 8.38642 20.2388 7.17317C19.7362 5.95991 18.9997 4.85752 18.0711 3.92893C17.1425 3.00035 16.0401 2.26375 14.8268 1.7612C13.6136 1.25866 12.3132 1 11 1L11 11H21Z" fill="#EFDA1E"/>
+                </svg>
+            </button>
+            <button id="väikevaade" class="invisibility">
+                <svg width="30" height="30" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="10" height="10" rx="1" fill="white"/>
+                    <rect x="12" width="10" height="10" rx="1" fill="white"/>
+                    <rect x="12" y="12" width="10" height="10" rx="1" fill="white"/>
+                    <rect y="12" width="10" height="10" rx="1" fill="white"/>
+                </svg>
+            </button>
+            <button id="väikevaade2" >
+                <svg width="30" height="30" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="8" width="22" height="5" rx="1" fill="white"/>
+                    <rect width="22" height="5" rx="1" fill="white"/>
+                    <rect y="16" width="22" height="5" rx="1" fill="white"/>
+                </svg>
+            </button>
+        </div>
+        
+    </div>
 </div>
