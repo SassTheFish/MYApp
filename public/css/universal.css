@@ -1,0 +1,257 @@
+
+input 
+{
+    width: 100%;
+    padding: 5px;
+    padding-left: 10px;
+    border: 3px solid #222e50;
+    border-radius: 20px;
+}
+
+
+
+#button-save 
+{
+    grid-column: 3;
+    margin: auto auto;
+    background-color: #3d3d3e;
+    padding:10px;
+    border: none;
+    border-radius: 6px;
+    transition: all ease 0.3s 0s;
+    width: 60px;
+}
+#button-save #lips {
+    fill: rgb(224, 196, 36);
+}
+
+#button-save:hover  #lips{
+    fill: gold;
+}
+
+
+
+.magnific {
+    color: rgb(233, 233, 233);
+}
+
+@media all and (min-width:992px) {
+    .highlightNav {
+        background-color: rgb(246, 246, 246);
+        padding: 5px;
+        color: rgb(39, 39, 39) !important;
+        border-radius: 20px;
+    }
+}
+
+
+
+
+
+
+#aboutpagecontainer{
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+#carouselImageContainer {
+    border-radius: 100px;
+
+}
+/* .carousel-item img {
+    height: 30vh;
+    width: 60vw;
+    min-height: 250px;
+} */
+
+#searchbar{
+    max-width: 315px;
+    width: 100vw;
+}
+.cardelement {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
+    border-radius: 10px;
+}
+.cardimg {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.cardtext {
+    height: auto;
+    padding: 10px;
+}
+
+.border-add
+{
+    border: 4px #2e4770 solid;
+    border-radius: 20px;
+}
+
+
+.cardcolor{
+    background-color: #293241;
+}
+
+
+#TÜHJUS
+{
+    justify-self: center;
+    text-align: center;
+    font-size: 30px;
+}
+#number2
+{
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 41px;
+    display: flex;
+    
+    text-align: center;
+
+    color: #000000;
+}
+
+
+
+
+input[type="checkbox"]
+{
+    appearance: none;
+    -webkit-appearance: none;
+    background: deepskyblue;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: all ease 0.3s 0s;
+}
+.laudcheckbox input[type="checkbox"]::after {content: "Laud";}
+.punncheckbox input[type="checkbox"]::after {content: "Punn";}
+.SLabcheckbox input[type="checkbox"]::after {content: "S.Lab";}
+.VLabcheckbox input[type="checkbox"]::after {content: "V.Lab";}
+.snorkcheckbox input[type="checkbox"]::after {content: "Snorkel";}
+.lestcheckbox input[type="checkbox"]::after {content: "Lestad";}
+
+input[type="checkbox"]:checked
+{
+    background: #06d6a0;
+    color: white;
+}
+input[type="checkbox"]:hover
+{
+    background: rgb(0, 133, 178);
+}
+
+
+
+.hoverthing
+{
+    background-color: white;
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+    transition: ease all 0.3s 0s;
+}
+.hoverthing:hover {
+    border: rgb(57, 106, 203) solid 4px;
+}
+.hoverthing:active {
+    background-color: white;
+}
+
+
+.popup
+{
+    position: relative;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content:space-between;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+
+.popup form
+{
+    height: 100%;
+    width: 100%;
+}
+
+.none
+{
+    display: none;
+}
+
+
+.deltalihascheckbox input[type="checkbox"]::after {
+    content:'deltalihas';
+    font-size: 13px;
+
+}
+.rinnalihascheckbox input[type="checkbox"]::after {
+    content:'rinnalihas';
+    font-size: 13px;
+
+}
+.triitsepscheckbox input[type="checkbox"]::after {
+    content:'triitseps';
+    font-size: 13px;
+
+}
+.kõhulihascheckbox input[type="checkbox"]::after {
+    content:'kõhulihas';
+    font-size: 13px;
+
+}
+.reie_eeskülgcheckbox input[type="checkbox"]::after {
+    content:'reie eeskülg';
+    font-size: 13px;
+
+}
+.reie_tagakülgcheckbox input[type="checkbox"]::after {
+    content:'reie tagakülg';
+    font-size: 13px;
+
+}
+.säärelihascheckbox input[type="checkbox"]::after {
+    content:'säärelihas';
+    font-size: 13px;
+
+}
+.ülaselgcheckbox input[type="checkbox"]::after {
+    content:'ülaselg';
+    font-size: 13px;
+
+}
+.alaselgcheckbox input[type="checkbox"]::after {
+    content:'alaselg';
+    font-size: 13px;
+
+}
+.tuharalihascheckbox input[type="checkbox"]::after {
+    content:'tuharalihas';
+    font-size: 13px;
+
+}
+.biitsepscheckbox input[type="checkbox"]::after {
+    content:'biitseps';
+    font-size: 13px;
+
+}
+
