@@ -150,3 +150,39 @@ input[type="checkbox"]:hover
 {
     background: rgb(0, 133, 178);
 }
+
+#section2
+{
+    background-color: white;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+}
+
+#sidebar-popup {
+    position: absolute;
+    z-index: 100;
+    left:-310px;
+    top: 0;
+    margin: 10px;
+    height: 100%;
+    width: 300px;
+    background-color: rgb(193, 193, 193);
+    border-radius: 10px;
+    transition: all ease 0.3s 0s;
+}
+#sidebar-tab {
+    position: absolute;
+    left: 300px;
+    top: 50%;
+    border: none;
+    border-radius: 5px;
+    background-color: yellowgreen;
+    width: 30px;
+    height: 100px;
+
+
+}
+.slidebar {
+    left: 0!important;
+}

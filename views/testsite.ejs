@@ -3,6 +3,14 @@
 <div class="polygon1">
     
 </div>
+
+
+<div id="sidebar-popup">
+    <button id="sidebar-tab">
+
+    </button>
+</div>
+
 <section>
     <div class="hoverthing">
     </div>
@@ -26,6 +34,16 @@
                 </div>
             </form>
     </div>
+    <div id="sidebar-popup">
+    
+    </div>
+</section>
+
+<section id="section2">
+    
+
+
+
 </section>
 
 
@@ -41,4 +59,14 @@
     popupthing.addEventListener('pointerout', ()=>{
         popupthing.classList.toggle('none');
     })
+
+    const sidebartab = document.querySelector('#sidebar-tab');
+    const sidebar = document.querySelector('#sidebar-popup');
+    sidebartab.addEventListener('click', function(){
+        sidebar.classList.toggle('slidebar');
+    })
+
+
+
+
 </script>
