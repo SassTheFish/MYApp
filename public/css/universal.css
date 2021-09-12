@@ -143,6 +143,53 @@ input
     min-height: 250px;
 } */
 
+
+#sidebar-popup {
+    position: absolute;
+    z-index: 100;
+    left:-310px;
+    top: 100px;
+    margin: 10px;
+    height: 1000px;
+    width: 300px;
+    background-color: rgba(231, 231, 231, 0.868);
+    border: solid var(--formborder1) 6px;
+    border-radius: 15px;
+    transition: all ease 0.3s 0s;
+}
+#sidebar-content {
+    
+}
+#sidebar-tab {
+    position: absolute;
+    left: 300px;
+    top: 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: yellowgreen;
+    opacity: 100%;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+#sidebar-tab:hover {
+    background-color: rgb(122, 161, 43);
+}
+
+#sidebar-tab svg {
+    transition: all ease-in-out 0.6s 0s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.slidebar {
+    left: 0!important;
+}
+
+
+
 #searchbar{
     max-width: 315px;
     width: 100vw;

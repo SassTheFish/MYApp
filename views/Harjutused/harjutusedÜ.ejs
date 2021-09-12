@@ -18,7 +18,19 @@
     <a id="ujumiseharj-btn" href="/ujumiseharj">Ujumine</a>
 </div>
 
+<div id="sidebar-popup">
+    <button id="sidebar-tab">
+        <svg width="19" height="23" viewBox="0 0 19 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.0607 12.5607C18.6464 11.9749 18.6464 11.0251 18.0607 10.4393L8.51472 0.893398C7.92893 0.307612 6.97918 0.307612 6.3934 0.893398C5.80761 1.47918 5.80761 2.42893 6.3934 3.01472L14.8787 11.5L6.3934 19.9853C5.80761 20.5711 5.80761 21.5208 6.3934 22.1066C6.97918 22.6924 7.92893 22.6924 8.51472 22.1066L18.0607 12.5607ZM0 13H3.83871V10H0V13ZM3.83871 13H7.12903V10H3.83871V13ZM7.12903 13H17V10H7.12903V13Z" fill="white"/>
+        </svg>
+    </button>
+    <div id="sidebar-content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt perferendis natus voluptas inventore odit quaerat optio provident tenetur labore iusto, consequatur nam fugit cum exercitationem voluptatibus laborum fuga delectus omnis.
+    </div>
 
+
+
+</div>
 
 <div class="containerC">
     <div class="row row-cols-1">
@@ -210,5 +222,14 @@
     })
     popupthing.addEventListener('pointerout', ()=>{
         popupthing.classList.toggle('none');
+    })
+
+    const sidebartab = document.querySelector('#sidebar-tab');
+    const sidebartabsvg = document.querySelector('#sidebar-tab svg');
+    const sidebar = document.querySelector('#sidebar-popup');
+    sidebartab.addEventListener('click', function(){
+        sidebar.classList.toggle('slidebar');
+        sidebartabsvg.classList.toggle('rotate');
+
     })
 </script>

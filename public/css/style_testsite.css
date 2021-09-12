@@ -165,10 +165,11 @@ input[type="checkbox"]:hover
     left:-310px;
     top: 0;
     margin: 10px;
-    height: 100%;
+    height: 1000px;
     width: 300px;
-    background-color: rgb(193, 193, 193);
-    border-radius: 10px;
+    background-color: rgb(231, 231, 231);
+    border: solid blue 6px;
+    border-radius: 15px;
     transition: all ease 0.3s 0s;
 }
 #sidebar-tab {

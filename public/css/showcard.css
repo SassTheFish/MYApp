@@ -25,7 +25,6 @@
 
 #sc-grid main {
     grid-row: 2/11;
-    margin: 0 auto;
     overflow-y: auto;
 }
 
@@ -53,66 +52,38 @@
     padding: 25px;
     color: white;
     margin: auto;
+    margin-top: 40px;
+    border-radius: 10px;
+    font-size: 20px;
 }
-#sc-harj ul {
-    list-style:upper-alpha;
-    margin: 0;
-    padding: 0;
-}
-
 #sc-harj li {
-    margin: 0 0 15px 15px;
-    font-size: 30px;
-}
-@media all and (max-width:1000px) 
-{
-    #showcard {
-        padding: 5px;
-    }
-    #sc-harj li 
-    {
-        font-size: 20px;
-    }    
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    justify-items: start;
 }
 
 
+#sc-harj li .kordus{
+    color: rgb(255, 126, 131);
 
-#sc-harj span {
+}
+#sc-harj li .ala{
+    color: rgb(56, 239, 221);
 
 }
+#sc-harj li .harjutus{
+    color: rgb(70, 217, 97);
 
-#sc-buttons{
- 
 }
+#sc-harj li .eraldus{
+    color: rgb(222, 173, 58);
 
-#k-table 
-{
-    width: 100%;
-    text-align: center;
 }
-#k-table th
-{
-    border: 2px solid white;
-    height: 40px;
-}
+#sc-harj li .vahendid{
+    color: rgb(200, 222, 75);
 
-#k-table td {
-    border: 2px solid white;
-    height: 40px;
 }
+#sc-harj li .ajastus{
+    color: rgb(129, 102, 236);
 
-#k-table #ajastus svg
-{
-    height: 100px;
-    width: 100px;
-}
-#k-table #harjutus svg
-{
-    height: 100px;
-    width: 100px;
-}
-#k-table #vahendid svg
-{
-    height: 100px;
-    width: 100px;
 }

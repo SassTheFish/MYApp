@@ -3,36 +3,68 @@
 
 <div id="showcard">
     <div id="sc-grid">
-        <header>
-            <div id="sc-level"><%=kava.pingutustase | kava.raskustase%>%</div>
-            <h4 id="sc-title"><%= kava.nimi %> </h4>
-        </header>
-        <main>
-            <div id="sc-harj">
+        <% if (type === 'ujumine') { %>
+            <header>
+                <div id="sc-level"><%=kava.pingutustase%>%</div>
+                <h4 id="sc-title"><%= kava.nimi %> </h4>
+            </header>
+            <main id="sc-harj">
                 <ul>
                     <% for(harj of kava.harjutused) { %>
-                        <% if (kava.pingutustase) { %>
-                            <li>
-                                <span><%= harj.kordused %> </span>
-                                <span><%= harj.ala %> </span>
-                                <span><%= harj.eraldus %> </span>
-                                <span><%= harj.harjutus %> </span>
-                                <span><%= harj.vahendid %> </span>
-                                <span><%= harj.ajastus %> </span>
-                            </li>
-                        <% } %>
-                        <% if (kava.raskustase) { %>
-                            <li><%= harj %> </li>
-                        <% } %>
-                        
-
+                        <li>
+                            <span class="kordus"><%= harj.kordused %> </span>
+                            <span class="ala"><%= harj.ala %> </span>
+                            <span class="harjutus"><%= harj.eraldus %> </span>
+                            <span class="eraldus"><%= harj.harjutus %> </span>
+                            <span class="vahendid"><%= harj.vahendid %> </span>
+                            <span class="ajastus"><%= harj.ajastus %> </span>
+                        </li>
+                        <hr>
                     <% } %>
                 </ul>
-            </div>
-        </main>
-        <footer>
-            <div id="sc-buttons">
-            </div>
-        </footer>
+            </main>
+            <footer>
+                <div id="sc-buttons">
+                </div>
+            </footer>
+        <% } %>
+        <% if (type === 'üke') { %>
+            <header>
+                <div id="sc-level"><%=kava.raskustase%></div>
+                <h4 id="sc-title"><%= kava.nimi %> </h4>
+            </header>
+            <main>
+                <div id="sc-harj">
+                    <ul>
+                        <% for(harj of kava.harjutused) { %>
+                            <li><%= harj %> </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </main>
+            <footer>
+                <div id="sc-buttons">
+                </div>
+            </footer>
+        <% } %>
+        <% if (type === 'harjutus') { %>
+            <header>
+                <div id="sc-level"><%=kava.raskustase%></div>
+                <h4 id="sc-title"><%= kava.nimi %> </h4>
+            </header>
+            <main>
+                <div id="sc-harj">
+                    <ul>
+                        <% for(lihas of kava.lihasgruppid) { %>
+                            <span><%=lihas%> </span>
+                        <% } %>
+                    </ul>
+                </div>
+            </main>
+            <footer>
+                <div id="sc-buttons">
+                </div>
+            </footer>
+        <% } %>
     </div>
 </div>
