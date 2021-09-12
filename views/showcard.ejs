@@ -4,21 +4,28 @@
 <div id="showcard">
     <div id="sc-grid">
         <header>
-            <div id="sc-level"><%=kava.pingutustase%>%</div>
+            <div id="sc-level"><%=kava.pingutustase | kava.raskustase%>%</div>
             <h4 id="sc-title"><%= kava.nimi %> </h4>
         </header>
         <main>
             <div id="sc-harj">
                 <ul>
                     <% for(harj of kava.harjutused) { %>
-                        <li>
-                            <span><%= harj.kordused %> </span>
-                            <span><%= harj.ala %> </span>
-                            <span><%= harj.eraldus %> </span>
-                            <span><%= harj.harjutus %> </span>
-                            <span><%= harj.vahendid %> </span>
-                            <span><%= harj.ajastus %> </span>
-                        </li>
+                        <% if (kava.pingutustase) { %>
+                            <li>
+                                <span><%= harj.kordused %> </span>
+                                <span><%= harj.ala %> </span>
+                                <span><%= harj.eraldus %> </span>
+                                <span><%= harj.harjutus %> </span>
+                                <span><%= harj.vahendid %> </span>
+                                <span><%= harj.ajastus %> </span>
+                            </li>
+                        <% } %>
+                        <% if (kava.raskustase) { %>
+                            <li><%= harj %> </li>
+                        <% } %>
+                        
+
                     <% } %>
                 </ul>
             </div>

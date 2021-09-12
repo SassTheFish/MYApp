@@ -5,7 +5,7 @@ const isLoggedIn = require('../middleware')
 
 const router = express.Router();
 
-router.get("/:id", async (req, res)=>{
+router.get("/:id/:type", async (req, res)=>{
     
     const reqbody = req.body;
     const path = req.originalUrl;

@@ -20,6 +20,7 @@
 #mina-left{
     grid-area: a;
     width: 100%;
+    min-width: 300px;
     overflow-x: hidden;
     justify-self: start;
 }
@@ -167,6 +168,7 @@
 #middle-main {
     grid-area: b;
     height: 95%;
+    min-height: 500px;
     width: 100%;
     max-height: 1100px;
 
@@ -182,7 +184,7 @@
     text-align: center;
     margin-bottom: 30px;
 }
-#middle-gridH, #middle-gridHk, #middle-gridUk {
+#middle-gridH, #middle-gridHk{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     row-gap: 20px;
@@ -191,6 +193,19 @@
     padding: 20px;
     overflow-y: auto;
     overflow-x: hidden;
+}
+#middle-gridUk {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    height: 95%;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#middle-gridUk #card2 {
+    max-height: fit-content;
 }
 
 
@@ -214,7 +229,11 @@
 
 
 }
-
+@media all and (max-width:1300px){
+    #middle-gridUk #card2 {
+        width:100%;
+    }
+}
 @media all and (max-width:1550px)
 {
     #middle-gridH,#middle-gridHk, #middle-gridUk {

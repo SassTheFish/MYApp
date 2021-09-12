@@ -169,11 +169,23 @@
                     </ul>
                 </div>
                 <div id="harj-card-buttons">
-                    <a id="harj-update" href="harjutused/update/<%= harj._id%> ">Muuda</a>
-                    <a id="harj-delete" href="harjutused/deleteOne/<%= harj._id%> ">
-                        <svg width="20" height="7" viewBox="0 0 38 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect id="minus" width="38" height="7" rx="4" fill="black"/>
+                    <a id="button-uuenda" href="harjutused/update/<%=harj._id%>">
+                        <svg width="29" height="29" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.735745 7.7774C0.331817 7.38932 0.325397 6.74518 0.72151 6.34913L6.35011 0.721401C6.74622 0.325349 7.39036 0.331868 7.77838 0.735855L20.9994 14.5011L14.4989 21.0006L0.735745 7.7774Z" fill="white"/>
+                        <path d="M23 23L15.2404 21.3658L21.3646 15.2425L23 23Z" fill="white"/>
                         </svg>
+                    </a>
+                    <a id="button-kustuta" href="harjutused/deleteOne/<%=harj._id%>">
+                        <svg width="26" height="26" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="15.5563" width="4" height="22" rx="1" transform="rotate(45 15.5563 0)" fill="white"/>
+                        <rect width="4" height="22" rx="1" transform="matrix(-0.707107 0.707107 0.707107 0.707107 2.82843 0)" fill="white"/>
+                        </svg>
+                    </a>
+                    <a id="button-vaata" href="showcard/<%=harj._id%>/üke">
+                        <svg id="luup" width="26" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 17C20.1944 17 24 13.1944 24 8.5C24 3.80557 20.1944 0 15.5 0C10.8056 0 7 3.80557 7 8.5C7 13.1944 10.8056 17 15.5 17ZM15.5 15C19.0898 15 22 12.0898 22 8.5C22 4.91016 19.0898 2 15.5 2C11.9102 2 9 4.91016 9 8.5C9 12.0898 11.9102 15 15.5 15Z" fill="white"/>
+                            <path d="M3 23L10 15" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        </svg> 
                     </a>
                     <form action="/save/<%=harj._id%>"method="POST">
                         <button id="button-save" type="submit">

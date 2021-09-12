@@ -40,7 +40,7 @@ router.get("/deleteOne/:id", async (req,res)=>{
     {
         await Harjutus.findByIdAndDelete(id).then(()=>{console.log("done")}).catch(err=>{console.log("err", err)});
     } else {
-        req.flash('error','harj kasutusel');
+        req.flash('error','harjutus kasutusel');
     }
     res.redirect("/harjutused")
 })

@@ -92,54 +92,7 @@
     justify-content: space-around;
     align-items: center;
 }
-#cardbuttons2 #lisaHar 
-{
-    text-decoration: none;
-    background:#3d3d3e;
-    padding: 10px;
-    border-radius: 6px;
-    min-width: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#cardbuttons2 #lisaHar svg rect {
-    fill: #4af472;
-}
-#cardbuttons2 #lisaHar:hover 
-{
-    background:#606064;
-}
-#cardbuttons2 #uuenda 
-{
-    text-decoration: none;
-    background:#3d3d3e;
-    padding: 10px;
-    border-radius: 6px;
-}
-#cardbuttons2 #uuenda svg rect {
-    fill: #FFFFFF;
-}
 
-#cardbuttons2 #uuenda:hover 
-{
-    background:#606064;
-}
-#cardbuttons2 #kustuta 
-{
-    text-decoration: none;
-    background:#3d3d3e;
-    padding: 10px;
-    border-radius: 6px;
-}
-#cardbuttons2 #kustuta svg rect {
-    fill: #ee6c4d;
-}
-
-#cardbuttons2 #kustuta:hover 
-{
-    background:#606064;
-}
 
 #level2
 {
@@ -226,7 +179,7 @@
 .harjutused2 .wht {
     color:white;
 }
-.harjutused2 #kustuta {
+.harjutused2 #button-kustuta {
     text-decoration: none;
     background-color: #3d3d3e;
     text-align: center;
@@ -236,11 +189,11 @@
     border-radius: 6px;
 }
 
-.harjutused2 #kustuta:hover {
+.harjutused2 #button-kustuta:hover {
     background:#606064;
 }
 
-.harjutused2 #kustuta svg rect {
+.harjutused2 #button-kustuta svg rect {
     fill: #ee6c4d;
     margin: auto auto;
 }

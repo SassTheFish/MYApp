@@ -44,6 +44,8 @@ const SF = require('./Utils/SortingFunctions');
 const { Üke, Harjutus } = require('./models/harjutus');
 const Ujumine = require('./models/ujumine');
 const User = require('./models/user');
+const TreeningGrupp = require('./models/treeningGrupp');
+
 
 
 //ROUTER
@@ -55,23 +57,14 @@ const showcardRouter = require('./Routes/showcardRouter');
 const userRouter = require('./Routes/userRouter');
 const U_harjRouter = require('./Routes/ujumiseharjRouter');
 
-const { appendFileSync } = require("fs");
 
 
 
 
-morgan('tiny');
-
-const hashPassword = async (pw)=>{
-    const salt = await bcrypt.genSalt(12);
-    const hash = await bcrypt.hash(pw, salt)
-}
-
-hashPassword('monkey');
 
 
 
-
+//----------CONNECT DATABASE---------------------
 const database_url_d = 'mongodb://localhost:27017/MYAPP';
 const database_url_p = process.env.DB_URL; 
 const database_url = database_url_p || database_url_d;
@@ -89,13 +82,12 @@ mongoose.connect(database_url,
         console.log("Mongo Error:");
         console.log(err)
     })
+//------------------------------------------------
 
 
 
 
 
-
-//--------------MIDDLEWARE-----------------
 
 const isLoggedIn = require('./middleware');
 
@@ -111,6 +103,7 @@ store.on("error", function(e){
 })
 
 
+
 const Secret = process.env.SECRET || 'thisisasecret'
 
 const sessionConfig = {
@@ -122,6 +115,8 @@ const sessionConfig = {
     },
     store
 }
+
+//--------------MIDDLEWARE-----------------
 
 app.engine('ejs', ejsMate);
 app.set("view engine", "ejs");
@@ -170,36 +165,11 @@ app.use('/', userRouter);
 
 
 
-app.get('/secret', isLoggedIn,(req,res)=>{
-    res.render('secret')
-})
+
 
 
 
 //---------------GET---------------------
-app.get('/SHOW', async (req,res)=>{
-    
-    const {harjutusedH, kavadU, kavadÜ} = await SF.getData();
-    SF.OrderRaskus(kavadÜ);
-    SF.OrderRaskus(harjutusedH);
-    SF.OrderRaskus(kavadU);
-    res.cookie('name', 'john', {signed:true});
-    if(req.session.viewCount){
-        req.session.viewCount++;
-    }
-    else {
-        req.session.viewCount = 1;
-    }
-
-    const data = {
-        harjutusedH,
-        kavadU,
-        kavadÜ,
-    }
-    req.flash('info', 'Flash message');
-    res.cookie('viewCount', req.session.viewCount).render("SHOW", {...data});
-})
-
 
 app.get('/testpage', (req,res)=>{
     const length = c_lihasgruppid.length;
@@ -212,13 +182,10 @@ app.get('/testpage', (req,res)=>{
     }
     res.render('testsite.ejs', {...object});
 })
+
 app.post('/testpage', (req,res)=>{
     res.redirect('/testpage');
 })
-app.get("/example", (req,res)=>{
-    res.render("example.ejs")
-})
-
 
 
 app.get("/technique-guides", (req, res)=>{
@@ -232,6 +199,7 @@ app.get("/technique-guides", (req, res)=>{
     }
     res.render("technique-guides.ejs", {...object})
 })
+
 app.get("/minapage", isLoggedIn, async (req, res)=>{
     
     const reqbody = req.body;
@@ -288,7 +256,7 @@ app.post('/save/:id', async(req,res)=>{
     
     user.save();
     req.flash('success', 'saved');
-    res.redirect(req.path)
+    res.redirect('/harjutused')
 })
 
 //------------PUT------------------
@@ -317,7 +285,10 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
 
 
 //--------------------------------------
-//LAST CALL
+
+
+
+//............LAST CALL.................
 app.use((err,req,res,next)=>{
     const object = {
         err
@@ -325,7 +296,7 @@ app.use((err,req,res,next)=>{
     res.render("ERROR", {...object});
 })
 
-
+//---------------PORT---------------------
 const port = process.env.PORT || 3000;
 app.listen(port, ()=>{
     console.log(`Listening on ${port}`);

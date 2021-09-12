@@ -19,17 +19,96 @@ input
     border: none;
     border-radius: 6px;
     transition: all ease 0.3s 0s;
-    width: 60px;
+    width: 50px;
 }
 #button-save #lips {
     fill: rgb(224, 196, 36);
 }
-
+#button-save:hover {
+    background:#4c4c4f;
+}
 #button-save:hover  #lips{
     fill: gold;
 }
+#button-save:active {
+    transform: scale(0.8);
+}
+
+#button-vaata {
+    background-color: #3d3d3e;
+    padding:13px;
+    border: none;
+    border-radius: 6px;
+    transition: all ease 0.3s 0s;
+}
+#button-vaata:hover {
+    background:#4c4c4f;
+}
+
+#button-vaata:active {
+    transform: scale(0.8);
+}
 
 
+#button-lisaHar 
+{
+    text-decoration: none;
+    background:#3d3d3e;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.3s 0s;
+}
+#button-lisaHar svg rect {
+    fill: #4af472;
+}
+#button-lisaHar:hover 
+{
+    background:#4c4c4f;
+}
+#button-lisaHar:active {
+    transform: scale(0.8);
+}
+#button-uuenda 
+{
+    text-decoration: none;
+    background:#3d3d3e;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all ease 0.3s 0s;
+}
+#button-uuenda svg rect {
+    fill: #FFFFFF;
+}
+
+#button-uuenda:hover 
+{
+    background:#4c4c4f;
+}
+#button-uuenda:active {
+    transform: scale(0.8);
+}
+#button-kustuta 
+{
+    text-decoration: none;
+    background:#3d3d3e;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all ease 0.3s 0s;
+}
+#button-kustuta svg rect {
+    fill: #ee6c4d;
+}
+
+#button-kustuta:hover 
+{
+    background:#4c4c4f;
+}
+#button-kustuta:active {
+    transform: scale(0.8);
+}
 
 .magnific {
     color: rgb(233, 233, 233);
@@ -100,6 +179,8 @@ input
     justify-self: center;
     text-align: center;
     font-size: 30px;
+    color: aquamarine;
+    width: 100%;
 }
 #number2
 {
