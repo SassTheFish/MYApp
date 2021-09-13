@@ -16,7 +16,7 @@ router.get("/:id/:type", async (req, res)=>{
             kava = await UjumisKava.findById(req.params.id);
             break;
         case 'üke':
-            kava = await Üke.findById(req.params.id);
+            kava = await Üke.findById(req.params.id).populate('harjutused.harj');
             break;
         case 'harjutus':
             kava = await Harjutus.findById(req.params.id);

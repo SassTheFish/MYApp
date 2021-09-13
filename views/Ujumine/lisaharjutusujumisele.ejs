@@ -12,7 +12,7 @@
     <div class="container mt-5 rounded" style="background-color: #f8f9fa6f;">
         <form class="row g-3 mx-5 needs-validation" novalidate action="/ujumisekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
             <div class="col-md-4">
-              <label for="validationCustom03" class="form-label">Kordused</label>
+              <label for="validationCustom03" class="form-label">Distants</label>
               <input type="text" class="form-control" name="kordused" id="validationCustom03" required>
               <div class="invalid-feedback">
                 !
@@ -35,7 +35,7 @@
                 <option value="Kompleks">Kompleks</option>
                 <option selected value="Krool">Krool</option>
                 <option value="Põhiviis">Põhiviis</option>
-                <option value="Oma valik">Oma valik</option>
+                <option value="Oma_valik">Oma valik</option>
               </select>
             </div>
 
@@ -110,7 +110,7 @@
         </form>
     </div>
 
-    <div id="card2" style="margin: auto; margin-top: 100px; width: 90%;">
+    <div id="card2" style="margin: auto; margin-top: 100px; width: 500px;">
       <div class="cardtop2">
           <div id="level2">
               <span id="number2"><%= kava.pingutustase %>%</span>
@@ -121,7 +121,7 @@
       </div>
       <div class="cardbottom2 ">
           <div class="harjutused2">
-            <div class="row row-cols-1 ">
+            <div class="row row-cols-1 w-100">
                 <% for(harjutus of kava.harjutused) { %>
                     <div class="col-12 rida">
                         <div id="harjutusinujumisekava">

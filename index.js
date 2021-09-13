@@ -242,21 +242,17 @@ app.post('/minapage/updateUser/:userid', async (req,res,next)=>{
 
 
 app.post('/save/:id', async(req,res)=>{
-    console.log(req.user)
-    console.log(req.params.id)
-
     const user = await User.findById(req.user._id)
     if(!user.saved.includes(req.params.id)){
         user.saved.push(req.params.id);
+        user.save();
+        req.flash('success', 'saved');
+        res.redirect('back')
     }
     else {
         req.flash('error', 'already saved');
-        res.redirect('/harjutused');
+        res.redirect('back');
     }
-    
-    user.save();
-    req.flash('success', 'saved');
-    res.redirect('/harjutused')
 })
 
 //------------PUT------------------

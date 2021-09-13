@@ -25,25 +25,29 @@
             </main>
             <footer>
                 <div id="sc-buttons">
+                    <a id="button-tagasi" href="/ujumisekavad" style="grid-column: 4;">Tagasi</a>
                 </div>
             </footer>
         <% } %>
         <% if (type === 'üke') { %>
-            <header>
+            <header class="sc-üke">
                 <div id="sc-level"><%=kava.raskustase%></div>
                 <h4 id="sc-title"><%= kava.nimi %> </h4>
             </header>
-            <main>
+            <main class="sc-üke">
                 <div id="sc-harj">
                     <ul>
                         <% for(harj of kava.harjutused) { %>
-                            <li><%= harj %> </li>
+                            <li>
+                                <span><%=harj.harj.nimi%></span> <span><%=harj.kordused_x%> * <%=harj.kordused_y%></span>
+                            </li>
                         <% } %>
                     </ul>
                 </div>
             </main>
             <footer>
                 <div id="sc-buttons">
+                    <a id="button-tagasi" href="/ukekavad"style="grid-column: 4;">Tagasi</a>
                 </div>
             </footer>
         <% } %>
@@ -63,6 +67,7 @@
             </main>
             <footer>
                 <div id="sc-buttons">
+                    <a id="button-tagasi" href="/harjutused"style="grid-column: 4;">Tagasi</a>
                 </div>
             </footer>
         <% } %>
