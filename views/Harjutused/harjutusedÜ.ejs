@@ -129,10 +129,16 @@
 <div class="harjutused-harjutused mt-5">
     <div id="harj-grid">
         <% for( let harj of harjutused) { %>
+            <div class="card-desc invisibility">
+                <div id="harj-card-head">
+                    <button>?</button>
+                </div>
+            </div>
             <div id="harj-card">
                 <div id="harj-card-head">
                     <span class="level<%=harj.raskustase%>"><%= harj.raskustase %></span>
                     <span><%=harj.nimi%></span>
+                    <button>?</button>
                 </div>
                 <div id="harj-card-main">
                     <svg class= "<% for(lih of harj.lihasgruppid) {%><%=lih%> <%} %>"    width="144" height="200" viewBox="0 0 144 383" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -232,4 +238,23 @@
         sidebartabsvg.classList.toggle('rotate');
 
     })
+
+    const harjbtns = document.querySelectorAll('#harj-card #harj-card-head button');
+    const harjdescbtns = document.querySelectorAll('.card-desc #harj-card-head button');
+    const harjdesc = document.querySelectorAll('#harj-grid .card-desc')
+    const harjcard = document.querySelectorAll('#harj-card')
+
+    for(let i = 0; i < harjbtns.length; i++){
+        harjbtns[i].addEventListener('click', function(){
+            harjdesc[i].classList.toggle('invisibility');
+            harjcard[i].classList.toggle('invisibility');
+        })
+        harjdescbtns[i].addEventListener('click', function(){
+            harjdesc[i].classList.toggle('invisibility');
+            harjcard[i].classList.toggle('invisibility');
+        })
+    }
+    
+
+
 </script>
