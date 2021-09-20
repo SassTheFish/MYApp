@@ -16,7 +16,11 @@ const harjutuseSchema = new mongoose.Schema({
         type:String,
         lowercase:true,
         enum:c_lihasgruppid
-    }]
+    }],
+    kirjeldus: {
+        type:String,
+        default:"Pole kirjeldust lisatud"
+    }
 })
 
 
