@@ -17,9 +17,9 @@ const harjutuseSchema = new mongoose.Schema({
         lowercase:true,
         enum:c_lihasgruppid
     }],
-    kirjeldus: {
+    kirjeldus:{
         type:String,
-        default:"Pole kirjeldust lisatud"
+        default:"Kirjeldus puudub"
     }
 })
 
@@ -47,11 +47,14 @@ const treeningkavaSchema = new mongoose.Schema({
     nimi:{type:String, required:false, default:"Treening Kava"},
     kuupäev:{type:Date},
     harjutused:[harjutusSchema],
-    raskustase:{type:Number,default:10,min:10, max:100}
+    raskustase:{type:Number,default:10,min:10, max:100},
+    ringid:{
+        type:Number
+    }
 })
 treeningkavaSchema.query.byName = function(name) {
     return this.where({ nimi: new RegExp(name, 'i') })
-  };
+};
 
 // const treeningkavaSchema = new mongoose.Schema({
 //     nimi:{type:String, required:false, default:"Treening Kava"},
