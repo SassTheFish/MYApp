@@ -88,7 +88,6 @@ mongoose.connect(database_url,
 
 
 
-
 const isLoggedIn = require('./middleware');
 
 
@@ -102,7 +101,7 @@ store.on("error", function(e){
     console.log("Session store error", e);
 })
 
-
+//Hello git
 
 const Secret = process.env.SECRET || 'thisisasecret'
 

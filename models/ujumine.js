@@ -38,7 +38,10 @@ const ujumiseSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    harjutused:[ujumiseharjutus]
+    harjutused:[ujumiseharjutus],
+    kuupäev:{
+        type:Date
+    }
 })
 ujumiseSchema.query.byName = function(name) {
     return this.where({ nimi: new RegExp(name, 'i') })

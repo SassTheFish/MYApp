@@ -2,9 +2,9 @@
 <%- include('../partials/flash')  %>
 
 <div class="container mx-auto" style="padding-top: 200px;">
-  <h1 class="text-center text-light m-5">Uuenda Kava</h1>
+  <h1 class="text-center text-dark m-5">Uuenda Kava</h1>
 
-    <form class="form-control" action="/ujumisekavad/update/<%=kava._id%>?_method=PUT" method="POST" style="background-color: rgba(255, 255, 255, 0.533); border: none;">
+    <form class="form-control border-add p-3" action="/ujumisekavad/update/<%=kava._id%>?_method=PUT" method="POST">
         <div class="row mx-auto">
             <div class="col-12 col-md-6">
               <label for="validationCustom03" class="form-label text-dark">Kava nimi</label>

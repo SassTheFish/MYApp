@@ -6,10 +6,10 @@
 
   <div style="margin: 0;padding: 0;padding-top: 100px;">
     <div class="container mt-5">
-      <h1 class="text-center text-light">Lisa harjutus</h1>
+      <h1 class="text-center text-dark">Lisa harjutus</h1>
     </div>
     
-    <div class="container mt-5 rounded" style="background-color: #f8f9fa6f;">
+    <div class="container mt-5 border-add bg-white p-5">
         <form class="row g-3 mx-5 needs-validation" novalidate action="/ujumisekavad/lisaharjutus/<%= id %>?_method=PUT" method="POST">
             <div class="col-md-4">
               <label for="validationCustom03" class="form-label">Distants</label>
@@ -18,6 +18,7 @@
                 !
               </div>
             </div>
+            
             <!-- <div class=" col-6 col-md-2">
               <label for="validationCustom03" class="form-label">Ala</label>
               <input type="text" class="form-control" name="ala" id="validationCustom03" required>

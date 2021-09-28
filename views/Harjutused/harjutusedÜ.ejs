@@ -130,8 +130,15 @@
     <div id="harj-grid">
         <% for( let harj of harjutused) { %>
             <div class="card-desc invisibility">
-                <div id="harj-card-head">
-                    <button>?</button>
+                <div class="card-desc-head">
+                    <button>
+                        <svg width="20" height="15" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 9L8 0.339746V17.6603L23 9ZM0 10.5H4.14V7.5H0V10.5ZM4.14 10.5H9.5V7.5H4.14V10.5Z" fill="#212529"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="card-kirjeldus">
+                    <p><%=harj.kirjeldus%></p>
                 </div>
             </div>
             <div id="harj-card">
@@ -240,7 +247,7 @@
     })
 
     const harjbtns = document.querySelectorAll('#harj-card #harj-card-head button');
-    const harjdescbtns = document.querySelectorAll('.card-desc #harj-card-head button');
+    const harjdescbtns = document.querySelectorAll('.card-desc .card-desc-head button');
     const harjdesc = document.querySelectorAll('#harj-grid .card-desc')
     const harjcard = document.querySelectorAll('#harj-card')
 

@@ -11,12 +11,11 @@ const ujumise_H_Validation = joi.object({
     ajastus:joi.number().default(1)
 })
 
-
-
 const H_Validation = joi.object({
     raskustase:joi.number().required().valid(1,2,3,4,5),
     nimi:joi.string().required(),
     lihasgrupp:joi.string().lowercase().valid(...c_lihasgruppid)
 })
+
 
 module.exports = ujumise_H_Validation;
