@@ -12,7 +12,7 @@ router.get("/", (req, res)=>{
         path,
         user: req.session.userid,
     }
-    res.render("home.ejs", {...object, data})
+    res.render("home.ejs", {...object})
 })
 
 
