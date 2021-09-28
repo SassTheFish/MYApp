@@ -1,5 +1,4 @@
 const express = require('express')
-const data = require("../excersises.json");
 
 const router = express.Router();
 
