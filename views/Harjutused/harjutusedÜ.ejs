@@ -124,8 +124,25 @@
 
 
 <div class="harjutused-harjutused mt-5">
+    <% if(harjutused) { %> 
+        <div id="väikeVaade" class="invisibility">
+            <% for(harj of harjutused) { %>
+                <div class="VäVaade">
+                    <div id="pingutus">
+                        <%= harj.raskustase %>
+                    </div>
+                    <div id="nimi">
+                        <%= harj.nimi %>
+                    </div>
+                    <div class="nuppud">
+                        <a href="#">a</a><a href="#">a</a><a href="#">a</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
     <div id="harj-grid">
-        <% for( let harj of harjutused) { %>
+            <% for( let harj of harjutused) { %>
             <div class="card-desc invisibility">
                 <div class="card-desc-head">
                     <button>
@@ -259,5 +276,23 @@
         })
     }
     
+    const väikevaade = document.querySelector('.harjutused-harjutused #väikeVaade')
+    const suurVaade = document.querySelector('.harjutused-harjutused #harj-grid')
+    const sizeSwitch1 = document.querySelector('.filtermenu #väikevaade')
+    const sizeSwitch2 = document.querySelector('.filtermenu #väikevaade2')
+
+    sizeSwitch1.addEventListener('click', function(){
+        suurVaade.classList.toggle('invisibility');
+        väikevaade.classList.toggle('invisibility');
+        sizeSwitch1.classList.toggle('invisibility');
+        sizeSwitch2.classList.toggle('invisibility');
+    })
+    sizeSwitch2.addEventListener('click', function(){
+        suurVaade.classList.toggle('invisibility');
+        väikevaade.classList.toggle('invisibility');
+        sizeSwitch1.classList.toggle('invisibility');
+        sizeSwitch2.classList.toggle('invisibility');
+    })
+
 
 </script>

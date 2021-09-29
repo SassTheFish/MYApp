@@ -187,8 +187,7 @@
     margin: auto;
 }
 
-
-#ükekavadbox .VäVaade {
+.VäVaade {
     background-color: #293241;
     border-radius: 5px;
     width: 300px;
@@ -197,7 +196,7 @@
     grid-template-rows: 70% 30%;
     height: 80px;
 }
-#ükekavadbox .VäVaade #pingutus {
+.VäVaade #pingutus {
     grid-column: 1;
     grid-row: 1/3;
     background-color: cornflowerblue;
@@ -207,7 +206,7 @@
     font-size: 25px;
     text-align: center;
 }
-#ükekavadbox .VäVaade #nimi{
+.VäVaade #nimi{
     grid-column: 2;
     grid-row: 1;
     padding: 10px;
@@ -216,7 +215,7 @@
     overflow-x: auto;
     font-size: 20px;
 }
-#ükekavadbox .VäVaade .nuppud {
+.VäVaade .nuppud {
     grid-column: 2;
     grid-row: 2;
     display: flex;
@@ -239,7 +238,7 @@
     #väikeVaade {
         grid-template-columns: repeat(1,1fr);
     }
-    #ükekavadbox .VäVaade {
+    .VäVaade {
         width: 100%;
     }
 }

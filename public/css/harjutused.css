@@ -149,6 +149,10 @@
         grid-template-columns: repeat(2,1fr);
     }
 }
+.harjutused-harjutused #väikeVaade {
+    width: 100%;
+}
+
 
 #harj-card {
     display: grid;
