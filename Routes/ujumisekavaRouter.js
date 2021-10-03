@@ -6,7 +6,7 @@ const ujumise_H_Validation = require('../models/validators');
 const catchAsync = require("../Utils/CatchAsync");
 const path  = require("path");
 const ExpressError = require('../Utils/ExpressError');
-
+const {isLoggedIn, isLoggedAdmin} = require('../middleware');
 
 const validateUjumiseHarjutus = (req,res,next) => {
     const {error} = ujumise_H_Validation.validate(req.body);

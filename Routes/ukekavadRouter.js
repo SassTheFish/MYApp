@@ -5,7 +5,7 @@ const router = express.Router();
 const catchAsync = require("../Utils/CatchAsync");
 const ExpressError = require('../Utils/ExpressError');
 const SF = require('../Utils/SortingFunctions');
-
+const {isLoggedIn, isLoggedAdmin} = require('../middleware');
 
 router.get("/", async (req, res)=>{
 

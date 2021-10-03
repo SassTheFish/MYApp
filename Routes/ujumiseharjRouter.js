@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-
+const {isLoggedIn, isLoggedAdmin} = require('../middleware');
 
 
 router.get('/', (req,res)=>{

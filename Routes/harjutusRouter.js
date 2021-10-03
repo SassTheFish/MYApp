@@ -3,7 +3,7 @@ const {Harjutus} = require('../models/harjutus');
 const {Üke} = require('../models/harjutus');
 const router = express.Router();
 const { c_lihasgruppid } = require('../variables');
-
+const {isLoggedIn, isLoggedAdmin} = require('../middleware');
 
 router.get("/", async (req, res)=>{
     const length = c_lihasgruppid.length;
@@ -26,7 +26,7 @@ router.get("/", async (req, res)=>{
     res.render("Harjutused/harjutusedÜ", {...object})
 })
 
-router.get("/deleteOne/:id", async (req,res)=>{
+router.get("/deleteOne/:id", isLoggedAdmin, async (req,res)=>{
     const {id} = req.params;
     const kavad = await Üke.find();
     let usedharj = false;
@@ -45,7 +45,7 @@ router.get("/deleteOne/:id", async (req,res)=>{
     res.redirect("/harjutused")
 })
 
-router.get("/update/:id", async(req,res)=>{
+router.get("/update/:id", isLoggedAdmin,async(req,res)=>{
     const {id} = req.params;
     const harjutus = await Harjutus.findById(id);
     const object =
@@ -56,20 +56,13 @@ router.get("/update/:id", async(req,res)=>{
     res.render("Harjutused/uuendaHarjutust", {...object})
 })
 
-//delete all entries !!!!!!!_______KÕIK MURDUB________!!!!!
-router.get("/deleteAll", async(req,res)=>{
-    console.log("deleting...")
-    await Harjutus.deleteMany({}).then(res=>{console.log("Done")}).catch(err=>{console.log(err)});
-    res.redirect("../harjutused")
-})
-
-router.put("/update/:id", async (req,res)=>{
+router.put("/update/:id", isLoggedAdmin, async (req,res)=>{
     const {id} = req.params;
     const updated = await Harjutus.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
     res.redirect("/harjutused")
 })
 
-router.post("/", async (req,res) => {
+router.post("/", isLoggedAdmin, async (req,res) => {
     const harjutus = req.body;
     const harjutus1 = await new Harjutus(harjutus);
     harjutus1.save().then().catch(err => {console.log(err)});

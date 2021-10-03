@@ -1,7 +1,6 @@
 const express = require('express');
 const UjumisKava = require('../models/ujumine');
 const {Üke, Harjutus} = require('../models/harjutus');
-const isLoggedIn = require('../middleware')
 
 
 const router = express.Router();

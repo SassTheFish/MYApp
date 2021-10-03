@@ -88,7 +88,7 @@ mongoose.connect(database_url,
 
 
 
-const isLoggedIn = require('./middleware');
+const {isLoggedIn, isLoggedAdmin} = require('./middleware');
 
 
 const store = new MongoDBStore({
@@ -170,7 +170,7 @@ app.use('/', userRouter);
 
 //---------------GET---------------------
 
-app.get('/testpage', (req,res)=>{
+app.get('/testpage', isLoggedAdmin, (req,res)=>{
     const length = c_lihasgruppid.length;
     const half1_lg = c_lihasgruppid.slice(0,length/2);
     const half2_lg = c_lihasgruppid.slice(length/2, length);

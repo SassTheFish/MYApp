@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     {
         type:String,
         default:"sportlane",
-        enum:["sportlane", "treener", "admin", "külaline"]       //1 = tavaline, 2 = treener, 1453 = admin 
+        enum:["sportlane", "treener", "admin", "külaline"] 
     },
     email: {
         type:String,
