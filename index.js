@@ -169,6 +169,14 @@ app.use('/', userRouter);
 
 
 //---------------GET---------------------
+app.get('/treening-gruppid', (req,res)=>{
+
+    const data = {
+        path:req.path
+    }
+    res.render('treeningGruppid.ejs',{...data})
+})
+
 
 app.get('/testpage', isLoggedAdmin, (req,res)=>{
     const length = c_lihasgruppid.length;
