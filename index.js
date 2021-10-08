@@ -162,7 +162,18 @@ app.use('/', userRouter);
 
 
 
-
+const exampleData = {
+    nimi:"Kava",
+    harjutused:[{nimi:"harjutus",raskustase:4, lihasgruppid:["kõhulihased"],kirjeldus:"puudub"}],
+    raskustase:10,
+    harj:{
+        nimi:"asdasdas",
+        raskustase:2,
+        lihasgruppid:["säärealihas"],
+        kordused_x:1,
+        kordused_y:2
+    }
+}
 
 
 
@@ -172,7 +183,8 @@ app.use('/', userRouter);
 app.get('/treening-gruppid', (req,res)=>{
 
     const data = {
-        path:req.path
+        path:req.path,
+        harjutused:exampleData
     }
     res.render('treeningGruppid.ejs',{...data})
 })
