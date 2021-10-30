@@ -402,3 +402,31 @@ input[type="checkbox"]:hover
 
 }
 
+.dropdown {
+    display: block;
+    width: 50px;
+}
+.dropdown-btn{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: burlywood;
+    width: 100%;
+}
+.dropdown-btn svg
+{
+    display: block;
+    margin: auto;
+    width: 20px;
+    height:20px;
+    transform: rotate(90deg);
+}
+.dropdown-ct{
+    display: none;
+    z-index: 1;
+    flex-direction: column;
+}
+
+.dropdown:hover .dropdown-ct{
+    display: flex;
+}
+

@@ -159,7 +159,19 @@
                 <div id="harj-card-head">
                     <span class="level<%=harj.raskustase%>"><%= harj.raskustase %></span>
                     <span><%=harj.nimi%></span>
-                    <button>?</button>
+                    
+                    <div class="dropdown">
+                        <div class="dropdown-btn">
+                            <div>
+                                <svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M23 9L8 0.339746V17.6603L23 9ZM0 10.5H4.14V7.5H0V10.5ZM4.14 10.5H9.5V7.5H4.14V10.5Z" fill="black"/>
+                                </svg>
+                            </div>
+                        </div>    
+                        <div class="dropdown-ct">
+                            <button></button><button></button><button></button><button></button><button class="kirjeldus-btn">?</button>
+                        </div>
+                    </div>
                 </div>
                 <div id="harj-card-main">
                     <svg class= "<% for(lih of harj.lihasgruppid) {%><%=lih%> <%} %>"    width="144" height="200" viewBox="0 0 144 383" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -234,6 +246,7 @@
                         </button>
                     </form>
                 </div>
+
             </div>
         <% } %>
     </div>
@@ -260,7 +273,7 @@
 
     })
 
-    const harjbtns = document.querySelectorAll('#harj-card #harj-card-head button');
+    const harjbtns = document.querySelectorAll('#harj-card #harj-card-head .kirjeldus-btn');
     const harjdescbtns = document.querySelectorAll('.card-desc .card-desc-head button');
     const harjdesc = document.querySelectorAll('#harj-grid .card-desc')
     const harjcard = document.querySelectorAll('#harj-card')

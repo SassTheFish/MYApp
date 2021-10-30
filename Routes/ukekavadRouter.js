@@ -91,7 +91,6 @@ router.get("/lisaharjutus/:id1/delete/:id2", async(req,res)=>{
 
 router.post("/uus", catchAsync(async (req,res) => {
     const sisse = req.body;
-    
     const kavad = await new Üke(sisse);
     kavad.save().then().catch(err => {console.log(err)});
     res.redirect("/ukekavad");

@@ -162,29 +162,14 @@ app.use('/', userRouter);
 
 
 
-const exampleData = {
-    nimi:"Kava",
-    harjutused:[{nimi:"harjutus",raskustase:4, lihasgruppid:["kõhulihased"],kirjeldus:"puudub"}],
-    raskustase:10,
-    harj:{
-        nimi:"asdasdas",
-        raskustase:2,
-        lihasgruppid:["säärealihas"],
-        kordused_x:1,
-        kordused_y:2
-    }
-}
-
-
-
-
-
 //---------------GET---------------------
-app.get('/treening-gruppid', (req,res)=>{
+app.get('/treening-gruppid', async(req,res)=>{
 
+
+    const harjutus = await Harjutus.find();
     const data = {
         path:req.path,
-        harjutused:exampleData
+        harj:harjutus[0]
     }
     res.render('treeningGruppid.ejs',{...data})
 })
