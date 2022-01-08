@@ -256,14 +256,24 @@
                 <h2>Nimi <%= currentUser.username %></h2>
                 <h5>Email:  <span><%= currentUser.email %></span></h2>
                 <h5>Roll:  <span><%= currentUser.type %> </span></h2>
-                <h5>Trennigrupp:  <span><%= currentUser.trennigrupp %></span></h5>
+                <h5>Treeninggruppid</h5>
+                <ul class="userfield-tgs">
+                    <li class="userfield-tg"><a href="#">1</a></li>
+                    <li class="userfield-tg"><a href="#">2</a></li>
+                    <li class="userfield-tg"><a href="#">3</a></li>
+                </ul>
             </div>
             <div class="invisibility userfield">
                 <form action="/minapage/updateUser/<%=currentUser.id%>" method="POST">
                     <h2>Nimi <%= currentUser.username %></h2> <input type="text" placeholder="nimi" name="nimi"> 
                     <h5>Email:  <span><%= currentUser.email %></span></h2><input type="email" placeholder="email" name="email">
                     <h5>Roll:  <span><%= currentUser.type %> </span></h2><input type="text" placeholder="roll" name="roll">
-                    <h5>Trennigrupp:  <span><%= currentUser.trennigrupp %></span></h5>
+                    <h5>Treeninggruppid</h5>
+                    <ul class="userfield-tgs">
+                        <li class="userfield-tg">1</li>
+                        <li class="userfield-tg">2</li>
+                        <li class="userfield-tg">3</li>
+                    </ul>
                     <button type="submit">Uuenda</button>
                 </form>
             </div>

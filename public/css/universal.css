@@ -404,29 +404,33 @@ input[type="checkbox"]:hover
 
 .dropdown {
     display: block;
-    width: 50px;
+    grid-column: 3;
 }
 .dropdown-btn{
     padding: 10px;
     border-radius: 10px;
-    background-color: burlywood;
+    background-color: white;
     width: 100%;
 }
 .dropdown-btn svg
 {
     display: block;
-    margin: auto;
     width: 20px;
     height:20px;
     transform: rotate(90deg);
 }
+.dropdown-svg-w {
+
+}
 .dropdown-ct{
+    position: absolute;
     display: none;
-    z-index: 1;
     flex-direction: column;
+    width: 30px;
 }
 
 .dropdown:hover .dropdown-ct{
     display: flex;
+    z-index: 2;
 }
 

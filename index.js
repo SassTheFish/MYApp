@@ -148,8 +148,8 @@ app.use((req,res,next)=>{
 })
 
 
-//--------------ROUTERS--------------
 
+//--------------ROUTERS--------------
 app.use('/', homeRouter);
 app.use('/ukekavad', Ük_kavaRouter);
 app.use('/ujumisekavad', U_kavaRouter);
@@ -165,14 +165,22 @@ app.use('/', userRouter);
 //---------------GET---------------------
 app.get('/treening-gruppid', async(req,res)=>{
 
-
-    const harjutus = await Harjutus.find();
+    const treeningGrupp = await TreeningGrupp.find();
+    let ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp[0].treeningud[0].kavad}});
+    let ükekavad = await Üke.find({'_id': {$in: treeningGrupp[0].treeningud[0].kavad}}).populate('harjutused.harj');
+    let harjutused = await Harjutus.find({'_id': {$in: treeningGrupp[0].treeningud[0].kavad}});
     const data = {
         path:req.path,
-        harj:harjutus[0]
+        tg:treeningGrupp[0],
+        ujumisekavad,
+        ükekavad,
+        harjutused
     }
+
     res.render('treeningGruppid.ejs',{...data})
 })
+
+
 
 
 app.get('/testpage', isLoggedAdmin, (req,res)=>{

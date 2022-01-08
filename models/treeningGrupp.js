@@ -1,6 +1,13 @@
 const mongoose = require('mongoose')
 
-
+const treening = {
+    kuupäev:{
+        type:String
+    },
+    kavad:{
+        type:[mongoose.Schema.Types.ObjectId]
+    }
+}
 const tGruppSchema = new mongoose.Schema({
     nimi: {
         type:String,
@@ -11,11 +18,11 @@ const tGruppSchema = new mongoose.Schema({
     },
     spordialad: {
         type:[String]
-    }
+    },
+    treeningud:[treening]
 })
 
 
 const TreeningGrupp = mongoose.model('TreeningGrupp', tGruppSchema);
-
 
 module.exports = TreeningGrupp;

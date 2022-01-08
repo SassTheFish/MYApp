@@ -223,7 +223,6 @@
     text-transform: capitalize;
 }
 #harj-card-head .kirjeldus-btn{
-    grid-column: 3;
     height: 30px;
     border-radius: 10px;
     background-color: white;

@@ -158,7 +158,19 @@
     width: 50%;
     justify-self: end;
 }
-
+#mina-right .userfield-tgs {
+    list-style: none;
+    padding: 0;
+    padding-top: 10px;
+}
+#mina-right .userfield-tgs .userfield-tg {
+    border:solid #a6d9f7 3px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 5px;
+    background-color: #a6d9f7;
+}
 
 #mina-right div {
     padding: 10px;
