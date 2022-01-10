@@ -1,0 +1,38 @@
+--Ujumine
+
+nimi
+pingutustase
+kuupäev
+
+harjutused
+    kordused
+    ala
+    eraldus
+    harjutus
+    vahendid
+    ajastus
+
+kirjeldus 
+
+--Harjutused
+
+pingutustase
+nimi
+
+lihasgruppid
+
+kirjeldus
+
+--ÜkeKava
+
+nimi
+pingutustase
+kuupäev
+harjutused
+    harj
+        ...
+    kordused_x
+    kordused_y
+ringid
+
+kirjeldus

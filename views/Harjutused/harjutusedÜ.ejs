@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 my-1 "><label for="raskustase">Vali raskustase</label><input class="border-add form-control" type="number" id="raskustase" name="raskustase" min='1' max="5" value="1"></div>
+                    <div class="col-12 col-md-6 my-1 "><label for="pingutustase">Vali pingutustase</label><input class="border-add form-control" type="number" id="pingutustase" name="pingutustase" min='1' max="5" value="1"></div>
                     <div class="col-12 col-md-6  my-1 mt-4"><button class="btn btn-success w-100 fs-2 p-0" type="submit">+</button></div>
                 </div>
             </form>
@@ -129,7 +129,7 @@
             <% for(harj of harjutused) { %>
                 <div class="VäVaade">
                     <div id="pingutus">
-                        <%= harj.raskustase %>
+                        <%= harj.pingutustase %>
                     </div>
                     <div id="nimi">
                         <%= harj.nimi %>
@@ -157,7 +157,7 @@
             </div>
             <div id="harj-card">
                 <div id="harj-card-head">
-                    <span class="level<%=harj.raskustase%>"><%= harj.raskustase %></span>
+                    <span class="level<%=harj.pingutustase%>"><%= harj.pingutustase %></span>
                     <span><%=harj.nimi%></span>
                     
                     <div class="dropdown">

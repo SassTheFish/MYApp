@@ -48,7 +48,7 @@
           <div id="cardlisamine">
             <div class="cardtop">
                 <div id="level">
-                    <span id="number"><%= kava.raskustase %>%</span>
+                    <span id="number"><%= kava.pingutustase %>%</span>
                 </div>
                 <div id="head">
                     <span id="title"><%= kava.nimi %> </span>
@@ -61,13 +61,13 @@
                               <% if (harjutus.harj == null) { %>
                                 <% continue; %> 
                               <% } %>
-                              <% if (harjutus.harj.raskustase === 1) { %>
+                              <% if (harjutus.harj.pingutustase === 1) { %>
                                 <div class="col-8">
                                     <li class="custommargin1"><%= harjutus.harj.nimi %></li>
                                 </div>
                             <% } else { %>
                                 <div class="col-8">
-                                    <li class="custommargin1 raskus<%=harjutus.harj.raskustase%>"><%= harjutus.harj.nimi %></li>
+                                    <li class="custommargin1 raskus<%=harjutus.harj.pingutustase%>"><%= harjutus.harj.nimi %></li>
                                 </div>
                             <%} %>
                             <div class="col-3 ">

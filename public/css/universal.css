@@ -434,3 +434,94 @@ input[type="checkbox"]:hover
     z-index: 2;
 }
 
+
+
+
+/* UNIVERSAL CARD */
+
+.C-card 
+{
+  margin:auto;
+  background-color:#101218;
+  height:400px;
+  width:350px;
+  border-radius:10px;
+  padding:5px;
+  display:flex;
+  flex-direction:column;
+  
+}
+
+.C-head {
+  width:100%;
+  height:50px;
+  background-color:#505050;
+  border-radius:5px;
+  display:flex;
+  margin-bottom:5px;
+  text-align:center;
+  line-height:50px;
+  font-family:sans-serif;
+  
+}
+.pingu {
+  width:20%;
+  height:100%;
+  background-color:#6666FF;
+  border-top-left-radius:5px;
+  border-bottom-left-radius:5px;
+  font-size:30px;
+}
+.nimi {
+  width:70%;
+  height:100%;
+  background-color:#dddddd;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding-left:10px;
+}
+.lisa {
+  width:10%;
+  height:100%;
+  background-color:#FF7700;
+  border-top-right-radius:5px;
+  border-bottom-right-radius:5px;
+}
+.C-body {
+  width:100%;
+  height:280px;
+  margin-bottom:5px;
+}
+.sisu {
+  background-color:#55cc55;
+  padding:5px;
+  width:100%;
+  height:100%;
+  display:flex;
+  border-radius:5px;
+}
+.parem {
+  width:50%;
+  height:100%;
+  background-color:#772222; 
+}
+.vasak {
+  width:50%;
+  height:100%;
+  background-color:#222277; 
+}
+.C-bottom {
+  width:100%;
+  height:50px;
+  background-color:#660099;
+  display:flex;
+  justify-content:space-around;
+  border-radius:5px;
+}
+.nupp
+{
+  width:30px;
+  height:100%;
+  background-color:#ffffff;
+  border-radius:5px;
+}

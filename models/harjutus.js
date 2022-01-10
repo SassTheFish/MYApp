@@ -3,7 +3,7 @@ const { c_lihasgruppid } = require('../variables');
 
 const harjutuseSchema = new mongoose.Schema({
     
-    raskustase:{
+    pingutustase:{
         type:Number,
         required:true,
         enum:[1,2,3,4,5]
@@ -47,9 +47,12 @@ const treeningkavaSchema = new mongoose.Schema({
     nimi:{type:String, required:false, default:"Treening Kava"},
     kuupäev:{type:Date},
     harjutused:[harjutusSchema],
-    raskustase:{type:Number,default:10,min:10, max:100},
+    pingutustase:{type:Number,default:10,min:10, max:100},
     ringid:{
         type:Number
+    },
+    kirjeldus:{
+        type:String
     }
 })
 treeningkavaSchema.query.byName = function(name) {

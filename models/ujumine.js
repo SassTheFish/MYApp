@@ -41,6 +41,9 @@ const ujumiseSchema = new mongoose.Schema({
     harjutused:[ujumiseharjutus],
     kuupäev:{
         type:Date
+    },
+    kirjeldus:{
+        type:String
     }
 })
 ujumiseSchema.query.byName = function(name) {
