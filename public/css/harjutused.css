@@ -156,7 +156,7 @@
 
 #harj-card {
     display: grid;
-    background-color:#293241;
+    background-color:var(--card);
     grid-template-rows: repeat(6,1fr);
     width: 300px;
     height: 350px;
