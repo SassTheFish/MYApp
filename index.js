@@ -166,16 +166,17 @@ app.use('/', userRouter);
 app.get('/treening-gruppid', async(req,res)=>{
 
     const treeningGrupp = await TreeningGrupp.find();
-    let ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp[0].treeningud[0].kavad}});
-    let ükekavad = await Üke.find({'_id': {$in: treeningGrupp[0].treeningud[0].kavad}}).populate('harjutused.harj');
-    let harjutused = await Harjutus.find({'_id': {$in: treeningGrupp[0].treeningud[0].kavad}});
+    let ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp[1].treeningud[0].kavad}});
+    let ükekavad = await Üke.find({'_id': {$in: treeningGrupp[1].treeningud[0].kavad}}).populate('harjutused.harj');
+    let harjutused = await Harjutus.find({'_id': {$in: treeningGrupp[1].treeningud[0].kavad}});
     const data = {
         path:req.path,
-        tg:treeningGrupp[0],
+        tg:treeningGrupp[1],
         ujumisekavad,
         ükekavad,
         harjutused
     }
+    console.log(ujumisekavad)
 
     res.render('treeningGruppid.ejs',{...data})
 })
@@ -232,7 +233,6 @@ app.get("/minapage", isLoggedIn, async (req, res)=>{
     res.render("minapage.ejs", {...object })
 })
 
-
 app.post('/minapage/updateUser/:userid', async (req,res,next)=>{
 
     let updateData = {}
@@ -251,7 +251,6 @@ app.post('/minapage/updateUser/:userid', async (req,res,next)=>{
     console.log(user)
     res.redirect('/minapage')
 })
-
 
 app.post('/save/:id', async(req,res)=>{
     if(!req.user){
@@ -281,7 +280,27 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
     const updated = await TreeningKava.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
     res.redirect("Üke/ukekavad")
 })
+app.put("/unsave/:id", async(req,res) => {
+    if(!req.user){
+        req.flash('error', 'Logi enne sisse');
+        res.redirect('back');
+    } else {
+        const user = await User.findById(req.user._id)
+        if(!user.saved.includes(req.params.id))
+        {
+            const index = user.saved.indexOf(req.params.id);
+            user.saved.splice(index);
+            user.save();
+            req.flash('success', 'saved');
+            res.redirect('back')
+        }
+        else {
+            req.flash('error', 'already saved');
+            res.redirect('back');
+        }
+    }
 
+})
 
 
 

@@ -15,8 +15,7 @@ const ujumiseharjutus = {
         enum:c_eraldused
     }],
     harjutus:{
-        type:String,
-        required:true
+        type:String
     },
     vahendid:[{
         type:String,

@@ -8,7 +8,7 @@ const ujumise_H_Validation = joi.object({
     eraldus:joi.string().valid(...c_eraldused),
     harjutus:joi.string().required(),
     vahendid:joi.array().items(joi.string().valid(...c_vahendid)).single(),
-    ajastus:joi.number().default(1)
+    ajastus:joi.number()
 })
 
 const H_Validation = joi.object({
