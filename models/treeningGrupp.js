@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 const treening = {
     kuupäev:{
-        type:String
+        type:Date,
+        default:new Date(),
+        required:true
     },
     kavad:{
         type:[mongoose.Schema.Types.ObjectId]

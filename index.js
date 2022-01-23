@@ -165,18 +165,27 @@ app.use('/', userRouter);
 //---------------GET---------------------
 app.get('/treening-gruppid', async(req,res)=>{
 
-    const treeningGrupp = await TreeningGrupp.find();
-    let ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp[1].treeningud[0].kavad}});
-    let ükekavad = await Üke.find({'_id': {$in: treeningGrupp[1].treeningud[0].kavad}}).populate('harjutused.harj');
-    let harjutused = await Harjutus.find({'_id': {$in: treeningGrupp[1].treeningud[0].kavad}});
+    const treeningGruppid = await TreeningGrupp.find();
+    const groupname = "AudeUjumine2"
+    const grupp = treeningGruppid.filter(obj => {
+        return obj.nimi === groupname
+    })[0]
+    const treeningdate = new Date('2022,01,23');  //What is the format ??
+    const treeningObj = grupp.treeningud.filter(obj => {
+        return obj.kuupäev === treeningdate
+    }) // How  to choose a treening from the list of treenings by date
+    const treening = grupp.treeningud.indexOf(treeningObj);
+    console.log(treeningObj)
+    let ujumisekavad = await Ujumine.find({'_id': {$in: grupp.treeningud[treening].kavad}});
+    let ükekavad = await Üke.find({'_id': {$in: grupp.treeningud[treening].kavad}}).populate('harjutused.harj');
+    let harjutused = await Harjutus.find({'_id': {$in: grupp.treeningud[treening].kavad}});
     const data = {
         path:req.path,
-        tg:treeningGrupp[1],
+        tg:grupp,
         ujumisekavad,
         ükekavad,
         harjutused
     }
-    console.log(ujumisekavad)
 
     res.render('treeningGruppid.ejs',{...data})
 })
