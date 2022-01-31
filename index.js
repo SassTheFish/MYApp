@@ -163,22 +163,26 @@ app.use('/', userRouter);
 
 
 //---------------GET---------------------
-app.get('/treening-gruppid', async(req,res)=>{
+app.get('/treening-gruppid/:nimi', async(req,res)=>{
 
     const treeningGruppid = await TreeningGrupp.find();
-    const groupname = "AudeUjumine2"
+    let groupname = req.params.nimi
+    
     const grupp = treeningGruppid.filter(obj => {
         return obj.nimi === groupname
     })[0]
-    const treeningdate = new Date('2022,01,23');  //What is the format ??
-    const treeningObj = grupp.treeningud.filter(obj => {
-        return obj.kuupäev === treeningdate
-    }) // How  to choose a treening from the list of treenings by date
-    const treening = grupp.treeningud.indexOf(treeningObj);
-    console.log(treeningObj)
-    let ujumisekavad = await Ujumine.find({'_id': {$in: grupp.treeningud[treening].kavad}});
-    let ükekavad = await Üke.find({'_id': {$in: grupp.treeningud[treening].kavad}}).populate('harjutused.harj');
-    let harjutused = await Harjutus.find({'_id': {$in: grupp.treeningud[treening].kavad}});
+    const treeningdate = new Date("Jan 23 2022");
+    let treeningObj = grupp.treeningud.filter(obj => {
+        console.log(obj.kuupäev.getDate(), treeningdate.getDate())
+        return obj.kuupäev.getDate() === treeningdate.getDate() && obj.kuupäev.getMonth() === treeningdate.getMonth()
+    })[0] // How  to choose a treening from the list of treenings by date
+    // treeningObj = grupp.treeningud[0]
+
+
+    const treeningindex = grupp.treeningud.indexOf(treeningObj);
+    let ujumisekavad = await Ujumine.find({'_id': {$in: grupp.treeningud[treeningindex].kavad}});
+    let ükekavad = await Üke.find({'_id': {$in: grupp.treeningud[treeningindex].kavad}}).populate('harjutused.harj');
+    let harjutused = await Harjutus.find({'_id': {$in: grupp.treeningud[treeningindex].kavad}});
     const data = {
         path:req.path,
         tg:grupp,
@@ -289,7 +293,7 @@ app.put("/harjutused/updateK/:id", async (req,res)=>{
     const updated = await TreeningKava.findByIdAndUpdate(id, req.body, {runValidators:true, new:true});
     res.redirect("Üke/ukekavad")
 })
-app.put("/unsave/:id", async(req,res) => {
+app.put("/unsave/:id", async(req,res) => { //????
     if(!req.user){
         req.flash('error', 'Logi enne sisse');
         res.redirect('back');
@@ -300,11 +304,11 @@ app.put("/unsave/:id", async(req,res) => {
             const index = user.saved.indexOf(req.params.id);
             user.saved.splice(index);
             user.save();
-            req.flash('success', 'saved');
+            req.flash('success', 'unsaved');
             res.redirect('back')
         }
         else {
-            req.flash('error', 'already saved');
+            req.flash('error', 'already unsaved');
             res.redirect('back');
         }
     }
