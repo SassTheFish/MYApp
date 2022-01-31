@@ -163,23 +163,43 @@ app.use('/', userRouter);
 
 
 //---------------GET---------------------
-app.get('/treening-gruppid/:nimi', async(req,res)=>{
+app.get('/treening-gruppid', async(req,res)=>{
+    const gruppid = await TreeningGrupp.find();
+    
+    const data = {
+        path:req.path,
+        gruppid
+    }
+    res.render('treeningGruppid.ejs', {...data})
+})
+
+app.get('/treening-grupp', async(req,res)=>{
 
     const treeningGruppid = await TreeningGrupp.find();
-    let groupname = req.params.nimi
+    let groupname = "AudeUjumine4"
+    const otsing = req.query
     
+    if(req.query.nimi){
+        groupname = req.query.nimi
+    }
+
     const grupp = treeningGruppid.filter(obj => {
         return obj.nimi === groupname
     })[0]
-    const treeningdate = new Date("Jan 23 2022");
+
+    const treeningdate = new Date("Jan 22 2022");
     let treeningObj = grupp.treeningud.filter(obj => {
         console.log(obj.kuupäev.getDate(), treeningdate.getDate())
         return obj.kuupäev.getDate() === treeningdate.getDate() && obj.kuupäev.getMonth() === treeningdate.getMonth()
-    })[0] // How  to choose a treening from the list of treenings by date
-    // treeningObj = grupp.treeningud[0]
+    })[0]
 
+    let treeningindex;
+    if(treeningObj){
+        treeningindex = grupp.treeningud.indexOf(treeningObj);
+    }else {
+        treeningindex = 0
+    }
 
-    const treeningindex = grupp.treeningud.indexOf(treeningObj);
     let ujumisekavad = await Ujumine.find({'_id': {$in: grupp.treeningud[treeningindex].kavad}});
     let ükekavad = await Üke.find({'_id': {$in: grupp.treeningud[treeningindex].kavad}}).populate('harjutused.harj');
     let harjutused = await Harjutus.find({'_id': {$in: grupp.treeningud[treeningindex].kavad}});
@@ -191,7 +211,7 @@ app.get('/treening-gruppid/:nimi', async(req,res)=>{
         harjutused
     }
 
-    res.render('treeningGruppid.ejs',{...data})
+    res.render('treeningGrupp.ejs',{...data})
 })
 
 
@@ -320,7 +340,9 @@ app.put("/unsave/:id", async(req,res) => { //????
 
 //---------------POST-------------------
 
-
+app.post('treening-gruppid', async(req,res)=>{
+    res.redirect('/treening-gruppid')
+})
 
 
 

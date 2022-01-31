@@ -1,5 +1,5 @@
 
-/* ----------------BASE---------------- */
+/* -------SINGLE---------BASE---------------- */
 #tg-grid {
     width: 100%;
     max-width: 1700px;
@@ -77,3 +77,22 @@
 }
 
 
+/* --------MANY------BASE-------- */
+
+.tgs-grid {
+
+}
+.tgs-ls {
+
+}
+.tgs-ls-grupp {
+    background-color: grey;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    margin: 10px;
+
+}
