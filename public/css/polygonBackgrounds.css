@@ -149,3 +149,33 @@
     clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
     z-index: -1;
 }
+.polygon1tg
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #507eb3;
+    clip-path: polygon(93% 53%, 55% 43%, 38% 10%, 0 0, 0 100%, 100% 100%);
+    z-index: -1;
+}
+.polygon2tg
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #6099ba;
+    clip-path: polygon(80% 67%, 48% 53%, 23% 18%, 0 8%, 0 100%, 93% 100%);
+    z-index: -1;
+}
+.polygon3tg
+{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background-color: #274c77;
+    clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
+    z-index: -1;
+}

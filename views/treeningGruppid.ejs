@@ -1,12 +1,20 @@
 <% layout("layout/boilerplate-tg.ejs") %>
-<%- include("./partials/navbarÜke") %>
+<%- include("./partials/navbarTreGrupp") %>
 <%- include('./partials/flash')  %>
 
+<div class="polygon1tg">
+    <div class="polygon2tg">
+        <div class="polygon3tg">
+        </div>
+    </div>
+</div> 
+
 <div class="tgs-grid">
-    <div>
+    <div class="tgs-filter">
+        <h1>Treeninggruppid</h1>
         <form action="/treening-grupp" method="GET">
             <input type="text" placeholder="nimi" name="nimi">
-            <input type="text" placeholder="sprodiala" name="spordiala">
+            <input type="text" placeholder="spordiala" name="spordiala">
             <button type="submit">Otsi</button>
         </form>
 
@@ -17,10 +25,18 @@
 
         <% for(grupp of gruppid) { %>
             <div class="tgs-ls-grupp">
-                <div><%= grupp.nimi %> </div>
-                <div><%= grupp.ala %> </div>
-                <div>status</div>
-                <a href="/treening-grupp?nimi=<%=grupp.nimi%> ">Vaata</a><a>Ühine</a>
+                <div class="grupp-nimi"><%= grupp.nimi %> </div>
+                <ul class="grupp-spalad">
+                    <% for(spordiala of grupp.spordialad) { %>
+                        <li><%= spordiala %> </li>
+                    <% } %>
+                    <li>spordiala</li>
+                    <li>spordiala</li>
+                    <li>spordiala</li>
+                    </ul>
+                <div class="grupp-privacy">Private</div>
+                <a href="/treening-grupp?nimi=<%=grupp.nimi%> ">Vaata</a>
+                <a href="#">Ühine</a>
             </div>
         <% } %>
 
