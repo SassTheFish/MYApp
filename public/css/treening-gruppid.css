@@ -94,7 +94,15 @@
 
 /* --------MANY------BASE-------- */
 
+.tgs-top .title{
+    text-align: left;
+    margin: 15px;
+    margin-left: 30px;
+    color: rgb(255, 255, 255);
+}
+
 .tgs-filter {
+    width: 45%;
     margin: 30px;
     padding: 20px;
     background-color: rgb(31, 31, 31);
@@ -102,19 +110,50 @@
     border-radius: 10px;
 }
 .tgs-filter h1 {
-    text-align: center;
+    text-align: left;
 }
 .tgs-filter form {
-    width: 50%;
+    width: 100%;
+    display: flex;
 }
 .tgs-filter form input {
-    margin-top: 10px;
+    margin: 5px;
 }
 .tgs-filter form button {
-    margin-top: 10px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    height: 35px;
+    align-self: flex-end;
 }
 
 
+.tgs-loo {
+    display: flex;
+    width: 45%;
+    height: 50px;
+    background-color: rgb(31, 31, 31);
+    color: white;
+    border-radius: 10px;
+}
+.tgs-loo span {
+    font-size: 20px;
+    line-height: 50px;
+}
+.tgs-loo a {
+    align-self: center;
+    margin-left: 20px;
+    height: 40px;
+    width: 50px;
+    line-height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    background-color: rgb(24, 156, 24);
+    border-radius: 10px;
+}
 
 
 .tgs-grid {

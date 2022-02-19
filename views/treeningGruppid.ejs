@@ -10,18 +10,32 @@
 </div> 
 
 <div class="tgs-grid">
-    <div class="tgs-filter">
-        <h1>Treeninggruppid</h1>
-        <form action="/treening-grupp" method="GET">
-            <input type="text" placeholder="nimi" name="nimi">
-            <input type="text" placeholder="spordiala" name="spordiala">
-            <button type="submit">Otsi</button>
-        </form>
-
+    <div class="tgs-top">
+        <h1  class="title">Treeninggruppid</h1>
+        <div class="tgs-filter">
+            <h1>Otsi</h1>
+            <form action="/treening-grupp" method="GET">
+                <div>
+                    <span>Nimi</span>
+                    <input type="text" placeholder="nimi" name="nimi">
+                </div>
+                <div>
+                    <span>Spordiala</span>
+                    <input type="text" placeholder="spordiala" name="spordiala">
+                </div>
+                <button type="submit">Otsi</button>
+            </form>
+            <hr>
+            <div class="tgs-loo">
+                <span>Loo Treeninggrupp</span>
+                <a href="/treeninggrupp/create">+</a>
+            </div>
+        </div>
+        
     </div>
     
-    <div class="tgs-ls">
 
+    <div class="tgs-ls">
 
         <% for(grupp of gruppid) { %>
             <div class="tgs-ls-grupp">
@@ -35,7 +49,7 @@
                     <li>spordiala</li>
                     </ul>
                 <div class="grupp-privacy">Private</div>
-                <a href="/treening-grupp?nimi=<%=grupp.nimi%> ">Vaata</a>
+                <a href="/treening-grupp/<%= grupp._id %>/0">Vaata</a>
                 <a href="#">Ühine</a>
             </div>
         <% } %>
