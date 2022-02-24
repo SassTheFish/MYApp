@@ -191,12 +191,12 @@ app.get('/treening-grupp/:id/:date', async(req,res)=>{
     const currentDate = new Date();
     console.log(currentDate)
 
-    const dates = {
+    const currdate = {
         month:currentDate.toLocaleString('default', { month: 'long' }),
-        days:currentDate.getDay()
+        day:currentDate.getDate()
     }
 
-    console.log(dates)
+    console.log(currdate)
 
     let treeningObj = treeningGrupp.treeningud.filter(obj => {
         console.log(obj.kuupäev.getDate(), treeningdate.getDate())
@@ -214,6 +214,7 @@ app.get('/treening-grupp/:id/:date', async(req,res)=>{
     let ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
     let ükekavad = await Üke.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}}).populate('harjutused.harj');
     let harjutused = await Harjutus.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
+    
     const data = {
         path:req.path,
         tg:treeningGrupp,
