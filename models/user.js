@@ -6,13 +6,12 @@ const userSchema = new mongoose.Schema({
     {
         type:[mongoose.Schema.Types.ObjectId]
     },
-    name:{
+    username:{
         type:String
     },
     type:
     {
         type:String,
-        default:"sportlane",
         enum:["sportlane", "treener", "admin", "külaline"] 
     },
     email: {

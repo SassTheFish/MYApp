@@ -36,6 +36,7 @@ const ExpressError = require('./Utils/ExpressError');
 
 //VARIABLES  AND FUNCTIONS
 const {c_lihasgruppid} = require('./variables');
+const {c_spordialad} = require('./variables');
 const data = require('./Utils/SortingFunctions');
 const SF = require('./Utils/SortingFunctions');
 
@@ -163,33 +164,40 @@ app.use('/', userRouter);
 
 
 //---------------GET---------------------
-app.get('/treening-gruppid', async(req,res)=>{
-    const gruppid = await TreeningGrupp.find();
+app.get('/treeninggruppid', async(req,res)=>{
+    const gruppid = await TreeningGrupp.find().select('_id name spordialad status');
     
     const data = {
         path:req.path,
         gruppid
     }
-    res.render('treeningGruppid.ejs', {...data})
+    res.render('TreeningGrupp/treeningGruppid.ejs', {...data})
 })
+
+
 
 app.get('/treeninggrupp/create', async (req,res)=>{
+
+    const users = await User.find({type:{$in:["sportlane", "külaline"]}}).select('username _id');
     const data = {
-        path:req.path
+        path:req.path,
+        userid:"Obejct12312038123",
+        c_spordialad,
+        users
     }
-    res.render('tgs-create.ejs', {...data})
+    res.render('TreeningGrupp/tgs-create.ejs', {...data})
 })
 
-app.get('/treening-grupp/:id/:date', async(req,res)=>{
 
-    const {date} = req.params
+
+app.get('/treeninggrupp/:id', async(req,res)=>{
+
     const {id} = req.params
-    const treeningGrupp = await TreeningGrupp.findById(id);
+    const treeningGrupp = await TreeningGrupp.findById(id).populate('users');
   
 
     const treeningdate = new Date('22 Jan 2022');
     const currentDate = new Date();
-    console.log(currentDate)
 
     const currdate = {
         month:currentDate.toLocaleString('default', { month: 'long' }),
@@ -197,24 +205,32 @@ app.get('/treening-grupp/:id/:date', async(req,res)=>{
     }
 
     console.log(currdate)
-
-    let treeningObj = treeningGrupp.treeningud.filter(obj => {
-        console.log(obj.kuupäev.getDate(), treeningdate.getDate())
-        return obj.kuupäev.getDate() === treeningdate.getDate() && obj.kuupäev.getMonth() === treeningdate.getMonth()
-    })[0]
-
-
-    let treeningindex;
-    if(treeningObj){
-        treeningindex = treeningGrupp.treeningud.indexOf(treeningObj);
-    }else {
-        treeningindex = 0
-    }
-
-    let ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
-    let ükekavad = await Üke.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}}).populate('harjutused.harj');
-    let harjutused = await Harjutus.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
+    let ujumisekavad
+    let üjkekavad
+    let harjutused
+    if(treeningGrupp.treeningud.kavad){
+        let treeningObj = treeningGrupp.treeningud.filter(obj => {
+            console.log(obj.kuupäev.getDate(), treeningdate.getDate())
+            return obj.kuupäev.getDate() === treeningdate.getDate() && obj.kuupäev.getMonth() === treeningdate.getMonth()
+        })[0]
     
+    
+        let treeningindex;
+        if(treeningObj){
+            treeningindex = treeningGrupp.treeningud.indexOf(treeningObj);
+        }else {
+            treeningindex = 0
+        }
+    
+        ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
+        ükekavad = await Üke.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}}).populate('harjutused.harj');
+        harjutused = await Harjutus.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
+    } else {
+        ujumisekavad = null
+        ükekavad = null
+        harjutused = null
+    }
+    console.log(treeningGrupp)
     const data = {
         path:req.path,
         tg:treeningGrupp,
@@ -223,8 +239,12 @@ app.get('/treening-grupp/:id/:date', async(req,res)=>{
         harjutused
     }
 
-    res.render('treeningGrupp.ejs',{...data})
+    res.render('TreeningGrupp/treeningGrupp.ejs',{...data})
 })
+app.get('/treeninggrupp/delete/:id', async(req,res)=>{
+    await TreeningGrupp.findByIdAndDelete(req.params.id)
+    res.redirect('/treeninggruppid')
+}) 
 
 
 
@@ -356,8 +376,12 @@ app.post('treening-gruppid', async(req,res)=>{
     res.redirect('/treening-gruppid')
 })
 
-app.post('treeninggruppid/create/:id', async (req,res)=>{
-    res.redirect('treeninggrupp/')
+app.post('/treeninggruppid/create', async (req,res)=>{
+
+    const grupp = new TreeningGrupp(req.body)
+    await grupp.save()
+    console.log(grupp)
+    res.redirect(`/treeninggrupp/${grupp._id}`)
 })
 
 

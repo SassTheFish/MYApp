@@ -6,12 +6,10 @@ const treening = {
         default:new Date(),
         required:true
     },
-    kavad:{
-        type:[mongoose.Schema.Types.ObjectId]
-    }
+    kavad:[mongoose.Schema.Types.ObjectId]
 }
 const tGruppSchema = new mongoose.Schema({
-    nimi: {
+    name: {
         type:String,
         required:true
     },
@@ -19,10 +17,17 @@ const tGruppSchema = new mongoose.Schema({
         type:[mongoose.Schema.Types.ObjectId],
         ref:"User"
     },
-    spordialad: {
-        type:[String]
+    treener:{
+        type:String,
+        ref:"User"
     },
-    treeningud:[treening]
+    spordialad:[String],
+    treeningud:[treening],
+    status:{
+        type:String,
+        enum:['public','private'],
+        default:'private'
+    }
 })
 
 
