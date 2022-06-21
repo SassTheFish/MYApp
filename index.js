@@ -66,9 +66,9 @@ const TG_Router = require('./Routes/treeninggruppideRouter');
 
 
 //----------CONNECT DATABASE---------------------
-const database_url_d = 'mongodb://localhost:27017/MYAPP';
-const database_url_p = process.env.DB_URL; 
-const database_url = database_url_p || database_url_d;
+const database_url_local = 'mongodb://localhost:27017/MYAPP';
+const database_url_remote = process.env.DB_URL; 
+const database_url = database_url_remote || database_url_local;
 mongoose.connect(database_url, 
     {
     useNewUrlParser:true,

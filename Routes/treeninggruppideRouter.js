@@ -5,7 +5,7 @@ const {c_spordialad} = require('../variables')
 const TreeningGrupp = require('../models/treeningGrupp');
 const User = require('../models/user')
 
-router.get('/treeninggruppid', async(req,res)=>{
+router.get('/treeninggrupid', async(req,res)=>{
     const gruppid = await TreeningGrupp.find().select('_id name spordialad status');
     
     const data = {
@@ -81,23 +81,25 @@ router.get('/treeninggrupp/:id', async(req,res)=>{
 
 router.get('/treeninggrupp/delete/:id', async(req,res)=>{
     await TreeningGrupp.findByIdAndDelete(req.params.id)
-    res.redirect('/treeninggruppid')
+    res.redirect('/treeninggrupid')
 })
 
 
 
 
 
-router.post('treening-gruppid', async(req,res)=>{
-    res.redirect('/treening-gruppid')
-})
 
-router.post('/treeninggruppid/create', async (req,res)=>{
 
-    const grupp = new TreeningGrupp(req.body)
-    await grupp.save()
-    console.log(grupp)
-    res.redirect(`/treeninggrupp/${grupp._id}`)
+router.post('/treeninggrupid/create', async (req,res)=>{
+    console.log(req.body);
+    if(req.body.treener != '' || req.body.name != '') {
+        const grupp = new TreeningGrupp(req.body)
+        await grupp.save()
+        console.log(grupp)
+        res.redirect(`/treeninggrupp/${grupp._id}`)
+    } else {
+        res.redirect('/treeninggrupid')
+    }
 })
 
 
