@@ -1,7 +1,6 @@
 
 input 
 {
-    width: 100%;
     padding: 5px;
     padding-left: 10px;
     border: 3px solid #222e50;
@@ -274,7 +273,7 @@ input
 
 
 
-input[type="checkbox"]
+.popup input[type="checkbox"]
 {
     appearance: none;
     -webkit-appearance: none;
@@ -529,4 +528,32 @@ input[type="checkbox"]:hover
   height:100%;
   background-color:#ffffff;
   border-radius:5px;
+}
+
+
+
+/* ---------- SELECT MULTIPLE STYLE --------- */
+
+.selectmult {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin-left: 50px;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+.selectmult div {
+    text-align: center;
+    display: flex;
+}
+.selectmult div label {
+    width: 90%;
+    text-align: start;
+}
+.selectmult div input {
+    max-width: 10%;
+    width: 20px;
+    margin: auto;
 }

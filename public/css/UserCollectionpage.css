@@ -26,7 +26,7 @@
 }
 #mina-left h3{
     height: 70px;
-    background: linear-gradient(to right, #1e314f, var(--formborder1));
+    background-color: #E94560;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 10px;
@@ -113,10 +113,11 @@
     min-width: 360px;
     height: auto;
     overflow-x: hidden;
+    color: white;
     
 }
 #mina-right h1 {
-    background: linear-gradient(to right, #1e314f, var(--formborder1));
+    background-color: #E94560;
     border-radius: 5px;
     padding: 10px;
     color: white;

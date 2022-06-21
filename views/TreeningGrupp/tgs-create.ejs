@@ -1,0 +1,48 @@
+<% layout("layout/boilerplate-tg.ejs") %>
+<%- include("../partials/navbarTreGrupp") %>
+<%- include('../partials/flash')  %>
+
+
+<div class="polygon1tg">
+    <div class="polygon2tg">
+        <div class="polygon3tg">
+        </div>
+    </div>
+</div> 
+
+    <form action="/treeninggruppid/create" method="POST">
+        <input type="text" name="name" placeholder="nimi">
+        <input type="text" name="treener" placeholder="treener">
+        
+        <div class="selectmult">
+            <% for(user of users) { %> 
+                <div>
+                    <label for="userid"><%= user.username %> </label>
+                    <input id="userid"type="checkbox" name="users" value="<%= user._id %>">
+                </div>
+            <% } %>
+        </div>
+        
+        <div class="selectmult">
+            <% for(ala of c_spordialad) { %>
+                <div>
+                    <label for="sport"><%= ala %> </label>
+                    <input id="sport" type="checkbox" name="spordialad" value="<%= ala %> ">
+                </div>
+            <% } %>
+        </div>
+        
+        <label for="pub">Public</label>
+        <input id="pub" type="radio" name="status" value="public">
+        <label for="priv">Private</label>
+        <input id="priv" type="radio" name="status" value="private">
+
+        
+
+
+        <button type="submit">Valmis</button>
+
+    </form>
+
+
+</div>

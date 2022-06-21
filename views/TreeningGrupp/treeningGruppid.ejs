@@ -1,6 +1,6 @@
 <% layout("layout/boilerplate-tg.ejs") %>
-<%- include("./partials/navbarTreGrupp") %>
-<%- include('./partials/flash')  %>
+<%- include("../partials/navbarTreGrupp") %>
+<%- include('../partials/flash')  %>
 
 <div class="polygon1tg">
     <div class="polygon2tg">
@@ -39,18 +39,18 @@
 
         <% for(grupp of gruppid) { %>
             <div class="tgs-ls-grupp">
-                <div class="grupp-nimi"><%= grupp.nimi %> </div>
+                <div class="grupp-nimi"><%= grupp.name %> </div>
                 <ul class="grupp-spalad">
                     <% for(spordiala of grupp.spordialad) { %>
                         <li><%= spordiala %> </li>
                     <% } %>
-                    <li>spordiala</li>
-                    <li>spordiala</li>
-                    <li>spordiala</li>
                     </ul>
-                <div class="grupp-privacy">Private</div>
-                <a href="/treening-grupp/<%= grupp._id %>/0">Vaata</a>
+                <div class="grupp-privacy"><%= grupp.status %></div>
+                <a href="/treeninggrupp/<%=grupp._id%>">Vaata</a>
                 <a href="#">Ühine</a>
+                <% if (currentUser && currentUser['type'] === "admin") { %>
+                    <a href="/treeninggrupp/delete/<%= grupp._id %>">X</a>
+                <% }%>
             </div>
         <% } %>
 

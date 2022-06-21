@@ -25,12 +25,13 @@ router.get('/register', (req,res)=>{
 })
 
 router.post('/register', async (req,res,next)=>{
-    const {username, password} = req.body;
+    const {username, password, type} = req.body;
     if(!username | username === '' | !password | password === ''){
         req.flash('error', 'empty fields!');
         res.redirect('/register');    
     }
-    const newUser = await User.register(new User({username:username}), password);
+    const newUser = await User.register(new User({username:username, type:type}), password);
+    console.log(newUser)
     req.login(newUser, err=>{
         if(err) return next(err);
         req.flash('success', 'Registered')

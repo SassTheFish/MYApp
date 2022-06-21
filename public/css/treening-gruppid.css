@@ -95,10 +95,14 @@
 /* --------MANY------BASE-------- */
 
 .tgs-top .title{
-    text-align: left;
+    text-align: center;
     margin: 15px;
+    padding: 10px;
+    width: 20%;
+    border-radius: 10px;
     margin-left: 30px;
     color: rgb(255, 255, 255);
+    background-color: rgb(31, 31, 31);
 }
 
 .tgs-filter {
@@ -166,10 +170,10 @@
     background:rgb(70, 112, 175);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 20% auto 10% 10% 10%;
+    grid-template-columns: 20% auto 10% 10% 10% 5%;
     column-gap: 2%;
     align-items: center;
-    height: 50px;
+    height: 70px;
     margin: 15px;
     padding-left: 2.5px;
     padding-right: 5px;
@@ -182,12 +186,11 @@
     padding: 10px;
     border-radius: 10px;
     text-align: center;
+    font-size: 30px;
 }
 
 .tgs-ls-grupp .grupp-spalad {
-    height: 40px;
-    overflow-x: auto;
-    overflow-y:scroll;
+    height: 50px;
     margin-bottom: 0;
 }
 .tgs-ls-grupp .grupp-spalad li{
@@ -204,14 +207,24 @@
     background-color: rgb(107, 107, 255);
     padding: 10px;
     border-radius: 10px;
-    color: rgb(29, 29, 29);
+    color: white;
     text-align: center;
+    font-size: 20px;
 }
 .tgs-ls-grupp a:nth-of-type(2) {
     text-decoration: none;
     background-color: rgb(107, 107, 255);
     padding: 10px;
     border-radius: 10px;
-    color: rgb(29, 29, 29);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+.tgs-ls-grupp a:nth-of-type(3) {
+    text-decoration: none;
+    background-color: rgb(195, 51, 51);
+    padding: 5px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
     text-align: center;
 }

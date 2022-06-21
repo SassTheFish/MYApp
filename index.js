@@ -36,6 +36,7 @@ const ExpressError = require('./Utils/ExpressError');
 
 //VARIABLES  AND FUNCTIONS
 const {c_lihasgruppid} = require('./variables');
+const {c_spordialad} = require('./variables');
 const data = require('./Utils/SortingFunctions');
 const SF = require('./Utils/SortingFunctions');
 
@@ -56,7 +57,7 @@ const Ük_harjRouter = require('./Routes/harjutusRouter');
 const showcardRouter = require('./Routes/showcardRouter');
 const userRouter = require('./Routes/userRouter');
 const U_harjRouter = require('./Routes/ujumiseharjRouter');
-
+const TG_Router = require('./Routes/treeninggruppideRouter');
 
 
 
@@ -157,74 +158,23 @@ app.use('/harjutused', Ük_harjRouter);
 app.use('/ujumiseharj', U_harjRouter);
 app.use('/showcard', showcardRouter);
 app.use('/', userRouter);
+app.use('/', TG_Router);
 
 
 
 
 
 //---------------GET---------------------
-app.get('/treening-gruppid', async(req,res)=>{
-    const gruppid = await TreeningGrupp.find();
-    
-    const data = {
-        path:req.path,
-        gruppid
-    }
-    res.render('treeningGruppid.ejs', {...data})
-})
-
-app.get('/treeninggrupp/create', async (req,res)=>{
-    const data = {
-        path:req.path
-    }
-    res.render('tgs-create.ejs', {...data})
-})
-
-app.get('/treening-grupp/:id/:date', async(req,res)=>{
-
-    const {date} = req.params
-    const {id} = req.params
-    const treeningGrupp = await TreeningGrupp.findById(id);
-  
-
-    const treeningdate = new Date('22 Jan 2022');
-    const currentDate = new Date();
-    console.log(currentDate)
-
-    const currdate = {
-        month:currentDate.toLocaleString('default', { month: 'long' }),
-        day:currentDate.getDate()
-    }
-
-    console.log(currdate)
-
-    let treeningObj = treeningGrupp.treeningud.filter(obj => {
-        console.log(obj.kuupäev.getDate(), treeningdate.getDate())
-        return obj.kuupäev.getDate() === treeningdate.getDate() && obj.kuupäev.getMonth() === treeningdate.getMonth()
-    })[0]
 
 
-    let treeningindex;
-    if(treeningObj){
-        treeningindex = treeningGrupp.treeningud.indexOf(treeningObj);
-    }else {
-        treeningindex = 0
-    }
 
-    let ujumisekavad = await Ujumine.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
-    let ükekavad = await Üke.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}}).populate('harjutused.harj');
-    let harjutused = await Harjutus.find({'_id': {$in: treeningGrupp.treeningud[treeningindex].kavad}});
-    
-    const data = {
-        path:req.path,
-        tg:treeningGrupp,
-        ujumisekavad,
-        ükekavad,
-        harjutused
-    }
 
-    res.render('treeningGrupp.ejs',{...data})
-})
+
+
+
+
+
+ 
 
 
 
@@ -352,13 +302,7 @@ app.put("/unsave/:id", async(req,res) => { //????
 
 //---------------POST-------------------
 
-app.post('treening-gruppid', async(req,res)=>{
-    res.redirect('/treening-gruppid')
-})
 
-app.post('treeninggruppid/create/:id', async (req,res)=>{
-    res.redirect('treeninggrupp/')
-})
 
 
 

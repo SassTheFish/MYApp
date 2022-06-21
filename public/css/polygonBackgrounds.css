@@ -179,3 +179,58 @@
     clip-path: polygon(68% 71%, 41% 60%, 23% 38%, 0 29%, 0 100%, 77% 100%);
     z-index: -1;
 }
+
+
+
+
+
+
+.polygon21{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(#1A1A2E 60%, #3e3e66);
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+    z-index: -1;
+}
+.polygon24{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to top, #4d4d6b 40%, #222230);
+    background-color: #3a3a54;
+    clip-path: circle(42.8% at 73% 84%);
+    z-index: -1;
+}
+.polygon25{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to left, rgb(11, 24, 41) 40%, #5d5d6a);
+    background-color: rgb(11, 24, 41);
+    clip-path: circle(42.8% at 14% 41%);
+    z-index: -1;
+}
+
+.polygon22{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to right,#16213E 70%,#39539c );
+    clip-path: polygon(44% 0, 100% 0, 100% 18%, 100% 61%, 90% 46%, 82% 26%, 65% 11%);
+    z-index: -1;
+}
+
+.polygon23{
+    position: fixed;
+    bottom: 0px;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to right,#16213E 30%,#39539c );
+    clip-path: polygon(23% 49%, 45% 60%, 56% 86%, 100% 100%, 0 100%, 0 0, 17% 26%);
+    z-index: -1;
+}
