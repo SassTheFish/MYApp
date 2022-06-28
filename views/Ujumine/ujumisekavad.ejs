@@ -137,7 +137,7 @@
                                     <% if (kava.harjutused.length != 0) { %>
                                         <% for(harjutus of kava.harjutused) { %>
                                             <div class="col-12 rida">
-                                                <div id="harjutusinujumisekava">
+                                                <div id="värvitoggle">
                                                 <span class="kordus"><%= harjutus.kordused %> </span> <span class="ala"><%= harjutus.ala %> </span> <span class="eraldus"><%= harjutus.eraldus %></span> <span class="harjutus"><%= harjutus.harjutus %> </span> <span class="vahendid"> (<%= harjutus.vahendid %>) </span> <span class="ajastus"> R-<%= harjutus.ajastus %> </span>
                                                 </div>
                                             </div>
@@ -193,7 +193,7 @@
 
 <script>
 
-    const harjutused = document.querySelectorAll('#harjutusinujumisekava');
+    const harjutused = document.querySelectorAll('#värvitoggle');
     const butn = document.querySelector('#värvid')
     let on = true;
     butn.addEventListener('click', ()=>{

@@ -1,199 +1,178 @@
-#ujumisekavadbox .VäVaade {
-    background-color: #293241;
-    border-radius: 5px;
-    width: 300px;
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 70% 30%;
-    height: 80px;
+@charset "UTF-8";
+#ujumisekavadbox #väikeVaade .VäVaade {
+  background-color: #293241;
+  border-radius: 5px;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 70% 30%;
+  height: 80px;
 }
-#ujumisekavadbox .VäVaade #pingutus {
-    grid-column: 1;
-    grid-row: 1/3;
-    background-color: cornflowerblue;
-    padding: 10px;
-    border-radius: 5px;
-    height: 100%;
-    font-size: 25px;
-    text-align: center;
+#ujumisekavadbox #väikeVaade .VäVaade #pingutus {
+  grid-column: 1;
+  grid-row: 1/3;
+  background-color: cornflowerblue;
+  padding: 10px;
+  border-radius: 5px;
+  height: 100%;
+  font-size: 25px;
+  text-align: center;
 }
-#ujumisekavadbox .VäVaade #nimi{
-    grid-column: 2;
-    grid-row: 1;
-    padding: 10px;
-    color: white;
-    overflow-y: auto;
-    font-size: 20px;
+#ujumisekavadbox #väikeVaade .VäVaade #nimi {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 10px;
+  color: white;
+  overflow-y: auto;
+  font-size: 20px;
 }
-#ujumisekavadbox .VäVaade .nuppud {
-    grid-column: 2;
-    grid-row: 2;
-    display: flex;
-    justify-content: space-around;
+#ujumisekavadbox #väikeVaade .VäVaade .nuppud {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: space-around;
 }
-.nuppud a {
-    text-decoration: none;
-    color: white;
-    height: 100%;
-    width: 30px;
-    text-align: center;
+#ujumisekavadbox #väikeVaade .VäVaade .nuppud a {
+  text-decoration: none;
+  color: white;
+  height: 100%;
+  width: 30px;
+  text-align: center;
 }
-@media all and (max-width:720px) {
-    #ujumisekavadbox .VäVaade {
-        width: 100%;
-    }
-}
-
-#card2
-{
-    width: 450px;
-    height: 500px;
-    background: var(--card);
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-@media all and (max-width:750px) {
-    #card2 {
-        width: 100%;
-    }
-}
-.cardtop2
-{
-    position: relative;
-    left: 0px;
-    top: 0px;
-    min-height: 15%;
+@media all and (max-width: 720px) {
+  #ujumisekavadbox .VäVaade {
     width: 100%;
-    
+  }
+}
+#card2 {
+  width: 450px;
+  height: 500px;
+  background: var(--card);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#card2 .cardtop2 {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  min-height: 15%;
+  width: 100%;
+}
+#card2 .cardtop2 #level2 {
+  float: left;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #98c1d9;
+  border-radius: 5px;
+}
+#card2 .cardtop2 #head2 {
+  float: right;
+  position: relative;
+  right: 0px;
+  top: 0px;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  padding-left: 10px;
+  align-items: center;
+  background: var(--card);
+  word-wrap: break-word;
+  border-radius: 0px 5px 0px 0px;
+}
+#card2 .cardtop2 #head2 #title2 {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 41px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #e0fbfc;
+}
+#card2 .cardbottom2 {
+  position: relative;
+  height: 60%;
+  padding: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#card2 .cardbottom2 .harjutused2 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: start;
+}
+#card2 .cardbottom2 .harjutused2 hr {
+  color: #fffffc;
+  height: 5px;
+}
+#card2 .cardbottom2 .harjutused2 .rida {
+  margin: 5px;
+}
+#card2 .cardbottom2 .harjutused2 .kordus {
+  color: rgb(255, 126, 131);
+}
+#card2 .cardbottom2 .harjutused2 .ala {
+  color: rgb(56, 239, 221);
+}
+#card2 .cardbottom2 .harjutused2 .eraldus {
+  color: rgb(222, 173, 58);
+}
+#card2 .cardbottom2 .harjutused2 .harjutus {
+  color: rgb(70, 217, 97);
+}
+#card2 .cardbottom2 .harjutused2 .vahendid {
+  color: rgb(200, 222, 75);
+}
+#card2 .cardbottom2 .harjutused2 .ajastus {
+  color: rgb(129, 102, 236);
+}
+#card2 .cardbottom2 .harjutused2 .wht {
+  color: white;
+}
+#card2 .cardbottom2 .harjutused2 #button-kustuta {
+  text-decoration: none;
+  background-color: #3d3d3e;
+  text-align: center;
+  padding: 10px;
+  float: right;
+  transition: all ease 0.3s 0s;
+  border-radius: 6px;
+}
+#card2 .cardbottom2 .harjutused2 #button-kustuta:hover {
+  background: #606064;
+}
+#card2 .cardbottom2 .harjutused2 #button-kustuta svg rect {
+  fill: #ee6c4d;
+  margin: auto auto;
+}
+#card2 #cardbuttons2 {
+  position: relative;
+  bottom: 0px;
+  height: 15%;
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.cardbottom2
-{
-    position: relative;
-    height:60%;
-    padding: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    overflow-y: auto;
-    overflow-x:hidden;
+@media all and (max-width: 750px) {
+  #card2 {
+    width: 100%;
+  }
 }
 
-#cardbuttons2
-{
-    position: relative;
-    bottom: 0px;
-    height: 15%;
-    padding: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-
-#level2
-{
-    
-    float: left;
-    position: relative;
-    left: 0px;
-    top: 0px;
-    width: 25%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #98c1d9;
-    border-radius: 5px;
-}
-
-#head2
-{
-    float: right;
-    position:relative;
-    right: 0px;
-    top: 0px;
-    width: 75%;
-    height: 100%;
-    display: flex;
-    justify-content: left;
-    padding-left: 10px;
-    align-items: center;
-    background: var(--card);
-    word-wrap: break-word;
-    border-radius: 0px 5px 0px 0px;
-}
-
-/* Title */
-
-#title2
-{
-
-    font-family: Arial;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 41px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #e0fbfc;
-    
-}
-.harjutused2 {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: start;
-}
-.harjutused2 hr 
-{
-    color: #fffffc;
-    height: 5px;
-}
-
-.harjutused2 .rida {
-    margin: 5px;    
-}
-
-.harjutused2 .kordus{
-    color: rgb(255, 126, 131);
-}
-.harjutused2 .ala{
-    color: rgb(56, 239, 221);
-}
-.harjutused2 .harjutus{
-    color: rgb(70, 217, 97);
-}
-.harjutused2 .eraldus{
-    color: rgb(222, 173, 58);
-}
-.harjutused2 .vahendid{
-    color: rgb(200, 222, 75);
-}
-.harjutused2 .ajastus{
-    color: rgb(129, 102, 236);
-}
-.harjutused2 .wht {
-    color:white;
-}
-.harjutused2 #button-kustuta {
-    text-decoration: none;
-    background-color: #3d3d3e;
-    text-align: center;
-    padding: 10px;
-    float: right;
-    transition: all ease 0.3s 0s;
-    border-radius: 6px;
-}
-
-.harjutused2 #button-kustuta:hover {
-    background:#606064;
-}
-
-.harjutused2 #button-kustuta svg rect {
-    fill: #ee6c4d;
-    margin: auto auto;
-}
+/*# sourceMappingURL=ujumisecard.css.map */

@@ -1,0 +1,77 @@
+/* TREENINGGRUPI UNIVERSAL CARD */
+
+.B-card {
+    margin:auto;
+    background-color: var(--card);
+    height:500px;
+    width:450px;
+    border-radius:10px;
+    padding:5px;
+    display:flex;
+    flex-direction:column;
+    .B-head{
+        width:100%;
+        height:50px;
+        background-color:#505050;
+        border-radius:5px;
+        display:flex;
+        margin-bottom:5px;
+        text-align:center;
+        line-height:50px;
+        font-family:sans-serif;
+        .pingutus{
+            width:20%;
+            height:100%;
+            background-color:#6666FF;
+            border-top-left-radius:5px;
+            border-bottom-left-radius:5px;
+            font-size:30px;
+        }
+        .nimi{
+            width:70%;
+            height:100%;
+            background-color:#dddddd;
+            overflow-x:auto;
+            overflow-y:hidden;
+            padding-left:10px;
+        }
+        .lisa{
+            width:10%;
+            height:100%;
+            background-color:#FF7700;
+            border-top-right-radius:5px;
+            border-bottom-right-radius:5px;
+        }
+    }
+    .B-body{
+        width:100%;
+        height:380px;
+        margin-bottom:5px;
+        .sisu{
+            background-color:#55cc55;
+            padding:5px;
+            width:100%;
+            height:100%;
+            display:flex;
+            border-radius:5px;
+        }
+        .parem{
+            width:50%;
+            height:100%;
+            background-color:#772222;
+        }
+        .vasak{
+            width:50%;
+            height:100%;
+            background-color:#222277;
+        }
+    }
+    .B-bottom{
+        width:100%;
+        height:50px;
+        display:flex;
+        justify-content:space-around;
+        align-items: center;
+        border-bottom: 5px;
+    }
+}
